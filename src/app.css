@@ -1,0 +1,184 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.montserrat {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+	--font-body: Montserrat, sans-serif;
+	font-family: var(--font-body);
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+h1, h2 {
+    text-transform: uppercase;
+    text-align: center;
+	font-weight: 400;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+body {
+    line-height: 25.6px;
+	min-height: 100dvh;
+    width: 100%;
+	margin: 0px; /* Remove default margin */
+    /*height: 100dvh; /* Full height of the viewport */
+    background-image: url('$lib/images/gozar-productions-profile-pic.png'); /* Set background image */
+    background-attachment: fixed;
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    /* 
+	background-attachment: fixed;
+    background-size: cover;
+	background-size: 100dvw 100dvh;
+    background-image: url("$lib/images/gozar-productions-profile-pic.png"); */
+	/* background-image: radial-gradient(
+			50% 50% at 50% 50%,
+			rgba(255, 255, 255, 0.75) 0%,
+			rgba(255, 255, 255, 0) 100%
+		),
+		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%); */
+}
+
+p {
+    font-weight: 400;
+}
+
+section h2 {
+    padding-top: 0px;
+    font-size: 1.75rem;
+    line-height: 1.2em;
+}
+
+
+section.video button,
+section.image button {
+    text-shadow:
+        0 0 0.6em rgb(var(--shadow-color));
+}
+
+section.video button > svg,
+section.image button > svg {
+    filter: drop-shadow(0 0 0.4em rgb(var(--shadow-color)));
+}
+
+button > svg {
+    width: auto;
+    /* aspect-ratio: 200 / 60; */
+    height: 1.5em;
+    vertical-align: middle; /* This can be removed with flexbox */
+    transform: translate(0, -1px);
+    padding-left: 0.8em;
+    transition: height 0.3s;
+}
+
+button:hover {
+    background-color: rgba(var(--text-color), 0.15);
+}
+
+button:hover > svg {
+    height: 1.8em;
+}
+
+
+/* section.video button > svg,
+section.image button >svg {
+    text-shadow:
+        0 0 1em rgb(var(--shadow-color)),
+        0 0 2em rgb(var(--shadow-color)),
+        0 0 3em rgb(var(--shadow-color)),
+        0 0 4em rgb(var(--shadow-color));
+} */
+/* p {
+	line-height: 1.5;
+}
+
+a {
+	color: var(--color-theme-1);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-size: 2rem;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1rem;
+}
+
+pre {
+	font-size: 16px;
+	font-family: var(--font-mono);
+	background-color: rgba(255, 255, 255, 0.45);
+	border-radius: 3px;
+	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+	padding: 0.5em;
+	overflow-x: auto;
+	color: var(--color-text);
+}
+
+.text-column {
+	display: flex;
+	max-width: 48rem;
+	flex: 0.6;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+input,
+button {
+	font-size: inherit;
+	font-family: inherit;
+}
+
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+@media (min-width: 720px) {
+	h1 {
+		font-size: 2.4rem;
+	}
+}
+
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
+ */
+
+ 
+@media (max-width: 480px) {
+    /* Styles for mobile devices */
+    :root {
+        font-size: 22px;
+    }
+}
+@media (max-width: 320px) {
+    /* Styles for mobile devices */
+    :root {
+        font-size: 20px;
+    }
+}
