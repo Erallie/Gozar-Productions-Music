@@ -10,20 +10,6 @@
     <Header />
 
     <main>
-        <div class="title-block">
-            <img src="/erika-gozar.png" alt="Erika Gozar" />
-            <div>
-                <h1>Erika Gozar</h1>
-                <p>
-                    Erika Gozar has written music since she was 8 or 9 with
-                    simply an ear for music and no formal training in
-                    composition. Under the musical guidance of John Massaro and
-                    the vocal instruction of Gail Dubinbaum, Erika currently
-                    writes pieces for orchestra and voice in the style of film
-                    and musical theater.
-                </p>
-            </div>
-        </div>
         {@render children()}
     </main>
 
@@ -50,24 +36,6 @@
         display: flex;
         flex-direction: column;
         min-height: 100dvh;
-    }
-
-    .title-block {
-        width: calc(100% - 40px);
-        margin: 20px;
-        padding: 10px;
-        background-color: white;
-        box-sizing: border-box;
-        display: flex;
-    }
-
-    .title-block > img {
-        aspect-ratio: 1/ 1;
-        width: 25%;
-    }
-
-    .title-block > * {
-        margin: 10px;
     }
 
     /* .title-block > div {

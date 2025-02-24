@@ -1,0 +1,28 @@
+<script lang="ts">
+    let { title, children } = $props();
+</script>
+
+<div class="releases">
+    <h1>{title}</h1>
+    <div class="grid">
+        {@render children()}
+    </div>
+</div>
+
+<style>
+    .releases {
+        width: 52%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        gap: 0px;
+    }
+    h1 {
+        text-align: center;
+    }
+</style>

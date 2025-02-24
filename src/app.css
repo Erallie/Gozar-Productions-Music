@@ -9,16 +9,23 @@
 }
 
 :root {
+    background-image: var(--background-image);
 	--font-body: Montserrat, sans-serif;
 	font-family: var(--font-body);
     overflow-wrap: break-word;
     word-break: break-word;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
 
 h1, h2 {
     text-transform: uppercase;
-    text-align: center;
+    /* text-align: center; */
 	font-weight: 400;
+    line-height: 1em;
 }
 
 button, a {
@@ -31,62 +38,10 @@ body {
     width: 100%;
 	margin: 0px; /* Remove default margin */
     /*height: 100dvh; /* Full height of the viewport */
-    background-image: url('$lib/images/gozar-productions-profile-pic.png'); /* Set background image */
-    background-attachment: fixed;
-    background-size: cover; /* Cover the entire viewport */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    /* 
-	background-attachment: fixed;
-    background-size: cover;
-	background-size: 100dvw 100dvh;
-    background-image: url("$lib/images/gozar-productions-profile-pic.png"); */
-	/* background-image: radial-gradient(
-			50% 50% at 50% 50%,
-			rgba(255, 255, 255, 0.75) 0%,
-			rgba(255, 255, 255, 0) 100%
-		),
-		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%); */
 }
 
 p {
     font-weight: 400;
-}
-
-section h2 {
-    padding-top: 0px;
-    font-size: 1.75rem;
-    line-height: 1.2em;
-}
-
-
-section.video button,
-section.image button {
-    text-shadow:
-        0 0 0.6em rgb(var(--shadow-color));
-}
-
-section.video button > svg,
-section.image button > svg {
-    filter: drop-shadow(0 0 0.4em rgb(var(--shadow-color)));
-}
-
-button > svg {
-    width: auto;
-    /* aspect-ratio: 200 / 60; */
-    height: 1.5em;
-    vertical-align: middle; /* This can be removed with flexbox */
-    transform: translate(0, -1px);
-    padding-left: 0.8em;
-    transition: height 0.3s;
-}
-
-button:hover {
-    background-color: rgba(var(--text-color), 0.15);
-}
-
-button:hover > svg {
-    height: 1.8em;
 }
 
 
