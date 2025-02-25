@@ -100,48 +100,49 @@
 
         return `${currentMinutes}:${currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds} / ${maxMinutes}:${maxSeconds < 10 ? `0${maxSeconds}` : maxSeconds}`;
     }
-    let timeSliderStyle = $state("");
-    $effect(() => {
+    function timeSliderStyle() {
+        function timePoint(point: number) {
+            return `${(point / duration) * 100}`;
+        }
         const middleStyle = `
-            hsl(0, 0%, 83%) ${(currentTime / duration) * 100}%
+            hsl(0, 0%, 83%) ${timePoint(currentTime)}%
             `;
         let startingStyle: string;
         if (startTime !== 0) {
             startingStyle = `background: linear-gradient(
                 to right,
-                hsl(0, 0%, 34%) ${(startTime / duration) * 100}%,
-                hsl(0, 0%, 58.5%) ${(startTime / duration) * 100}%,
-                hsl(0, 0%, 58.5%) ${(currentTime / duration) * 100}%,
+                hsl(0, 0%, 34%) ${timePoint(startTime)}%,
+                hsl(0, 0%, 58.5%) ${timePoint(startTime)}%,
+                hsl(0, 0%, 58.5%) ${timePoint(currentTime)}%,
             `;
         } else {
             startingStyle = `background: linear-gradient(
                 to right,
-                hsl(0, 0%, 50%) ${(currentTime / duration) * 100}%,
+                hsl(0, 0%, 50%) ${timePoint(currentTime)}%,
             `;
         }
         let endingStyle: string;
         if (endTime <= duration) {
             endingStyle = `,
-                hsl(0, 0%, 83%) ${(endTime / duration) * 100}%,
-                hsl(0, 0%, 34%) ${(endTime / duration) * 100}%
+                hsl(0, 0%, 83%) ${timePoint(endTime)}%,
+                hsl(0, 0%, 34%) ${timePoint(endTime)}%
                 );
             `;
         } else {
             endingStyle = ");";
         }
-        timeSliderStyle = startingStyle + middleStyle + endingStyle;
-    });
+        return startingStyle + middleStyle + endingStyle;
+    }
 
-    let volumeSliderStyle = $state("");
-    $effect(() => {
-        volumeSliderStyle = `
+    function volumeSliderStyle() {
+        return `
             background: linear-gradient(
                 to right,
             hsl(0, 0%, 50%) ${volume * 100}%,
             hsl(0, 0%, 83%) ${volume * 100}%
             );
         `;
-    });
+    }
 </script>
 
 <div class="audio-player">
@@ -182,7 +183,7 @@
             step="0.1"
             bind:value={currentTime}
             oninput={seek}
-            style={timeSliderStyle}
+            style={timeSliderStyle()}
         />
         <input
             type="range"
@@ -192,7 +193,7 @@
             step="0.01"
             bind:value={volume}
             oninput={setVolume}
-            style={volumeSliderStyle}
+            style={volumeSliderStyle()}
         />
     </div>
 </div>
