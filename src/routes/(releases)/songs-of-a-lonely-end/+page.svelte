@@ -21,8 +21,8 @@
         {
             name: "The Archmage",
             src: "/releases/songs-of-a-lonely-end/music/2-the-archmage.mp3",
-            startTime: 30,
-            endTime: 60,
+            startTime: 41,
+            endTime: 71,
         },
         {
             name: "The Mystery of the Nexus",
