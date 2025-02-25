@@ -101,27 +101,27 @@
             return `${(point / duration) * 100}`;
         }
         const middleStyle = `
-            hsl(0, 0%, 83%) ${timePoint(currentTime)}%
+            rgba(0, 0, 0, 0.17) ${timePoint(currentTime)}%
             `;
         let startingStyle: string;
         if (startTime !== 0) {
             startingStyle = `background: linear-gradient(
                 to right,
-                hsl(0, 0%, 34%) ${timePoint(startTime)}%,
-                hsl(0, 0%, 58.5%) ${timePoint(startTime)}%,
-                hsl(0, 0%, 58.5%) ${timePoint(currentTime)}%,
+                rgba(0, 0, 0, 0.66) ${timePoint(startTime)}%,
+                rgba(0, 0, 0, 0.415) ${timePoint(startTime)}%,
+                rgba(0, 0, 0, 0.415) ${timePoint(currentTime)}%,
             `;
         } else {
             startingStyle = `background: linear-gradient(
                 to right,
-                hsl(0, 0%, 50%) ${timePoint(currentTime)}%,
+                rgba(0, 0, 0, 0.5) ${timePoint(currentTime)}%,
             `;
         }
         let endingStyle: string;
         if (endTime <= duration) {
             endingStyle = `,
-                hsl(0, 0%, 83%) ${timePoint(endTime)}%,
-                hsl(0, 0%, 34%) ${timePoint(endTime)}%
+                rgba(0, 0, 0, 0.17) ${timePoint(endTime)}%,
+                rgba(0, 0, 0, 0.66) ${timePoint(endTime)}%
                 );
             `;
         } else {
@@ -134,8 +134,8 @@
         return `
             background: linear-gradient(
                 to right,
-            hsl(0, 0%, 50%) ${volume * 100}%,
-            hsl(0, 0%, 83%) ${volume * 100}%
+            rgba(0, 0, 0, 0.5) ${volume * 100}%,
+            rgba(0, 0, 0, 0.17) ${volume * 100}%
             );
         `;
     }
