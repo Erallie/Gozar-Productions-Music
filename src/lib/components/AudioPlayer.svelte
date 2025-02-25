@@ -10,10 +10,6 @@
         ) as HTMLAudioElement;
         audioPlayer.volume = Cookies.get("volume");
 
-        // Define the start and end time for the playback window (in seconds)
-        // const startTime: number = 30; // Start at 30 seconds
-        // const endTime: number = 60; // End at 60 seconds
-
         audioPlayer.addEventListener("timeupdate", () => {
             if (audioPlayer.currentTime > endTime && !audioPlayer.paused) {
                 audioPlayer.pause(); // Pause the audio
