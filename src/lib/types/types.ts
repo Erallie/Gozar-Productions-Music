@@ -1,5 +1,5 @@
 export type InitialBoxProps = {
-    imageSrc: string;
+    imageSource: string;
     imageAlt: string;
     children: any;
 }
