@@ -73,24 +73,7 @@
             updateProgress();
             if (audioPlayer.currentTime > endTime && !audioPlayer.paused) {
                 pauseAudio(); // Pause the audio
-                // audioPlayer.currentTime = startTime; // Seek back to the start time
-                // audioPlayer.play(); // Optionally, start playing again
             }
-        });
-
-        // Optional: Start playback at the defined start time
-        audioPlayer.addEventListener("play", () => {
-            if (
-                audioPlayer.currentTime < startTime ||
-                audioPlayer.currentTime >= endTime
-            ) {
-                audioPlayer.currentTime = startTime; // Seek to start time if before it
-            }
-        });
-
-        audioPlayer.addEventListener("volumechange", () => {
-            // Set the cookie with the current volume
-            Cookies.set("volume", audioPlayer.volume, { expires: 7 });
         });
     });
 
