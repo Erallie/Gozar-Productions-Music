@@ -79,7 +79,8 @@
 
     $effect(() => {
         if (oldSrc != src) {
-            audioPlayer.currentTime = startTime;
+            currentTime = startTime;
+            audioPlayer.currentTime = currentTime;
             if (isPlaying) {
                 playAudio();
             } else {
