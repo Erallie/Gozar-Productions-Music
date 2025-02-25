@@ -4,7 +4,7 @@
     import { onMount } from "svelte";
     import { setBackground } from "$lib/scripts/set-background";
     import { type audioSource } from "$lib/types/types";
-    import AlbumAudioPlayer from "$lib/components/AlbumAudioPlayer.svelte";
+    import AlbumPlayer from "$lib/components/AlbumPlayer.svelte";
 
     onMount(() => {
         setBackground("/releases/songs-of-a-lonely-end/background.png");
@@ -63,7 +63,7 @@
         dimension in an attempt to save the home he loves so dearly.
     </p>
 </InitialBox>
-<AlbumAudioPlayer {audioSources} />
+<AlbumPlayer {audioSources} />
 <Listen
     spotify="https://open.spotify.com/album/0FMiavhfR8urUExuGSKAfB?si=rFNuy3kwTjS4k5zreGQgzg"
     appleMusic="https://music.apple.com/us/album/songs-of-a-lonely-end-ep/1632944405"
