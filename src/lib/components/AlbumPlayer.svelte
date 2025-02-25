@@ -37,3 +37,10 @@
         endTime={selectedSource.endTime}
     />
 </div>
+
+<style>
+    div {
+        width: max-content;
+        margin: auto;
+    }
+</style>

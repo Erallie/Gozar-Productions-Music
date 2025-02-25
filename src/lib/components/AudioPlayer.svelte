@@ -165,7 +165,7 @@
     }
 </script>
 
-<div class="audio-player">
+<div class="audio-player rounded">
     <audio id="audio-player" controlslist="nodownload">
         <source {src} type="audio/mpeg" />
     </audio>
@@ -208,7 +208,7 @@
             oninput={seek}
             style={timeSliderStyle()}
         />
-        <div id="volume-container">
+        <div id="volume-container" class="rounded">
             <input
                 type="range"
                 id="volume"
@@ -261,7 +261,7 @@
         height: 2.4em;
         background-color: rgba(0, 0, 0, 0);
         border: none;
-        border-radius: 20px;
+        border-radius: 40px;
         padding: 0px;
         cursor: pointer;
         margin: 0px;
@@ -334,7 +334,6 @@
     #volume-container {
         display: flex;
         flex-shrink: 0;
-        border-radius: 20px;
     }
 
     #volume-container:hover {

@@ -3,8 +3,8 @@
     let { imageSource, imageAlt, children }: InitialBoxProps = $props();
 </script>
 
-<div id="title-block">
-    <img src={imageSource} alt={imageAlt} />
+<div id="title-block" class="rounded">
+    <img src={imageSource} alt={imageAlt} class="rounded" />
     <div id="title-block-content">
         {@render children()}
     </div>

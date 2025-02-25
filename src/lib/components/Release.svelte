@@ -2,13 +2,12 @@
     let { link, imageSource, imageAlt } = $props();
 </script>
 
-<div>
+<div class="rounded">
     <a href={link}><img src={imageSource} alt={imageAlt} /></a>
 </div>
 
 <style>
     div {
-        border-radius: 20px;
         width: 80%;
         margin: 10%;
         aspect-ratio: 1 / 1;

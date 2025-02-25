@@ -44,6 +44,10 @@ p {
     font-weight: 400;
 }
 
+.rounded {
+    border-radius: 40px;
+}
+
 
 /* section.video button > svg,
 section.image button >svg {

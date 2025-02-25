@@ -4,7 +4,7 @@
         $props();
 </script>
 
-<div class="listen">
+<div class="listen rounded">
     <h1>Listen On</h1>
     <div class="listen-grid">
         <ListenButton
