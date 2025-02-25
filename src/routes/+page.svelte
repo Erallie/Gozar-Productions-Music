@@ -1,7 +1,8 @@
 <script>
-    import InitialBox from "./InitialBox.svelte";
-    import Release from "./Release.svelte";
-    import Releases from "./Releases.svelte";
+    import InitialBox from "$lib/components/InitialBox.svelte";
+    import Release from "$lib/components/Release.svelte";
+    import Releases from "$lib/components/Releases.svelte";
+    import Listen from "$lib/components/Listen.svelte";
     import { onMount } from "svelte";
 
     onMount(() => {
@@ -22,6 +23,15 @@
         film and musical theater.
     </p>
 </InitialBox>
+
+<Listen
+    spotify="https://open.spotify.com/artist/3ZTgcqZhVFQYhDmp3s6Qaf?si=HlTBLumgSmqAYZbcXY7pTQ"
+    appleMusic="https://music.apple.com/us/artist/erika-gozar/1456807299"
+    youtube="https://youtube.com/GozarProductions"
+    youtubeMusic="https://music.youtube.com/channel/UCpBIOFSyWcJ_BMn9NDM3wLw?feature=share?sub_confirmation=1"
+    pandora="https://pandora.app.link/Xqthr6V0hrb"
+    amazonMusic="https://music.amazon.com/artists/B07VLX7KRL/erika-gozar?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_uIBs3sUrzG0tfE2fxiXk3USwj"
+/>
 <Releases title="Featured Releases">
     <Release
         link="/for-sam"
