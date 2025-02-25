@@ -1,7 +1,7 @@
 <script lang="ts">
     import { type AlbumPlayerProps, type audioSource } from "$lib/types/types";
     import AudioPlayer from "$lib/components/AudioPlayer.svelte";
-    import { onMount } from "svelte";
+    import { onMount, onDestroy } from "svelte";
 
     let { audioSources, defaultSource }: AlbumPlayerProps = $props();
 
@@ -19,8 +19,23 @@
         }
     }
 
+    // Function to handle clicks outside the dropdown
+    function handleClickOutside(event: MouseEvent) {
+        const dropdown = document.querySelector(".custom-dropdown");
+        if (dropdown && !dropdown.contains(event.target as Node)) {
+            isOpen = false; // Close the dropdown
+        }
+    }
+
     onMount(() => {
         audio = document.getElementById("audio-player") as HTMLAudioElement;
+        document.addEventListener("click", handleClickOutside); // Add event listener
+    });
+
+    onDestroy(() => {
+        if (typeof document !== "undefined") {
+            document.removeEventListener("click", handleClickOutside);
+        }
     });
 </script>
 
