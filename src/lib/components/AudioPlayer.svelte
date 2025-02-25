@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { onDestroy, onMount } from "svelte";
     import Cookies from "js-cookie";
 
     let { src, startTime, endTime } = $props();
@@ -16,6 +16,9 @@
     function updateProgress() {
         currentTime = audioPlayer.currentTime;
         duration = audioPlayer.duration || 0; // Handle duration being NaN if audio is not loaded
+        if (currentTime > endTime && !audioPlayer.paused) {
+            pauseAudio(); // Pause the audio
+        }
     }
 
     function setVolume(event: Event) {
@@ -69,12 +72,7 @@
         audioPlayer.volume = volume;
         audioPlayer.currentTime = startTime;
 
-        audioPlayer.addEventListener("timeupdate", () => {
-            updateProgress();
-            if (audioPlayer.currentTime > endTime && !audioPlayer.paused) {
-                pauseAudio(); // Pause the audio
-            }
-        });
+        audioPlayer.addEventListener("timeupdate", updateProgress);
     });
 
     $effect(() => {
@@ -163,6 +161,12 @@
         }
         audioPlayer.volume = volume;
     }
+
+    onDestroy(() => {
+        if (typeof document !== "undefined") {
+            audioPlayer.removeEventListener("timeupdate", updateProgress);
+        }
+    });
 </script>
 
 <div class="audio-player rounded">
