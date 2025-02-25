@@ -222,13 +222,11 @@
     button {
         height: 2em;
         background-color: rgba(0, 0, 0, 0);
-        /* color: white; */
         border: none;
         border-radius: 20px;
         padding: 0px;
         cursor: pointer;
         margin: 0;
-        transition: background-color 0.3s;
     }
     button > img {
         height: 80%;
