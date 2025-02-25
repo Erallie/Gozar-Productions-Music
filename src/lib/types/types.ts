@@ -3,3 +3,14 @@ export type InitialBoxProps = {
     imageAlt: string;
     children: any;
 }
+
+export type audioSource = {
+    name: string,
+    src: string,
+    startTime: number,
+    endTime: number,
+}
+
+export type AlbumPlayerProps = {
+    audioSources: audioSource[];
+}
