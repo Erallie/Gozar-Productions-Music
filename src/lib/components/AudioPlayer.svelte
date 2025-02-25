@@ -52,12 +52,13 @@
         const target = event.target as HTMLInputElement;
         const seekTime = parseFloat(target.value);
         if (seekTime > endTime) {
-            audioPlayer.currentTime = endTime;
+            currentTime = endTime;
         } else if (seekTime < startTime) {
-            audioPlayer.currentTime = startTime;
+            currentTime = startTime;
         } else {
-            audioPlayer.currentTime = seekTime;
+            currentTime = seekTime;
         }
+        audioPlayer.currentTime = currentTime;
     }
 
     onMount(() => {
