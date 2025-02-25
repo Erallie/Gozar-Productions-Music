@@ -70,8 +70,8 @@
         audioPlayer.addEventListener("timeupdate", () => {
             updateProgress();
             if (audioPlayer.currentTime > endTime && !audioPlayer.paused) {
-                audioPlayer.pause(); // Pause the audio
-                audioPlayer.currentTime = startTime; // Seek back to the start time
+                pauseAudio(); // Pause the audio
+                // audioPlayer.currentTime = startTime; // Seek back to the start time
                 // audioPlayer.play(); // Optionally, start playing again
             }
         });
