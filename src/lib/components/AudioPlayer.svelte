@@ -8,7 +8,15 @@
     let isPlaying = $state(false);
     let volume = $state(1); // Default volume
 
+    let currentTime = $state(startTime); // Current playback time
+    let duration = $state(0); // Total duration of the audio
+
     let oldSrc = $state(src);
+
+    function updateProgress() {
+        currentTime = audioPlayer.currentTime;
+        duration = audioPlayer.duration || 0; // Handle duration being NaN if audio is not loaded
+    }
 
     function setVolume(event: Event) {
         const target = event.target as HTMLInputElement;
@@ -40,6 +48,18 @@
         }
     }
 
+    function seek(event: Event) {
+        const target = event.target as HTMLInputElement;
+        const seekTime = parseFloat(target.value);
+        if (seekTime > endTime) {
+            audioPlayer.currentTime = endTime;
+        } else if (seekTime < startTime) {
+            audioPlayer.currentTime = startTime;
+        } else {
+            audioPlayer.currentTime = seekTime;
+        }
+    }
+
     onMount(() => {
         audioPlayer = document.getElementById(
             "audio-player",
@@ -48,6 +68,7 @@
         audioPlayer.volume = volume;
 
         audioPlayer.addEventListener("timeupdate", () => {
+            updateProgress();
             if (audioPlayer.currentTime > endTime && !audioPlayer.paused) {
                 audioPlayer.pause(); // Pause the audio
                 audioPlayer.currentTime = startTime; // Seek back to the start time
@@ -82,6 +103,18 @@
             }
         }
     });
+
+    function timeStamp() {
+        const currentStamp = Math.floor(currentTime);
+        const currentSeconds = currentStamp % 60;
+        const currentMinutes = Math.floor(currentStamp / 60);
+
+        const maxStamp = Math.floor(duration);
+        const maxSeconds = maxStamp % 60;
+        const maxMinutes = Math.floor(maxStamp / 60);
+
+        return `${currentMinutes}:${currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds} / ${maxMinutes}:${maxSeconds < 10 ? `0${maxSeconds}` : maxSeconds}`;
+    }
 </script>
 
 <div class="audio-player">
@@ -114,6 +147,15 @@
                 {/if}
             </svg> -->
         </button>
+        {timeStamp()}<input
+            readonly
+            type="range"
+            min="0"
+            max={duration}
+            step="0.1"
+            bind:value={currentTime}
+            oninput={seek}
+        />
         <input
             type="range"
             id="volume"
