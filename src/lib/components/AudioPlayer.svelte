@@ -100,6 +100,48 @@
 
         return `${currentMinutes}:${currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds} / ${maxMinutes}:${maxSeconds < 10 ? `0${maxSeconds}` : maxSeconds}`;
     }
+    let timeSliderStyle = $state("");
+    $effect(() => {
+        const middleStyle = `
+            hsl(0, 0%, 83%) ${(currentTime / duration) * 100}%
+            `;
+        let startingStyle: string;
+        if (startTime !== 0) {
+            startingStyle = `background: linear-gradient(
+                to right,
+                hsl(0, 0%, 34%) ${(startTime / duration) * 100}%,
+                hsl(0, 0%, 58.5%) ${(startTime / duration) * 100}%,
+                hsl(0, 0%, 58.5%) ${(currentTime / duration) * 100}%,
+            `;
+        } else {
+            startingStyle = `background: linear-gradient(
+                to right,
+                hsl(0, 0%, 50%) ${(currentTime / duration) * 100}%,
+            `;
+        }
+        let endingStyle: string;
+        if (endTime <= duration) {
+            endingStyle = `,
+                hsl(0, 0%, 83%) ${(endTime / duration) * 100}%,
+                hsl(0, 0%, 34%) ${(endTime / duration) * 100}%
+                );
+            `;
+        } else {
+            endingStyle = ");";
+        }
+        timeSliderStyle = startingStyle + middleStyle + endingStyle;
+    });
+
+    let volumeSliderStyle = $state("");
+    $effect(() => {
+        volumeSliderStyle = `
+            background: linear-gradient(
+                to right,
+            hsl(0, 0%, 50%) ${volume * 100}%,
+            hsl(0, 0%, 83%) ${volume * 100}%
+            );
+        `;
+    });
 </script>
 
 <div class="audio-player">
@@ -132,13 +174,15 @@
                 {/if}
             </svg> -->
         </button>
-        {timeStamp()}<input
+        <span id="timestamp">{timeStamp()}</span><input
             type="range"
+            id="time-slider"
             min="0"
             max={duration}
             step="0.1"
             bind:value={currentTime}
             oninput={seek}
+            style={timeSliderStyle}
         />
         <input
             type="range"
@@ -148,6 +192,7 @@
             step="0.01"
             bind:value={volume}
             oninput={setVolume}
+            style={volumeSliderStyle}
         />
     </div>
 </div>
@@ -161,7 +206,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #ffffff;
+        background-color: white;
         padding: 20px;
         /* border-radius: 8px; */
         /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
@@ -170,7 +215,7 @@
     .controls {
         display: flex;
         align-items: center;
-        margin-top: 10px;
+        /* margin-top: 10px; */
     }
 
     button {
@@ -196,8 +241,40 @@
         /* background-color: #0056b3; */
     }
 
-    input[type="range"] {
+    #timestamp {
+        white-space: nowrap;
+    }
+
+    #volume {
         margin-left: 10px;
+    }
+
+    input[type="range"] {
+        appearance: none;
+        -webkit-appearance: none; /* Override default CSS styles */
+        width: 100%; /* Full-width */
+        height: 8px; /* Height of the track */
+        border-radius: 5px; /* Rounded corners */
+        background: lightgray; /* Default background */
+        outline: none; /* Remove outline */
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default styles */
+        appearance: none; /* Override default styles */
+        width: 20px; /* Width of the thumb */
+        height: 20px; /* Height of the thumb */
+        border-radius: 50%; /* Rounded thumb */
+        background: rgb(151, 151, 255); /* Color of the thumb */
+        cursor: pointer; /* Pointer cursor on hover */
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        width: 20px; /* Width of the thumb */
+        height: 20px; /* Height of the thumb */
+        border-radius: 50%; /* Rounded thumb */
+        background: rgb(151, 151, 255); /* Color of the thumb */
+        cursor: pointer; /* Pointer cursor on hover */
     }
 
     /* select {
