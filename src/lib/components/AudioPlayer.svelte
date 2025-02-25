@@ -150,7 +150,6 @@
             </svg> -->
         </button>
         {timeStamp()}<input
-            readonly
             type="range"
             min="0"
             max={duration}
