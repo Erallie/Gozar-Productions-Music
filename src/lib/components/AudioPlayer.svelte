@@ -33,6 +33,17 @@
             Cookies.set("volume", audioPlayer.volume, { expires: 7 });
         });
     });
+
+    $effect(() => {
+        if (oldSrc != src) {
+            audioPlayer.currentTime = startTime;
+            if (isPlaying) {
+                playAudio();
+            } else {
+                pauseAudio();
+            }
+        }
+    });
 </script>
 
 <audio id="audio-player" controls controlslist="nodownload">
