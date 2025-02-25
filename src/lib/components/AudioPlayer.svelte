@@ -89,16 +89,12 @@
         }
     });
 
-    function timeStamp() {
-        const currentStamp = Math.floor(currentTime);
-        const currentSeconds = currentStamp % 60;
-        const currentMinutes = Math.floor(currentStamp / 60);
+    function timeStamp(time: number) {
+        const stamp = Math.floor(time);
+        const seconds = stamp % 60;
+        const minutes = Math.floor(stamp / 60);
 
-        const maxStamp = Math.floor(duration);
-        const maxSeconds = maxStamp % 60;
-        const maxMinutes = Math.floor(maxStamp / 60);
-
-        return `${currentMinutes}:${currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds} / ${maxMinutes}:${maxSeconds < 10 ? `0${maxSeconds}` : maxSeconds}`;
+        return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
     }
     function timeSliderStyle() {
         function timePoint(point: number) {
@@ -143,6 +139,21 @@
             );
         `;
     }
+
+    let isMuted = $state(false);
+
+    let oldVolume = $state(0);
+
+    function toggleMute() {
+        isMuted = !isMuted;
+        if (isMuted) {
+            oldVolume = audioPlayer.volume;
+            volume = 0;
+        } else {
+            volume = oldVolume;
+        }
+        audioPlayer.volume = volume;
+    }
 </script>
 
 <div class="audio-player">
@@ -175,7 +186,10 @@
                 {/if}
             </svg> -->
         </button>
-        <span id="timestamp">{timeStamp()}</span><input
+        <span id="timestamp"
+            ><span>{timeStamp(currentTime)}</span> /
+            <span>{timeStamp(duration)}</span></span
+        ><input
             type="range"
             id="time-slider"
             min="0"
@@ -185,16 +199,28 @@
             oninput={seek}
             style={timeSliderStyle()}
         />
-        <input
-            type="range"
-            id="volume"
-            min="0"
-            max="1"
-            step="0.01"
-            bind:value={volume}
-            oninput={setVolume}
-            style={volumeSliderStyle()}
-        />
+        <div id="volume-container">
+            <input
+                type="range"
+                id="volume"
+                min="0"
+                max="1"
+                step="0.01"
+                bind:value={volume}
+                oninput={setVolume}
+                style={volumeSliderStyle()}
+            />
+            <button onclick={toggleMute}>
+                <img
+                    src={volume === 0
+                        ? "/audio-player/volume/muted.svg"
+                        : volume >= 0.5
+                          ? "/audio-player/volume/volume-loud.svg"
+                          : "/audio-player/volume/volume-quiet.svg"}
+                    alt="Volume"
+                />
+            </button>
+        </div>
     </div>
 </div>
 
@@ -216,48 +242,49 @@
     .controls {
         display: flex;
         align-items: center;
+        width: 350px;
         /* margin-top: 10px; */
     }
 
     button {
-        height: 2em;
+        flex-grow: 0;
+        flex-shrink: 0;
+        height: 2.4em;
         background-color: rgba(0, 0, 0, 0);
         border: none;
         border-radius: 20px;
         padding: 0px;
         cursor: pointer;
         margin: 0px;
+        padding: 0.5em;
+        transition: background-color 0.3s;
     }
     button > img {
-        height: 80%;
+        height: 100%;
         aspect-ratio: 1 / 1;
-        margin: 10%;
+        vertical-align: middle;
     }
 
-    button:hover > img {
+    button:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /* button:hover > img {
         height: 100%;
         margin: 0px;
-        /* background-color: #0056b3; */
-    }
-
-    #timestamp {
-        /* white-space: nowrap; */
-        text-align: center;
-        width: 250px;
-    }
-
-    #volume {
-        margin-left: 10px;
-    }
+        /* background-color: #0056b3;
+    } */
 
     input[type="range"] {
         appearance: none;
+        margin: auto 10px;
         -webkit-appearance: none; /* Override default CSS styles */
         width: 100%; /* Full-width */
         height: 8px; /* Height of the track */
         border-radius: 5px; /* Rounded corners */
         background: lightgray; /* Default background */
         outline: none; /* Remove outline */
+        margin: auto 10px;
     }
 
     input[type="range"]::-webkit-slider-thumb {
@@ -268,6 +295,7 @@
         border-radius: 50%; /* Rounded thumb */
         background: rgb(151, 151, 255); /* Color of the thumb */
         cursor: pointer; /* Pointer cursor on hover */
+        transition: background 0.2s;
     }
 
     input[type="range"]::-moz-range-thumb {
@@ -276,6 +304,59 @@
         border-radius: 50%; /* Rounded thumb */
         background: rgb(151, 151, 255); /* Color of the thumb */
         cursor: pointer; /* Pointer cursor on hover */
+        transition: background 0.2s;
+    }
+
+    #timestamp {
+        /* white-space: nowrap; */
+        text-align: center;
+        display: flex;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    #timestamp > span {
+        width: 2.4em;
+        flex-shrink: 0;
+        flex-grow: 0;
+        text-align: center;
+    }
+
+    #volume-container {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    #volume {
+        flex-grow: 1;
+        width: 0px;
+        margin: auto 0px;
+        transition:
+            width 0.4s,
+            margin 0.4s;
+    }
+
+    #volume-container:hover #volume {
+        width: 100px;
+        margin: auto 10px;
+        transition:
+            width 0.4s,
+            margin 0.4s;
+    }
+
+    #volume-container:not(:hover) #volume::-webkit-slider-thumb {
+        background: rgb(151, 151, 255, 0);
+        /* width: 0px; */
+        transition: background 0.2s;
+    }
+    #volume-container:not(:hover) #volume::-moz-range-thumb {
+        background: rgb(151, 151, 255, 0);
+        /* width: 0px; */
+        transition: background 0.2s;
+    }
+
+    #time-slider {
+        flex-grow: 0;
     }
 
     /* select {
