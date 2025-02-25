@@ -4,12 +4,10 @@
     import Releases from "$lib/components/Releases.svelte";
     import Listen from "$lib/components/Listen.svelte";
     import { onMount } from "svelte";
+    import { setBackground } from "$lib/scripts/set-background";
 
     onMount(() => {
-        document.documentElement.style.setProperty(
-            "--background-image",
-            'url("/erika-gozar-background.png")',
-        );
+        setBackground("/erika-gozar-background.png");
     });
 </script>
 

@@ -3,12 +3,10 @@
     import Listen from "$lib/components/Listen.svelte";
     import { onMount } from "svelte";
     import AudioPlayer from "$lib/components/AudioPlayer.svelte";
+    import { setBackground } from "$lib/scripts/set-background";
 
     onMount(() => {
-        document.documentElement.style.setProperty(
-            "--background-image",
-            'url("/releases/for-sam/background.png")',
-        );
+        setBackground("/releases/for-sam/background.png");
     });
 </script>
 
