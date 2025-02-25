@@ -63,7 +63,7 @@
         dimension in an attempt to save the home he loves so dearly.
     </p>
 </InitialBox>
-<AlbumPlayer {audioSources} />
+<AlbumPlayer {audioSources} defaultSource={4} />
 <Listen
     spotify="https://open.spotify.com/album/0FMiavhfR8urUExuGSKAfB?si=rFNuy3kwTjS4k5zreGQgzg"
     appleMusic="https://music.apple.com/us/album/songs-of-a-lonely-end-ep/1632944405"

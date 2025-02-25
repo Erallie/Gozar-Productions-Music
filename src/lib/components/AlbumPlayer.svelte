@@ -3,9 +3,9 @@
     import AudioPlayer from "$lib/components/AudioPlayer.svelte";
     import { onMount } from "svelte";
 
-    let { audioSources }: AlbumPlayerProps = $props();
+    let { audioSources, defaultSource }: AlbumPlayerProps = $props();
 
-    let selectedSource: audioSource = $state(audioSources[0]); // Default to the first audio source
+    let selectedSource: audioSource = $state(audioSources[defaultSource]); // Default to the first audio source
     let audio: HTMLAudioElement;
 
     // Function to handle source change
@@ -26,7 +26,7 @@
 </script>
 
 <div>
-    <select onchange={changeSource}>
+    <select onchange={changeSource} value={audioSources[defaultSource].src}>
         {#each audioSources as source}
             <option value={source.src}>{source.name}</option>
         {/each}

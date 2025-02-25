@@ -12,5 +12,6 @@ export type audioSource = {
 }
 
 export type AlbumPlayerProps = {
-    audioSources: audioSource[];
+    audioSources: audioSource[],
+    defaultSource: number
 }
