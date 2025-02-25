@@ -67,6 +67,7 @@
         ) as HTMLAudioElement;
         volume = Cookies.get("volume");
         audioPlayer.volume = volume;
+        audioPlayer.currentTime = startTime;
 
         audioPlayer.addEventListener("timeupdate", () => {
             updateProgress();
