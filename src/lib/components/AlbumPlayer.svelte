@@ -42,7 +42,7 @@
 <div>
     <div class="custom-dropdown">
         <button
-            class="selected"
+            class="selected rounded"
             onclick={() => (isOpen = !isOpen)}
             aria-haspopup="true"
             aria-expanded={isOpen}
@@ -64,13 +64,15 @@
             <div class="options rounded" role="listbox">
                 {#each audioSources as source, index}
                     <button
-                        class="option"
+                        class="option rounded"
                         role="option"
                         aria-selected={source.src === selectedSource.src}
                         onclick={() => changeSource(source)}
                         tabindex="0"
                     >
-                        Track {index + 1}: {source.name}
+                        <span class="track-index">{index + 1}:</span><span
+                            >{source.name}</span
+                        ><span></span>
                     </button>
                 {/each}
             </div>
@@ -102,20 +104,7 @@
         padding: 10px 20px;
         border: 2px solid white;
         background-color: white;
-        border-radius: 40px;
-        transition:
-            background-color 0.2s,
-            color 0.2s;
         cursor: pointer; /* Ensure the cursor indicates it's clickable */
-    }
-
-    .options {
-        position: absolute;
-        background: white;
-        z-index: 1000;
-        width: 100%;
-        margin-top: 5px;
-        overflow: hidden;
     }
 
     .selected,
@@ -123,18 +112,47 @@
         font-family: Montserrat;
         font-weight: 400;
         font-size: 1em;
+        transition:
+            background-color 0.2s,
+            color 0.2s;
+    }
+
+    .options {
+        position: absolute;
+        background: white;
+        z-index: 1000;
+        width: max-content;
+        margin-top: 5px;
+        /* overflow: hidden; */
+        /* border: 2px solid white; */
     }
 
     .option {
         width: 100%;
         background-color: white;
         appearance: none;
-        border-width: 0px;
+        border: 2px solid white;
         padding: 10px 20px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        cursor: pointer; /* Ensure the cursor indicates it's clickable */
+        cursor: pointer;
+    }
+
+    .option > * {
+        margin: auto 0px;
+    }
+
+    .option > :nth-child(2) {
+        margin-left: 4px;
+    }
+
+    .option > :first-child {
+        margin-right: 4px;
+    }
+
+    .track-index {
+        flex-shrink: 0;
     }
 
     .option:hover,
