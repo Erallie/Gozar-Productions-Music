@@ -226,22 +226,24 @@
         border-radius: 20px;
         padding: 0px;
         cursor: pointer;
-        margin: 0;
+        margin: 0px;
     }
     button > img {
         height: 80%;
         aspect-ratio: 1 / 1;
-        margin: 10% auto;
+        margin: 10%;
     }
 
     button:hover > img {
         height: 100%;
-        margin: auto;
+        margin: 0px;
         /* background-color: #0056b3; */
     }
 
     #timestamp {
-        white-space: nowrap;
+        /* white-space: nowrap; */
+        text-align: center;
+        width: 250px;
     }
 
     #volume {
