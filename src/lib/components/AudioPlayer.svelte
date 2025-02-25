@@ -79,13 +79,13 @@
 
     $effect(() => {
         if (oldSrc != src) {
-            oldSrc = src;
             audioPlayer.currentTime = startTime;
             if (isPlaying) {
                 playAudio();
             } else {
                 pauseAudio();
             }
+            oldSrc = src;
         }
     });
 
