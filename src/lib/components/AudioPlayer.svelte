@@ -100,9 +100,8 @@
         function timePoint(point: number) {
             return `${(point / duration) * 100}`;
         }
-        const middleStyle = `
-            rgba(0, 0, 0, 0.17) ${timePoint(currentTime)}%
-            `;
+
+        // #region startingStyle
         let startingStyle: string;
         if (startTime !== 0) {
             startingStyle = `background: linear-gradient(
@@ -117,6 +116,13 @@
                 rgba(0, 0, 0, 0.5) ${timePoint(currentTime)}%,
             `;
         }
+        // #endregion
+
+        const middleStyle = `
+            rgba(0, 0, 0, 0.17) ${timePoint(currentTime)}%
+            `;
+
+        // #region endingStyle
         let endingStyle: string;
         if (endTime <= duration) {
             endingStyle = `,
@@ -127,6 +133,8 @@
         } else {
             endingStyle = ");";
         }
+        // #endregion
+
         return startingStyle + middleStyle + endingStyle;
     }
 
