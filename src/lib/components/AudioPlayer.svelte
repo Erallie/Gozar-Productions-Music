@@ -325,6 +325,11 @@
     #volume-container {
         display: flex;
         flex-shrink: 0;
+        border-radius: 20px;
+    }
+
+    #volume-container:hover {
+        background-color: rgba(0, 0, 0, 0.1);
     }
 
     #volume {
