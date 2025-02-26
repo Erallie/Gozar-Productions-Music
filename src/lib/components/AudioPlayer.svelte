@@ -174,7 +174,7 @@
         <source {src} type="audio/mpeg" />
     </audio>
     <div class="controls">
-        <button onclick={togglePlay}
+        <button class="rounded" onclick={togglePlay}
             ><img
                 src={isPlaying
                     ? "/audio-player/pause.svg"
@@ -223,7 +223,7 @@
                 oninput={setVolume}
                 style={volumeSliderStyle()}
             />
-            <button onclick={toggleMute}>
+            <button class="rounded" onclick={toggleMute}>
                 <img
                     src={volume === 0
                         ? "/audio-player/volume/muted.svg"
@@ -242,7 +242,7 @@
         margin: 10px auto;
     } */
     .audio-player {
-        margin: 10px auto;
+        margin: 0px auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -265,7 +265,6 @@
         height: 2.4em;
         background-color: rgba(0, 0, 0, 0);
         border: none;
-        border-radius: 40px;
         padding: 0px;
         cursor: pointer;
         margin: 0px;

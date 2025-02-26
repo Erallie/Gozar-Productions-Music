@@ -39,7 +39,7 @@
     });
 </script>
 
-<div>
+<div class="album-player rounded">
     <div class="custom-dropdown">
         <button
             class="selected rounded"
@@ -47,9 +47,11 @@
             aria-haspopup="true"
             aria-expanded={isOpen}
         >
-            Track {audioSources.findIndex(
-                (source) => source.src === selectedSource.src,
-            ) + 1}: {selectedSource.name}
+            <span
+                >Track {audioSources.findIndex(
+                    (source) => source.src === selectedSource.src,
+                ) + 1}:</span
+            ><span>{selectedSource.name}</span>
             <svg
                 class="icon"
                 fill="currentColor"
@@ -78,6 +80,7 @@
             </div>
         {/if}
     </div>
+    <hr />
     <AudioPlayer
         src={selectedSource.src}
         startTime={selectedSource.startTime}
@@ -86,17 +89,19 @@
 </div>
 
 <style>
-    div {
+    .album-player {
         width: min-content;
         margin: 0px auto;
         text-align: center;
+        background-color: white;
+        padding: 0px;
     }
     .custom-dropdown {
         position: relative;
         display: inline-block;
-        width: max-content;
-        margin: 10px auto;
-        text-align: center;
+        /* width: max-content; */
+        width: 100%;
+        margin: 0px auto;
         cursor: pointer;
     }
 
@@ -122,6 +127,7 @@
         background: white;
         z-index: 1000;
         width: max-content;
+        min-width: 100%;
         margin-top: 5px;
         /* overflow: hidden; */
         /* border: 2px solid white; */
@@ -137,6 +143,18 @@
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
+    }
+
+    .selected > * {
+        margin: auto 4px;
+    }
+
+    .selected > :first-child {
+        margin-left: 0px;
+    }
+
+    .selected > :last-child {
+        margin-right: 0px;
     }
 
     .option > * {
@@ -165,8 +183,14 @@
     .icon {
         width: 16px; /* Adjust size as needed */
         height: 16px; /* Adjust size as needed */
-        margin-left: 8px; /* Space between text and icon */
+        /* margin-left: 8px; */ /* Space between text and icon */
         vertical-align: middle;
         transform: translate(0px, -1px);
+    }
+    hr {
+        border-color: black;
+        border-top-width: 1px;
+        margin: 0px auto;
+        width: 50%;
     }
 </style>
