@@ -15,3 +15,10 @@ export type AlbumPlayerProps = {
     audioSources: audioSource[],
     defaultSource: number
 }
+
+export type AudioPlayerProps = {
+    src: string,
+    startTime: number,
+    endTime: number,
+    removeMargins?: boolean
+}

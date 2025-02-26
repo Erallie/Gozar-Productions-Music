@@ -85,13 +85,14 @@
         src={selectedSource.src}
         startTime={selectedSource.startTime}
         endTime={selectedSource.endTime}
+        removeMargins
     />
 </div>
 
 <style>
     .album-player {
         width: min-content;
-        margin: 0px auto;
+        margin: 10px auto;
         text-align: center;
         background-color: white;
         padding: 0px;

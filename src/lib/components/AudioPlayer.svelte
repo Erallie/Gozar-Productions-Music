@@ -1,8 +1,9 @@
 <script lang="ts">
     import { onDestroy, onMount } from "svelte";
+    import { type AudioPlayerProps } from "$lib/types/types";
     import Cookies from "js-cookie";
 
-    let { src, startTime, endTime } = $props();
+    let { src, startTime, endTime, removeMargins }: AudioPlayerProps = $props();
 
     let audioPlayer: HTMLAudioElement;
     let isPlaying = $state(false);
@@ -169,7 +170,10 @@
     });
 </script>
 
-<div class="audio-player rounded">
+<div
+    class="audio-player rounded"
+    style="--margin: {removeMargins ? '0' : '10'}px"
+>
     <audio id="audio-player" controlslist="nodownload">
         <source {src} type="audio/mpeg" />
     </audio>
@@ -242,7 +246,7 @@
         margin: 10px auto;
     } */
     .audio-player {
-        margin: 0px auto;
+        margin: var(--margin) auto;
         display: flex;
         flex-direction: column;
         align-items: center;
