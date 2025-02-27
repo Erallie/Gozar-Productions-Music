@@ -1,5 +1,6 @@
 <script lang="ts">
-    import Header from "$lib/components/Header.svelte";
+    import Header from "./Header.svelte";
+    import logo from "$lib/images/gozar-productions-logo.svg";
 
     import "../app.css";
 
@@ -14,7 +15,9 @@
     </main>
 
     <footer>
-        <h1>Gozar Productions</h1>
+        <h1>
+            <img src={logo} alt="Gozar Productions Logo" />Gozar Productions
+        </h1>
         <div class="links">
             <a href="/privacy-policy">Privacy Policy</a>
             <svg
@@ -59,6 +62,13 @@
         align-items: center;
         padding: 12px;
         background-color: black;
+    }
+
+    footer img {
+        aspect-ratio: 1 / 1;
+        height: 4rem;
+        display: block;
+        margin: 12px auto;
     }
 
     footer,
