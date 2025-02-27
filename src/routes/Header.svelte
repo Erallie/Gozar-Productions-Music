@@ -47,6 +47,7 @@
         padding: 0px;
         margin: 0px;
     }
+
     hgroup > * {
         margin: auto 0.4em;
     }
