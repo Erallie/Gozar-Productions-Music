@@ -170,7 +170,7 @@
     });
 </script>
 
-<div
+<section
     class="audio-player rounded"
     style="--margin: {removeMargins ? '0' : '10'}px"
 >
@@ -239,19 +239,14 @@
             </button>
         </div>
     </div>
-</div>
+</section>
 
 <style>
-    /* audio {
-        margin: 10px auto;
-    } */
     .audio-player {
         margin: var(--margin) auto;
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: white;
-        padding: 20px;
         /* border-radius: 8px; */
         /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     }
