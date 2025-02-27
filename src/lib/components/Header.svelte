@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/state";
+    import logo from "$lib/images/gozar-productions-logo.svg";
 </script>
 
 <header>
@@ -19,7 +20,34 @@
             </ul>
         </nav>
     </div>
+
+    <hgroup>
+        <div>
+            <h1>Gozar Productions</h1>
+            <h2>Music</h2>
+        </div>
+        <img src={logo} alt="Gozar Productions Logo" />
+    </hgroup>
 </header>
 
 <style>
+    hgroup {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    hgroup > img {
+        aspect-ratio: 1 / 1;
+        height: 4em;
+        vertical-align: middle;
+    }
+    hgroup h1,
+    hgroup h2 {
+        text-align: right;
+        padding: 0px;
+        margin: 0px;
+    }
+    hgroup > * {
+        margin: auto 0.4em;
+    }
 </style>
