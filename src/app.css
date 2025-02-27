@@ -20,6 +20,10 @@
     background-repeat: no-repeat;
 }
 
+h1 {
+    font-size: 2em;
+}
+
 
 h1, h2 {
     text-transform: uppercase;
@@ -48,6 +52,13 @@ p {
     border-radius: 40px;
 }
 
+
+section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-sizing: border-box;
+}
 
 /* section.video button > svg,
 section.image button >svg {

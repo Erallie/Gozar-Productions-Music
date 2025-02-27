@@ -2,20 +2,16 @@
     let { title, children } = $props();
 </script>
 
-<div class="releases rounded">
+<section class="rounded">
     <h1>{title}</h1>
     <div class="grid">
         {@render children()}
     </div>
-</div>
+</section>
 
 <style>
-    .releases {
+    section {
         width: 80%;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: white;
-        box-sizing: border-box;
     }
     .grid {
         display: grid;

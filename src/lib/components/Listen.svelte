@@ -4,7 +4,7 @@
         $props();
 </script>
 
-<div class="listen rounded">
+<section class="rounded">
     <h1>Listen On</h1>
     <div class="listen-grid">
         <ListenButton
@@ -38,17 +38,14 @@
             imageAlt="Amazon Music"
         />
     </div>
-</div>
+</section>
 
 <style>
-    .listen {
-        width: min(660px, 80%);
-        margin: 20px auto;
-        padding: 20px;
-        background-color: white;
-        box-sizing: border-box;
+    section {
+        width: 660px;
+        max-width: 80%;
     }
-    .listen h1 {
+    h1 {
         margin-top: 10px;
     }
     .listen-grid {
