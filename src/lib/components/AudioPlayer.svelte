@@ -185,23 +185,6 @@
                     : "/audio-player/play.svg"}
                 alt={isPlaying ? "Pause" : "Play"}
             />
-            <!-- <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100"
-                height="100"
-                viewBox="0 0 100 100"
-            >
-                {#if isPlaying}
-                    <g stroke="currentColor" stroke-width="20">
-                        <line x1="25" y1="0" x2="25" y2="100" />
-                        <line x1="75" y1="0" x2="75" y2="100" />
-                    </g>
-                {:else}<g stroke="currentColor" stroke-width="20">
-                        <line x1="25" y1="0" x2="25" y2="100" />
-                        <line x1="75" y1="0" x2="75" y2="100" />
-                    </g>
-                {/if}
-            </svg> -->
         </button>
         <span id="timestamp"
             ><span>{timeStamp(currentTime)}</span> /
