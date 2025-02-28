@@ -53,7 +53,7 @@
         justify-content: center;
         width: max-content;
         padding: 10px;
-        margin: -6px auto;
+        margin: 24px auto 0px;
         text-shadow:
             0 0 1em white,
             0 0 1em white;
@@ -90,7 +90,8 @@
     }
 
     header {
-        width: 100%;
+        position: fixed;
+        /* width: 100%; */
     }
 
     nav {
