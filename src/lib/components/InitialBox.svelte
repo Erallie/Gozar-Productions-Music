@@ -3,27 +3,23 @@
     let { imageSource, imageAlt, children }: InitialBoxProps = $props();
 </script>
 
-<div id="title-block" class="rounded">
+<section id="title-block">
     <img src={imageSource} alt={imageAlt} class="rounded" />
     <div id="title-block-content">
         {@render children()}
     </div>
-</div>
+</section>
 
 <style>
-    #title-block {
+    section {
         width: 80%;
-        margin: 20px auto;
-        padding: 10px;
-        background-color: white;
-        box-sizing: border-box;
         display: flex;
         text-align: left;
         height: min-content;
         /* height: 300px; */
     }
 
-    #title-block > img {
+    section > img {
         width: 25%;
         object-fit: cover;
         margin: 10px;

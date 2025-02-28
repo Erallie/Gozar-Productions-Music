@@ -170,10 +170,7 @@
     });
 </script>
 
-<section
-    class="audio-player rounded"
-    style="--margin: {removeMargins ? '0' : '10'}px"
->
+<section class="audio-player" style="--margin: {removeMargins ? '0' : '10'}px">
     <audio bind:this={player} controlslist="nodownload">
         <source {src} type="audio/mpeg" />
     </audio>

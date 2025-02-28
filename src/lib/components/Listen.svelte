@@ -4,7 +4,7 @@
         $props();
 </script>
 
-<section class="rounded">
+<section>
     <h1>Listen On</h1>
     <div class="listen-grid">
         <ListenButton
@@ -43,7 +43,6 @@
 <style>
     section {
         width: 660px;
-        max-width: 80%;
     }
     h1 {
         margin-top: 10px;

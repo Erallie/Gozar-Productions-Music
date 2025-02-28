@@ -48,7 +48,7 @@ p {
     font-weight: 400;
 }
 
-.rounded {
+.rounded, section {
     border-radius: 40px;
 }
 
@@ -58,6 +58,7 @@ section, .audio-player {
     padding: 20px;
     background-color: white;
     box-sizing: border-box;
+    max-width: 80%;
 }
 
 /* section.video button > svg,
