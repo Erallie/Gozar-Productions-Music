@@ -28,7 +28,6 @@
     }
 
     onMount(() => {
-        audio = document.getElementById("audio-player") as HTMLAudioElement;
         document.addEventListener("click", handleClickOutside); // Add event listener
     });
 
@@ -85,6 +84,7 @@
         src={selectedSource.src}
         startTime={selectedSource.startTime}
         endTime={selectedSource.endTime}
+        bind:player={audio}
         removeMargins
     />
 </div>

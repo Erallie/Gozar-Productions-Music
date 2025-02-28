@@ -3,9 +3,15 @@
     import { type AudioPlayerProps } from "$lib/types/types";
     import Cookies from "js-cookie";
 
-    let { src, startTime, endTime, removeMargins }: AudioPlayerProps = $props();
+    let {
+        src,
+        startTime,
+        endTime,
+        player = $bindable(),
+        removeMargins,
+    }: AudioPlayerProps = $props();
 
-    let audioPlayer: HTMLAudioElement;
+    // let audioPlayer: HTMLAudioElement | null = null;
     let isPlaying = $state(false);
     let volume = $state(1); // Default volume
 
@@ -15,9 +21,9 @@
     let oldSrc = $state(src);
 
     function updateProgress() {
-        currentTime = audioPlayer.currentTime;
-        duration = audioPlayer.duration || 0; // Handle duration being NaN if audio is not loaded
-        if (currentTime > endTime && !audioPlayer.paused) {
+        currentTime = player.currentTime;
+        duration = player.duration || 0; // Handle duration being NaN if audio is not loaded
+        if (currentTime > endTime && !player.paused) {
             pauseAudio(); // Pause the audio
         }
     }
@@ -25,22 +31,19 @@
     function setVolume(event: Event) {
         const target = event.target as HTMLInputElement;
         volume = parseFloat(target.value);
-        audioPlayer.volume = volume;
+        player.volume = volume;
         Cookies.set("volume", volume.toString(), { expires: 7 });
     }
     function playAudio() {
-        if (
-            audioPlayer.currentTime < startTime ||
-            audioPlayer.currentTime >= endTime
-        ) {
-            audioPlayer.currentTime = startTime; // Seek to start time if before it
+        if (player.currentTime < startTime || player.currentTime >= endTime) {
+            player.currentTime = startTime; // Seek to start time if before it
         }
-        audioPlayer.play();
+        player.play();
         isPlaying = true;
     }
 
     function pauseAudio() {
-        audioPlayer.pause();
+        player.pause();
         isPlaying = false;
     }
 
@@ -62,24 +65,21 @@
         } else {
             currentTime = seekTime;
         }
-        audioPlayer.currentTime = currentTime;
+        player.currentTime = currentTime;
     }
 
     onMount(() => {
-        audioPlayer = document.getElementById(
-            "audio-player",
-        ) as HTMLAudioElement;
         volume = Cookies.get("volume");
-        audioPlayer.volume = volume;
-        audioPlayer.currentTime = startTime;
+        player.volume = volume;
+        player.currentTime = startTime;
 
-        audioPlayer.addEventListener("timeupdate", updateProgress);
+        player.addEventListener("timeupdate", updateProgress);
     });
 
     $effect(() => {
         if (oldSrc != src) {
             currentTime = startTime;
-            audioPlayer.currentTime = currentTime;
+            player.currentTime = currentTime;
             if (isPlaying) {
                 playAudio();
             } else {
@@ -155,17 +155,17 @@
     function toggleMute() {
         isMuted = !isMuted;
         if (isMuted) {
-            oldVolume = audioPlayer.volume;
+            oldVolume = player.volume;
             volume = 0;
         } else {
             volume = oldVolume;
         }
-        audioPlayer.volume = volume;
+        player.volume = volume;
     }
 
     onDestroy(() => {
         if (typeof document !== "undefined") {
-            audioPlayer.removeEventListener("timeupdate", updateProgress);
+            player.removeEventListener("timeupdate", updateProgress);
         }
     });
 </script>
@@ -174,7 +174,7 @@
     class="audio-player rounded"
     style="--margin: {removeMargins ? '0' : '10'}px"
 >
-    <audio id="audio-player" controlslist="nodownload">
+    <audio bind:this={player} controlslist="nodownload">
         <source {src} type="audio/mpeg" />
     </audio>
     <div class="controls">
