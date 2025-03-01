@@ -219,6 +219,13 @@
                         under the <bold>Comfort & Safety</bold> tab, under the
                         <bold>Safety</bold> heading.
                     </p>
+                    <p>
+                        If you've done all of these things, but the issue still
+                        persists, there may be an issue with the video player.
+                        Try <bold>resyncing the video</bold> to update your
+                        feed. The button for this should be by the
+                        <bold>video controls</bold> in the world.
+                    </p>
                 </ListSection>
             </ul></ListSection
         >
