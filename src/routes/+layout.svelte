@@ -12,11 +12,21 @@
         isPerformancePage = page.url.pathname == "/performances";
     });
 
+    let attendButton: HTMLAnchorElement | null = $state(null);
+
+    let attendButtonWidth = $state(300);
+
     let noticeMinimized = $state(false);
 
     function minimizeNotice() {
         noticeMinimized = !noticeMinimized;
     }
+
+    $effect(() => {
+        if (noticeMinimized && attendButton) {
+            attendButtonWidth = attendButton.offsetWidth;
+        }
+    });
 
     let { children } = $props();
 </script>
@@ -29,7 +39,11 @@
     </main>
 
     {#if !isPerformancePage}
-        <div id="performance-banner" class={noticeMinimized ? "minimized" : ""}>
+        <div
+            id="performance-banner"
+            class={noticeMinimized ? "minimized" : ""}
+            style="--attend-button-width: {attendButtonWidth}px"
+        >
             <div>
                 <h2>Erika Gozar</h2>
                 has<br />
@@ -37,13 +51,15 @@
                 in virtual reality
             </div>
             <Button
+                bind:element={attendButton}
                 link="/performances"
                 newTab={false}
                 color={TextColor.White}
                 marginTopMultiplier={0.5}
                 marginBottomMultiplier={0.5}
                 marginLeftMultiplier={0.5}
-                marginRightMultiplier={0.5}>Attend</Button
+                marginRightMultiplier={0.5}
+                >{#if !noticeMinimized}Attend{:else}View Performances{/if}</Button
             >
             <button aria-label="Minimize" onclick={minimizeNotice}
                 ><svg
@@ -170,13 +186,16 @@
         display: flex;
         bottom: 0;
         left: 0;
+        width: 100%;
         height: min-content;
-        min-width: 100%;
+        max-width: 100%;
         background-color: rgba(119, 46, 46, 0.95);
         /* text-align: center; */
-        justify-content: center;
+        justify-content: left;
         padding: 10px;
-        transition: min-width 1s;
+        transition:
+            max-width 1s,
+            background-color 1s;
         /* & > :nth-child(2) {
             margin: auto 0px;
             background-color: black;
@@ -210,10 +229,14 @@
         }
         & > :first-child {
             text-align: right;
-            margin: auto 10px;
-            max-width: 100%;
+            margin: auto;
+            margin-right: 10px;
+            /* max-width: 100%; */
             height: min-content;
             overflow: hidden;
+            transition: max-width 1s;
+            flex-shrink: 10;
+            text-wrap-mode: nowrap;
             & > * {
                 display: inline;
             }
@@ -223,9 +246,10 @@
             transition: transform 0.2s;
         }
         &.minimized {
-            /* background-color: rgba(119, 46, 46, 0); */
-            min-width: 0%;
+            background-color: rgba(119, 46, 46, 0);
+            max-width: var(--attend-button-width);
             & > :first-child {
+                margin-right: 0px;
                 /* max-width: 0%; */
             }
             /* & #line-left {
