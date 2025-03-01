@@ -61,6 +61,30 @@ section {
     max-width: 80%;
     text-align: center;
 }
+
+a {
+    color: rgb(106, 91, 213);
+    text-decoration: none;
+    /* font-weight: 700; */
+}
+a:hover {
+    text-decoration: underline;
+}
+
+bold, strong {
+    font-weight: 700;
+}
+
+li:has(.expanded) a:not([role="button"]),
+.list-section:hover a:not([role="button"]) {
+    /* color: rgb(117, 204, 255); */
+    color: hsl(202, 100%, 75%);
+}
+
+li:hover,
+li:has(> * > .expanded) {
+    background-color: rgb(151, 151, 255);
+    color: white;
 }
 
 /* section.video button > svg,
