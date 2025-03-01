@@ -65,7 +65,7 @@ section:not(.remove-styles) {
 a {
     color: rgb(106, 91, 213);
     text-decoration: none;
-    /* font-weight: 700; */
+    font-weight: 700;
 }
 a:hover {
     text-decoration: underline;
