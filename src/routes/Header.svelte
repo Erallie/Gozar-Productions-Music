@@ -73,33 +73,31 @@
 
         border-radius: 35px;
         transition: background-color 0.3s;
-    }
-
-    hgroup.sticky {
-        text-shadow: none;
-        background-color: hsl(0, 0%, 97%);
-        /* border-style: solid; */
-        /* border-width: 2px; */
-    }
-    hgroup > img {
-        aspect-ratio: 1 / 1;
-        height: 4em;
-        vertical-align: middle;
-    }
-    hgroup h1,
-    hgroup h2 {
-        text-align: right;
-        padding: 0px;
-        margin: 0px;
-    }
-
-    hgroup > :first-child {
-        margin: auto 0px;
-        margin-right: 0.4em;
-    }
-    hgroup > :last-child {
-        margin: auto 0px;
-        margin-left: 0.4em;
+        & > img {
+            aspect-ratio: 1 / 1;
+            height: 4em;
+            vertical-align: middle;
+        }
+        & h1,
+        & h2 {
+            text-align: right;
+            padding: 0px;
+            margin: 0px;
+        }
+        &.sticky {
+            text-shadow: none;
+            background-color: hsl(0, 0%, 97%);
+            /* border-style: solid; */
+            /* border-width: 2px; */
+        }
+        & > :first-child {
+            margin: auto 0px;
+            margin-right: 0.4em;
+        }
+        & > :last-child {
+            margin: auto 0px;
+            margin-left: 0.4em;
+        }
     }
 
     header {
