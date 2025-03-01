@@ -43,5 +43,7 @@ export type ButtonProps = {
     customSVG?: boolean;
     marginTopMultiplier?: number;
     marginBottomMultiplier?: number;
+    marginLeftMultiplier?: number;
+    marginRightMultiplier?: number;
     children: any;
 }

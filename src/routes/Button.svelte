@@ -13,6 +13,8 @@
         customSVG,
         marginTopMultiplier,
         marginBottomMultiplier,
+        marginLeftMultiplier,
+        marginRightMultiplier,
         children,
     }: ButtonProps = $props();
 
@@ -79,6 +81,12 @@
             : '1'}; --margin-bottom-multiplier: {marginBottomMultiplier !==
         undefined
             ? `${marginBottomMultiplier}`
+            : '1'}; --margin-left-multiplier: {marginLeftMultiplier !==
+        undefined
+            ? `${marginLeftMultiplier}`
+            : '1'}; --margin-right-multiplier: {marginRightMultiplier !==
+        undefined
+            ? `${marginRightMultiplier}`
             : '1'}"
     >
         {#if !customSVG && direction == ButtonDirection.Left}
@@ -139,8 +147,10 @@
         letter-spacing: 0.25em;
         text-transform: uppercase;
         font-size: 0.95rem;
-        margin: calc(20px * var(--margin-top-multiplier)) 20px
-            calc(20px * var(--margin-bottom-multiplier));
+        margin: calc(20px * var(--margin-top-multiplier))
+            calc(20px * var(--margin-right-multiplier))
+            calc(20px * var(--margin-bottom-multiplier))
+            calc(20px * var(--margin-left-multiplier));
         transition: background-color 0.3s;
     }
 
