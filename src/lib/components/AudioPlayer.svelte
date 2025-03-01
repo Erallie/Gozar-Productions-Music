@@ -32,7 +32,10 @@
         const target = event.target as HTMLInputElement;
         volume = parseFloat(target.value);
         player.volume = volume;
-        Cookies.set("volume", volume.toString(), { expires: 7 });
+        Cookies.set("volume", volume.toString(), {
+            expires: 7,
+            sameSite: "Strict",
+        });
     }
     function playAudio() {
         if (player.currentTime < startTime || player.currentTime >= endTime) {
@@ -69,7 +72,7 @@
     }
 
     onMount(() => {
-        volume = Cookies.get("volume");
+        volume = Number.parseFloat(Cookies.get("volume")!);
         player.volume = volume;
         player.currentTime = startTime;
 
