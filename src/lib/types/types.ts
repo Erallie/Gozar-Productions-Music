@@ -20,7 +20,7 @@ export type AudioPlayerProps = {
     src: string,
     startTime: number,
     endTime: number,
-    player: HTMLAudioElement;
+    player?: HTMLAudioElement;
     removeMargins?: boolean
 }
 

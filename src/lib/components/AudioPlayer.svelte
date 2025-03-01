@@ -21,9 +21,9 @@
     let oldSrc = $state(src);
 
     function updateProgress() {
-        currentTime = player.currentTime;
-        duration = player.duration || 0; // Handle duration being NaN if audio is not loaded
-        if (currentTime > endTime && !player.paused) {
+        currentTime = player!.currentTime;
+        duration = player!.duration || 0; // Handle duration being NaN if audio is not loaded
+        if (currentTime > endTime && !player!.paused) {
             pauseAudio(); // Pause the audio
         }
     }
@@ -31,22 +31,22 @@
     function setVolume(event: Event) {
         const target = event.target as HTMLInputElement;
         volume = parseFloat(target.value);
-        player.volume = volume;
+        player!.volume = volume;
         Cookies.set("volume", volume.toString(), {
             expires: 7,
             sameSite: "Strict",
         });
     }
     function playAudio() {
-        if (player.currentTime < startTime || player.currentTime >= endTime) {
-            player.currentTime = startTime; // Seek to start time if before it
+        if (player!.currentTime < startTime || player!.currentTime >= endTime) {
+            player!.currentTime = startTime; // Seek to start time if before it
         }
-        player.play();
+        player!.play();
         isPlaying = true;
     }
 
     function pauseAudio() {
-        player.pause();
+        player!.pause();
         isPlaying = false;
     }
 
@@ -68,21 +68,21 @@
         } else {
             currentTime = seekTime;
         }
-        player.currentTime = currentTime;
+        player!.currentTime = currentTime;
     }
 
     onMount(() => {
         volume = Number.parseFloat(Cookies.get("volume")!);
-        player.volume = volume;
-        player.currentTime = startTime;
+        player!.volume = volume;
+        player!.currentTime = startTime;
 
-        player.addEventListener("timeupdate", updateProgress);
+        player!.addEventListener("timeupdate", updateProgress);
     });
 
     $effect(() => {
         if (oldSrc != src) {
             currentTime = startTime;
-            player.currentTime = currentTime;
+            player!.currentTime = currentTime;
             if (isPlaying) {
                 playAudio();
             } else {
@@ -158,17 +158,17 @@
     function toggleMute() {
         isMuted = !isMuted;
         if (isMuted) {
-            oldVolume = player.volume;
+            oldVolume = player!.volume;
             volume = 0;
         } else {
             volume = oldVolume;
         }
-        player.volume = volume;
+        player!.volume = volume;
     }
 
     onDestroy(() => {
         if (typeof document !== "undefined") {
-            player.removeEventListener("timeupdate", updateProgress);
+            player!.removeEventListener("timeupdate", updateProgress);
         }
     });
 </script>
