@@ -82,7 +82,7 @@
     }
 
     .content.expanded {
-        max-height: 440px;
+        max-height: 500px;
         padding: 4px 20px;
         margin: 10px 0px 0px;
     }
