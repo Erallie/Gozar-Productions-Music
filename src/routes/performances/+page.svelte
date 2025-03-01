@@ -246,7 +246,13 @@
         list-style-type: none;
     }
 
+    #calendar {
+        width: 800px;
+    }
     iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
         padding: 10px;
         margin: -10px;
     }
