@@ -247,11 +247,11 @@
     }
 
     #calendar {
-        width: 800px;
+        width: 660px;
     }
     iframe {
         width: 100%;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 14 / 9;
         height: auto;
         padding: 10px;
         margin: -10px;
