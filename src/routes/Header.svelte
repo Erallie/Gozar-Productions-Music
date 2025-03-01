@@ -46,15 +46,6 @@
             invertBackground
             >{isHome ? "Gozar Productions" : "Back to Erika Gozar"}</Button
         >
-        {#if !isPerformancePage}
-            <Button
-                link="/performances"
-                newTab={false}
-                direction={ButtonDirection.Right}
-                color={TextColor.Black}
-                invertBackground>View Performances</Button
-            >
-        {/if}
     </nav>
 </header>
 <hgroup bind:this={hgroupElement} class={isSticky ? "sticky" : undefined}>
@@ -119,6 +110,6 @@
     nav {
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: left;
     }
 </style>
