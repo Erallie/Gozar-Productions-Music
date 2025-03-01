@@ -90,12 +90,14 @@ li:has(> * > div.expanded) {
     & > :nth-child(2) {
         flex-grow: 0;
         flex-shrink: 0;
-        margin-right: auto;
     }
-    &.minimized > :nth-child(2) button {
+    &.minimized:has(>:nth-child(2) button:hover) {
+
+    }
+    /* &.minimized > :nth-child(2) button {
         background-color: hsl(0, 0%, 97%);
         color: black;
-    }
+    } */
 }
 
 /* section.video button > svg,
