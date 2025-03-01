@@ -1,10 +1,17 @@
 <script lang="ts">
-    import { onMount, onDestroy } from "svelte";
+    import { ButtonDirection, TextColor } from "$lib/types/types";
+    import { onMount } from "svelte";
+    import Button from "./Button.svelte";
     import { page } from "$app/state";
     import logo from "$lib/images/gozar-productions-logo.svg";
 
     let isSticky = $state(false);
     let hgroupElement: HTMLElement | null = null;
+    let isHome = $state(true);
+
+    $effect(() => {
+        isHome = page.url.pathname == "/";
+    });
 
     const handleScroll = () => {
         if (hgroupElement) {
@@ -21,18 +28,33 @@
             window.removeEventListener("scroll", handleScroll);
         };
     });
+
+    let isPerformancePage = $state(false);
+
+    $effect(() => {
+        isPerformancePage = page.url.pathname == "/performances";
+    });
 </script>
 
 <header>
     <nav>
-        <ul>
-            <li aria-current={page.url.pathname === "/" ? "page" : undefined}>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="https://gozarproductions.com">Gozar Productions</a>
-            </li>
-        </ul>
+        <Button
+            link={isHome ? "https://gozarproductions.com" : "/"}
+            newTab={false}
+            direction={ButtonDirection.Left}
+            color={TextColor.Black}
+            invertBackground
+            >{isHome ? "Gozar Productions" : "Back to Erika Gozar"}</Button
+        >
+        {#if !isPerformancePage}
+            <Button
+                link="/performances"
+                newTab={false}
+                direction={ButtonDirection.Right}
+                color={TextColor.Black}
+                invertBackground>View Performances</Button
+            >
+        {/if}
     </nav>
 </header>
 <hgroup bind:this={hgroupElement} class={isSticky ? "sticky" : undefined}>
@@ -91,20 +113,12 @@
 
     header {
         position: fixed;
-        /* width: 100%; */
+        width: 100%;
     }
 
     nav {
-        /* Add any additional styles for the nav if needed */
-    }
-
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    li {
-        /* Add any additional styles for the list items if needed */
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 </style>
