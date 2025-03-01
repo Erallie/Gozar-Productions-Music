@@ -35,6 +35,7 @@ export enum ButtonDirection {
 }
 
 export type ButtonProps = {
+    element?: HTMLAnchorElement | null;
     link: string;
     newTab: boolean;
     color: TextColor;

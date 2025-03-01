@@ -5,6 +5,7 @@
         TextColor,
     } from "$lib/types/types";
     let {
+        element = $bindable(),
         link,
         newTab,
         color,
@@ -67,6 +68,7 @@
 </script>
 
 <a
+    bind:this={element}
     href={link}
     target={newTab ? "_blank" : undefined}
     style="text-decoration: none;
