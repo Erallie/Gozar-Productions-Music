@@ -4,7 +4,7 @@
         $props();
 </script>
 
-<section>
+<section id="listen">
     <h1>Listen On</h1>
     <div class="listen-grid">
         <ListenButton

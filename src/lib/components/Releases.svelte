@@ -2,7 +2,7 @@
     let { title, children } = $props();
 </script>
 
-<section>
+<section id="releases">
     <h1>{title}</h1>
     <div class="grid">
         {@render children()}
