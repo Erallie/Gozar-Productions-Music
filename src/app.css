@@ -36,6 +36,23 @@ button, a {
     cursor: pointer;
 }
 
+button.special-button > svg.unique-svg {
+    width: auto;
+    /* aspect-ratio: 200 / 60; */
+    height: 1.5em;
+    vertical-align: middle; /* This can be removed with flexbox */
+    transform: translate(0, -1px);
+    padding-left: 0.8em;
+    transition: height 0.3s;
+}
+
+button.special-button:hover {
+    background-color: rgba(var(--text-color), 0.15);
+    & > svg.unique-svg {
+        height: 1.8em;
+    }
+}
+
 body {
     line-height: 25.6px;
 	min-height: 100dvh;

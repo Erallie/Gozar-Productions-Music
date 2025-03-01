@@ -78,6 +78,7 @@
         --border-width: {borderWidth}px"
 >
     <button
+        class="special-button"
         style="--margin-top-multiplier: {marginTopMultiplier !== undefined
             ? `${marginTopMultiplier}`
             : '1'}; --margin-bottom-multiplier: {marginBottomMultiplier !==
