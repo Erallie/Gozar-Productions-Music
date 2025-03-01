@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import InitialBox from "$lib/components/InitialBox.svelte";
     import Release from "$lib/components/Release.svelte";
     import Releases from "$lib/components/Releases.svelte";
