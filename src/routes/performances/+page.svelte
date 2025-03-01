@@ -144,90 +144,96 @@
             </p>
             <p>Join that instance and enjoy the show!</p>
         </ListSection>
+        <ListSection title="Common Issues"
+            ><ul>
+                <ListSection title="I'm Lagging">
+                    <p>
+                        Rendering 80 people in a single instance all at once can
+                        be pretty intensive. To avoid lag, keep the following in
+                        mind:
+                    </p>
+                    <ul>
+                        <ListSection title="Safety Settings">
+                            <p>
+                                Make sure you adjust your <bold
+                                    >safety settings</bold
+                                >
+                                to avoid rendering parts of avatars that can lag
+                                you.
+                            </p>
+                            <p>
+                                This setting can be found by clicking the <bold
+                                    >shield icon</bold
+                                >
+                                on the <bold>top-right</bold> of your
+                                <bold>big menu</bold>.
+                            </p>
+                            <p>
+                                If you are on PCVR, Make sure to turn <bold
+                                    >shaders off</bold
+                                > for most people, as those are the most intensive.
+                            </p>
+                        </ListSection>
+                        <ListSection title="Avatar Culling">
+                            <p>
+                                Turn on <bold>avatar culling</bold> to avoid rendering
+                                avatars past a certain distance away from you.
+                            </p>
+                            <p>
+                                This setting can be found in your <bold
+                                    >small menu</bold
+                                >
+                                under the <bold>settings tab</bold> under the
+                                header
+                                <bold>"Avatar Culling"</bold>.
+                            </p>
+                            <p>
+                                This setting is <bold>more effective</bold> than
+                                turning safety settings to maximum or turning
+                                safe mode on, as it renders everyone as
+                                <bold>non-skeletal diamonds</bold> instead of robots.
+                            </p></ListSection
+                        >
+                    </ul>
+                </ListSection>
+
+                <ListSection title="I don't hear the performer">
+                    <p>
+                        Depending on the venue, the performer may be
+                        transmitting their audio either <bold
+                            >through their mic</bold
+                        >
+                        or by
+                        <bold>streaming to a video player</bold> in the world.
+                    </p>
+                    <p>
+                        If you don't hear the performance, you may need to make
+                        sure your <bold>world audio</bold> is turned up in your audio
+                        settings.
+                    </p>
+                    <p>
+                        If that still doesn't fix it, make sure you <bold
+                            >allow untrusted URLs</bold
+                        >
+                        in your settings. This can be found in your
+                        <bold>big menu</bold>
+                        under the <bold>Comfort & Safety</bold> tab, under the
+                        <bold>Safety</bold> heading.
+                    </p>
+                </ListSection>
+            </ul></ListSection
+        >
     </ol>
 </section>
 
-<section id="common-issues">
-    <h1>Common issues</h1>
-    <ul>
-        <ListSection title="I'm Lagging">
-            <p>
-                Rendering 80 people in a single instance all at once can be
-                pretty intensive. To avoid lag, keep the following in mind:
-            </p>
-            <ul>
-                <ListSection title="Safety Settings">
-                    <p>
-                        Make sure you adjust your <bold>safety settings</bold>
-                        to avoid rendering parts of avatars that can lag you.
-                    </p>
-                    <p>
-                        This setting can be found by clicking the <bold
-                            >shield icon</bold
-                        >
-                        on the <bold>top-right</bold> of your
-                        <bold>big menu</bold>.
-                    </p>
-                    <p>
-                        If you are on PCVR, Make sure to turn <bold
-                            >shaders off</bold
-                        > for most people, as those are the most intensive.
-                    </p>
-                </ListSection>
-                <ListSection title="Avatar Culling">
-                    <p>
-                        Turn on <bold>avatar culling</bold> to avoid rendering avatars
-                        past a certain distance away from you.
-                    </p>
-                    <p>
-                        This setting can be found in your <bold>small menu</bold
-                        >
-                        under the <bold>settings tab</bold> under the header
-                        <bold>"Avatar Culling"</bold>.
-                    </p>
-                    <p>
-                        This setting is <bold>more effective</bold> than turning
-                        safety settings to maximum or turning safe mode on, as
-                        it renders everyone as
-                        <bold>non-skeletal diamonds</bold> instead of robots.
-                    </p></ListSection
-                >
-            </ul>
-        </ListSection>
-
-        <ListSection title="I don't hear the performer">
-            <p>
-                Depending on the venue, the performer may be transmitting their
-                audio either <bold>through their mic</bold> or by
-                <bold>streaming to a video player</bold> in the world.
-            </p>
-            <p>
-                If you don't hear the performance, you may need to make sure
-                your <bold>world audio</bold> is turned up in your audio settings.
-            </p>
-            <p>
-                If that still doesn't fix it, make sure you <bold
-                    >allow untrusted URLs</bold
-                >
-                in your settings. This can be found in your
-                <bold>big menu</bold>
-                under the <bold>Comfort & Safety</bold> tab, under the
-                <bold>Safety</bold> heading.
-            </p>
-        </ListSection>
-    </ul>
-</section>
-
 <style>
-    #how-to-attend,
-    #common-issues {
+    #how-to-attend {
         width: 660px;
-    }
-    #how-to-attend > *,
-    #common-issues > * {
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+        & > * {
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
     ol,
