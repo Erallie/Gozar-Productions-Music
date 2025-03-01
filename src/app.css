@@ -81,8 +81,7 @@ li:has(.expanded) a:not([role="button"]),
     color: hsl(202, 100%, 75%);
 }
 
-li:hover,
-li:has(> * > .expanded) {
+li:has(> * > div.expanded) {
     background-color: rgb(151, 151, 255);
     color: white;
 }

@@ -100,4 +100,12 @@
             padding-bottom 1s,
             margin-top 1s;
     }
+    li:hover {
+        background-color: rgb(151, 151, 255);
+        color: white;
+    }
+    /* li:has(div.expanded) {
+        background-color: rgb(151, 151, 255);
+        color: white;
+    } */
 </style>
