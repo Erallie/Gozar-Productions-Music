@@ -6,6 +6,7 @@
     let { audioSources, defaultSource }: AlbumPlayerProps = $props();
 
     let selectedSource: audioSource = $state(audioSources[defaultSource]); // Default to the first audio source
+    // svelte-ignore non_reactive_update
     let audio: HTMLAudioElement;
     let isOpen = $state(false); // State to track dropdown visibility
 
