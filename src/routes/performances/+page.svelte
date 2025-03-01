@@ -44,7 +44,6 @@
         scrolling="no"
     ></iframe>
 </section>
-
 <section id="how-to-attend">
     <h1>How to Attend</h1>
     <ol>
@@ -246,19 +245,6 @@
     ul {
         list-style-type: none;
     }
-
-    /* ul {
-        text-align: left;
-        list-style-position: outside;
-        list-style-type: disc;
-    } */
-
-    /* li {
-        margin: 0.4em 0px;
-    } */
-    /* #how-to-watch a {
-        color: hsl(202, 100%, 75%);
-    } */
 
     iframe {
         padding: 10px;
