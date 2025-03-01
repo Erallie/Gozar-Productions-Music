@@ -53,12 +53,14 @@ p {
 }
 
 
-section, .audio-player {
+section {
     margin: 20px auto;
     padding: 20px;
     background-color: white;
     box-sizing: border-box;
     max-width: 80%;
+    text-align: center;
+}
 }
 
 /* section.video button > svg,

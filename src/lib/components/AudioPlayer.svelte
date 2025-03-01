@@ -173,7 +173,7 @@
     });
 </script>
 
-<section class="audio-player" style="--margin: {removeMargins ? '0' : '10'}px">
+<section style="--margin: {removeMargins ? '0' : '10'}px">
     <audio bind:this={player} controlslist="nodownload">
         <source {src} type="audio/mpeg" />
     </audio>
@@ -225,7 +225,7 @@
 </section>
 
 <style>
-    .audio-player {
+    section {
         margin: var(--margin) auto;
         display: flex;
         flex-direction: column;
