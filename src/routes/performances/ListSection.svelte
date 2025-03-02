@@ -24,7 +24,10 @@
     });
 </script>
 
-<section id={title.toLowerCase().replace(" ", "-")} class="remove-styles">
+<section
+    id={title.toLowerCase().replaceAll(" ", "-").replaceAll("'", "")}
+    class="remove-styles"
+>
     <li bind:this={li} class="rounded list-section">
         <div class="reset-wrapper">
             <h2>{title}</h2>
