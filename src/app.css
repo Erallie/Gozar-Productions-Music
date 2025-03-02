@@ -97,15 +97,9 @@ li:has(> * > div.expanded) {
     color: white;
 }
 
-#performance-banner {
-    & > :nth-child(2) {
-        flex-grow: 0;
-        flex-shrink: 0;
-    }
-    /* &.minimized > :nth-child(2) button {
-        background-color: hsl(0, 0%, 97%);
-        color: black;
-    } */
+#performance-banner > :nth-child(2) {
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 section {
