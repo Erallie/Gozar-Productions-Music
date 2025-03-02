@@ -49,3 +49,14 @@ export type ButtonProps = {
     addedClass?: string;
     children: any;
 }
+
+export type ExpandedSectionProps = {
+    title: string;
+    ordered?: boolean;
+    children?: any;
+}
+
+export type ListSectionWrapperProps = {
+    ordered?: boolean;
+    children?: any;
+}

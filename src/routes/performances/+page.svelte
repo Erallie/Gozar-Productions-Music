@@ -3,6 +3,8 @@
     import { onMount } from "svelte";
     import { setBackground } from "$lib/scripts/set-background";
     import ListSection from "./ListSection.svelte";
+    import ExpandableSection from "./ExpandableSection.svelte";
+    import ListSectionWrapper from "./ListSectionWrapper.svelte";
 
     onMount(() => {
         setBackground("/performances/background.png");
@@ -45,9 +47,8 @@
     ></iframe>
 </section>
 <section id="stuff">
-    <section id="how-to-attend">
-        <h1>How to Attend</h1>
-        <ol>
+    <ExpandableSection title="How to Attend" ordered>
+        <ListSectionWrapper ordered>
             <ListSection title="Download VRChat">
                 <p>
                     <a href="https://hello.vrchat.com/" target="_blank"
@@ -148,17 +149,16 @@
                 </p>
                 <p>Join that instance and enjoy the show!</p>
             </ListSection>
-        </ol>
-    </section>
-    <section id="common-issues">
-        <h1>Common Issues</h1>
-        <ul>
+        </ListSectionWrapper>
+    </ExpandableSection>
+    <ExpandableSection title="CommonIssues">
+        <ListSectionWrapper>
             <ListSection title="I'm Lagging">
                 <p>
                     Rendering 80 people in a single instance all at once can be
                     pretty intensive. To avoid lag, keep the following in mind:
                 </p>
-                <ul>
+                <ListSectionWrapper>
                     <ListSection title="Safety Settings">
                         <p>
                             Make sure you adjust your <bold
@@ -198,7 +198,7 @@
                             <bold>non-skeletal diamonds</bold> instead of robots.
                         </p></ListSection
                     >
-                </ul>
+                </ListSectionWrapper>
             </ListSection>
 
             <ListSection title="I don't hear the performer">
@@ -230,49 +230,18 @@
                     <bold>video controls</bold> in the world.
                 </p>
             </ListSection>
-        </ul>
-    </section>
+        </ListSectionWrapper>
+    </ExpandableSection>
 </section>
 
 <style>
     #stuff {
+        position: relative;
         display: flex;
-        width: min-content;
+        width: 80%;
         justify-content: space-between;
-        & > section {
-            max-width: 10%;
-            text-wrap-mode: nowrap;
-            background-color: rgba(0, 0, 0, 0.1);
-            /* width: 660px; */
-            overflow-x: clip;
-            transition: max-width 1s;
-            margin: 0px;
-            &:hover {
-                max-width: calc(90% - 20px);
-            }
-            & p {
-                text-wrap-mode: wrap;
-            }
-            & > * {
-                max-width: 90%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            & * {
-                overflow-x: clip;
             }
         }
-    }
-
-    ol,
-    ul {
-        list-style-position: inside;
-        /* margin: 0px auto; */
-        padding: 0px;
-    }
-
-    ul {
-        list-style-type: none;
     }
 
     #calendar {
