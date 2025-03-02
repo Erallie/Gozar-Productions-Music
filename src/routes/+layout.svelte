@@ -51,8 +51,10 @@
     }
 
     onMount(() => {
-        if (attendButton) {
+        if (attendButton || performanceBanner) {
             resizeObserver = new ResizeObserver(handleResize);
+        }
+        if (attendButton) {
             resizeObserver.observe(attendButton);
         }
         if (performanceBanner) {
