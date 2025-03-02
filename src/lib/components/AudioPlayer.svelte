@@ -297,6 +297,12 @@
             cursor: pointer; /* Pointer cursor on hover */
             transition: background 0.2s;
         }
+        &::-webkit-slider-thumb:hover {
+            background: hsl(240, 80%, 75%);
+        }
+        &::-moz-range-thumb:hover {
+            background: hsl(240, 80%, 75%);
+        }
     }
 
     #timestamp {
