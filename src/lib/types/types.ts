@@ -50,6 +50,11 @@ export type ButtonProps = {
     children: any;
 }
 
+export type SectionProps = {
+    title: string;
+    children?: any;
+}
+
 export type ExpandedSectionProps = {
     title: string;
     ordered?: boolean;

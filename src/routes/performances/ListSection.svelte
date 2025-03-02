@@ -1,7 +1,8 @@
 <script lang="ts">
+    import type { SectionProps } from "$lib/types/types";
     import { onDestroy, onMount } from "svelte";
 
-    let { title, children } = $props();
+    let { title, children }: SectionProps = $props();
 
     let content: HTMLDivElement;
     let expanded = $state(false);
