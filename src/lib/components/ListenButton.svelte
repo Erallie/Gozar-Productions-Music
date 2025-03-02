@@ -2,11 +2,11 @@
     let { link, imageSource, imageAlt } = $props();
 </script>
 
-<a href={link} target="_blank"
-    ><button>
+<a href={link} target="_blank">
+    <button>
         <span>{imageAlt}</span><img src={imageSource} alt={imageAlt} />
-    </button></a
->
+    </button>
+</a>
 
 <style>
     button {

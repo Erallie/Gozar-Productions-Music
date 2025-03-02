@@ -177,11 +177,9 @@
         <source {src} type="audio/mpeg" />
     </audio>
     <div class="controls">
-        <button class="rounded" onclick={togglePlay}
-            ><img
-                src={isPlaying
-                    ? "/audio-player/pause.svg"
-                    : "/audio-player/play.svg"}
+        <button class="rounded" onclick={togglePlay}>
+            <img
+                src={isPlaying ? "/audio-player/pause.svg" : "/audio-player/play.svg"}
                 alt={isPlaying ? "Pause" : "Play"}
             />
         </button>

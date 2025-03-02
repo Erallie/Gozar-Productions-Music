@@ -1,7 +1,6 @@
 <script lang="ts">
     import ListenButton from "./ListenButton.svelte";
-    const { spotify, appleMusic, youtube, youtubeMusic, pandora, amazonMusic } =
-        $props();
+    const { spotify, appleMusic, youtube, youtubeMusic, pandora, amazonMusic } = $props();
 </script>
 
 <section id="listen">

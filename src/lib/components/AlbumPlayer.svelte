@@ -47,18 +47,11 @@
             aria-haspopup="true"
             aria-expanded={isOpen}
         >
-            <span
-                >Track {audioSources.findIndex(
-                    (source) => source.src === selectedSource.src,
-                ) + 1}:</span
-            ><span>{selectedSource.name}</span>
-            <svg
-                class="icon"
-                fill="currentColor"
-                width="8"
-                height="4"
-                viewBox="4 6 8 4"
-            >
+            <span>
+                Track {audioSources.findIndex((source) => source.src === selectedSource.src) + 1}:
+            </span>
+            <span>{selectedSource.name}</span>
+            <svg class="icon" fill="currentColor" width="8" height="4" viewBox="4 6 8 4">
                 <path d="M4 6l4 4 4-4H4z" />
             </svg>
         </button>
@@ -72,9 +65,8 @@
                         onclick={() => changeSource(source)}
                         tabindex="0"
                     >
-                        <span class="track-index">{index + 1}:</span><span
-                            >{source.name}</span
-                        ><span></span>
+                        <span class="track-index">{index + 1}:</span><span>{source.name}</span>
+                        <span></span>
                     </button>
                 {/each}
             </div>
