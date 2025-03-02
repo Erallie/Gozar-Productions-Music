@@ -65,7 +65,6 @@
     onDestroy(() => {
         if (resizeObserver) {
             resizeObserver.disconnect();
-            console.log("disconnected resize observer");
         }
     });
 
