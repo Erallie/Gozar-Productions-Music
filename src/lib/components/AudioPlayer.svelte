@@ -252,15 +252,15 @@
         margin: 0px;
         padding: 0.5em;
         transition: background-color 0.3s;
-    }
-    button > img {
-        height: 100%;
-        aspect-ratio: 1 / 1;
-        vertical-align: middle;
-    }
 
-    button:hover {
-        background-color: rgba(0, 0, 0, 0.2);
+        & > img {
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            vertical-align: middle;
+        }
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
     }
 
     /* button:hover > img {
@@ -279,26 +279,24 @@
         background: lightgray; /* Default background */
         outline: none; /* Remove outline */
         margin: auto 10px;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none; /* Override default styles */
-        appearance: none; /* Override default styles */
-        width: 20px; /* Width of the thumb */
-        height: 20px; /* Height of the thumb */
-        border-radius: 50%; /* Rounded thumb */
-        background: rgb(151, 151, 255); /* Color of the thumb */
-        cursor: pointer; /* Pointer cursor on hover */
-        transition: background 0.2s;
-    }
-
-    input[type="range"]::-moz-range-thumb {
-        width: 20px; /* Width of the thumb */
-        height: 20px; /* Height of the thumb */
-        border-radius: 50%; /* Rounded thumb */
-        background: rgb(151, 151, 255); /* Color of the thumb */
-        cursor: pointer; /* Pointer cursor on hover */
-        transition: background 0.2s;
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Override default styles */
+            appearance: none; /* Override default styles */
+            width: 20px; /* Width of the thumb */
+            height: 20px; /* Height of the thumb */
+            border-radius: 50%; /* Rounded thumb */
+            background: rgb(151, 151, 255); /* Color of the thumb */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background 0.2s;
+        }
+        &::-moz-range-thumb {
+            width: 20px; /* Width of the thumb */
+            height: 20px; /* Height of the thumb */
+            border-radius: 50%; /* Rounded thumb */
+            background: rgb(151, 151, 255); /* Color of the thumb */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background 0.2s;
+        }
     }
 
     #timestamp {
@@ -307,22 +305,39 @@
         display: flex;
         flex-grow: 0;
         flex-shrink: 0;
-    }
-
-    #timestamp > span {
-        width: 2.4em;
-        flex-shrink: 0;
-        flex-grow: 0;
-        text-align: center;
+        & > span {
+            width: 2.4em;
+            flex-shrink: 0;
+            flex-grow: 0;
+            text-align: center;
+        }
     }
 
     #volume-container {
         display: flex;
         flex-shrink: 0;
-    }
-
-    #volume-container:hover {
-        background-color: rgba(0, 0, 0, 0.1);
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            & #volume {
+                width: 100px;
+                margin: auto 10px;
+                transition:
+                    width 0.4s,
+                    margin 0.4s;
+            }
+        }
+        &:not(:hover) #volume {
+            &::-webkit-slider-thumb {
+                background: rgb(151, 151, 255, 0);
+                /* width: 0px; */
+                transition: background 0.2s;
+            }
+            &::-moz-range-thumb {
+                background: rgb(151, 151, 255, 0);
+                /* width: 0px; */
+                transition: background 0.2s;
+            }
+        }
     }
 
     #volume {
@@ -332,25 +347,6 @@
         transition:
             width 0.4s,
             margin 0.4s;
-    }
-
-    #volume-container:hover #volume {
-        width: 100px;
-        margin: auto 10px;
-        transition:
-            width 0.4s,
-            margin 0.4s;
-    }
-
-    #volume-container:not(:hover) #volume::-webkit-slider-thumb {
-        background: rgb(151, 151, 255, 0);
-        /* width: 0px; */
-        transition: background 0.2s;
-    }
-    #volume-container:not(:hover) #volume::-moz-range-thumb {
-        background: rgb(151, 151, 255, 0);
-        /* width: 0px; */
-        transition: background 0.2s;
     }
 
     #time-slider {
