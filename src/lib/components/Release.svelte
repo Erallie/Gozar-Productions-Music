@@ -15,14 +15,13 @@
         transition:
             width 0.3s,
             margin 0.3s;
+        &:has(> a:hover) {
+            width: 100%;
+            margin: 0px;
+        }
     }
 
     img {
         width: 100%;
-    }
-
-    div:has(> a:hover) {
-        width: 100%;
-        margin: 0px;
     }
 </style>

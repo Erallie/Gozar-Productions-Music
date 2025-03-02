@@ -6,7 +6,7 @@
 
 <section id="listen">
     <h1>Listen On</h1>
-    <div class="listen-grid">
+    <div>
         <ListenButton
             link={spotify}
             imageSource="/social-branding/spotify.svg"
@@ -43,17 +43,15 @@
 <style>
     section {
         width: 660px;
+        & > div {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0px;
+            padding: 10px;
+        }
     }
     h1 {
         margin-top: 10px;
-    }
-    .listen-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0px;
-        padding: 10px;
-    }
-    h1 {
         text-align: center;
         margin-bottom: 10px;
     }

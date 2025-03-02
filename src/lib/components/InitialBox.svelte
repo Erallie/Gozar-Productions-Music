@@ -5,7 +5,7 @@
 
 <section id="home">
     <img src={imageSource} alt={imageAlt} class="rounded" />
-    <div id="title-block-content">
+    <div>
         {@render children()}
     </div>
 </section>
@@ -17,16 +17,14 @@
         text-align: left;
         height: min-content;
         /* height: 300px; */
-    }
-
-    section > img {
-        width: 25%;
-        object-fit: cover;
-        margin: 10px;
-    }
-
-    #title-block-content {
-        margin: auto 32px;
-        width: 75%;
+        & > img {
+            width: 25%;
+            object-fit: cover;
+            margin: 10px;
+        }
+        & > div {
+            margin: auto 32px;
+            width: 75%;
+        }
     }
 </style>

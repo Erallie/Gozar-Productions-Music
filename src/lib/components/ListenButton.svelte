@@ -27,29 +27,27 @@
         margin: 10px;
         transition: background-color 0.3s;
         width: calc(100% - 20px);
+        & img {
+            width: auto;
+            /* aspect-ratio: 200 / 60; */
+            height: 1.5em;
+            vertical-align: middle; /* This can be removed with flexbox */
+            transform: translate(0, -1px);
+            padding-left: 0.5em;
+            transition: height 0.3s;
+            margin-right: auto;
+        }
+        & > span {
+            margin-left: auto;
+        }
+        &:hover {
+            background-color: rgba(var(--text-color), 0.15);
+            & img {
+                height: 1.8em;
+            }
+        }
     }
 
-    button img {
-        width: auto;
-        /* aspect-ratio: 200 / 60; */
-        height: 1.5em;
-        vertical-align: middle; /* This can be removed with flexbox */
-        transform: translate(0, -1px);
-        padding-left: 0.5em;
-        transition: height 0.3s;
-        margin-right: auto;
-    }
-    button > span {
-        margin-left: auto;
-    }
-
-    button:hover {
-        background-color: rgba(var(--text-color), 0.15);
-    }
-
-    button:hover img {
-        height: 1.8em;
-    }
     a {
         text-align: center;
         margin: auto;
