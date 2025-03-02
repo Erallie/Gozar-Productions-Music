@@ -127,11 +127,4 @@
 			/* margin: 10px auto; */
 		}
 	}
-
-	.or {
-		display: block;
-		white-space: nowrap;
-		text-transform: uppercase;
-		margin: 10px auto;
-	}
 </style>
