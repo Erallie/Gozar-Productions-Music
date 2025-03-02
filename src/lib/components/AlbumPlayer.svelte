@@ -112,6 +112,15 @@
         border: 2px solid white;
         background-color: white;
         cursor: pointer; /* Ensure the cursor indicates it's clickable */
+        & > * {
+            margin: auto 4px;
+        }
+        & > :first-child {
+            margin-left: 0px;
+        }
+        & > :last-child {
+            margin-right: 0px;
+        }
     }
 
     .selected,
@@ -122,6 +131,11 @@
         transition:
             background-color 0.2s,
             color 0.2s;
+        &:hover,
+        &:active {
+            background-color: rgb(151, 151, 255);
+            color: white;
+        }
     }
 
     .options {
@@ -145,41 +159,19 @@
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
-    }
-
-    .selected > * {
-        margin: auto 4px;
-    }
-
-    .selected > :first-child {
-        margin-left: 0px;
-    }
-
-    .selected > :last-child {
-        margin-right: 0px;
-    }
-
-    .option > * {
-        margin: auto 0px;
-    }
-
-    .option > :nth-child(2) {
-        margin-left: 4px;
-    }
-
-    .option > :first-child {
-        margin-right: 4px;
+        & > * {
+            margin: auto 0px;
+        }
+        & > :nth-child(2) {
+            margin-left: 4px;
+        }
+        & > :first-child {
+            margin-right: 4px;
+        }
     }
 
     .track-index {
         flex-shrink: 0;
-    }
-
-    .option:hover,
-    .selected:hover,
-    .selected:active {
-        background-color: rgb(151, 151, 255);
-        color: white;
     }
 
     .icon {
