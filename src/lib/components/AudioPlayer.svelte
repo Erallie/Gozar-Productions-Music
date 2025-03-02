@@ -11,7 +11,6 @@
         removeMargins,
     }: AudioPlayerProps = $props();
 
-    // let audioPlayer: HTMLAudioElement | null = null;
     let isPlaying = $state(false);
     let volume = $state(1); // Default volume
 
