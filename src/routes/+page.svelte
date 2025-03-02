@@ -77,8 +77,8 @@
             marginBottomMultiplier={0.5}
             marginLeftMultiplier={0}
             marginRightMultiplier={0}
+            addedClass="discord-button"
             >Join our Discord<svg
-                class="unique-svg"
                 xmlns="http://www.w3.org/2000/svg"
                 width="127.14px"
                 height="96.36px"

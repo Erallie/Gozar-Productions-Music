@@ -16,6 +16,7 @@
         marginBottomMultiplier,
         marginLeftMultiplier,
         marginRightMultiplier,
+        addedClass,
         children,
     }: ButtonProps = $props();
 
@@ -78,7 +79,7 @@
         --border-width: {borderWidth}px"
 >
     <button
-        class="special-button"
+        class={addedClass}
         style="--margin-top-multiplier: {marginTopMultiplier !== undefined
             ? `${marginTopMultiplier}`
             : '1'}; --margin-bottom-multiplier: {marginBottomMultiplier !==

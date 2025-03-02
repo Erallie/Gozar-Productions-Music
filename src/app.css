@@ -36,7 +36,7 @@ button, a {
     cursor: pointer;
 }
 
-button.special-button > svg.unique-svg {
+button.discord-button > svg {
     width: auto;
     /* aspect-ratio: 200 / 60; */
     height: 1.5em;
@@ -46,9 +46,9 @@ button.special-button > svg.unique-svg {
     transition: height 0.3s;
 }
 
-button.special-button:hover {
+button.discord-button:hover {
     background-color: rgba(var(--text-color), 0.15);
-    & > svg.unique-svg {
+    & > svg {
         height: 1.8em;
     }
 }
@@ -107,9 +107,6 @@ li:has(> * > div.expanded) {
     & > :nth-child(2) {
         flex-grow: 0;
         flex-shrink: 0;
-    }
-    &.minimized:has(>:nth-child(2) button:hover) {
-
     }
     /* &.minimized > :nth-child(2) button {
         background-color: hsl(0, 0%, 97%);

@@ -46,5 +46,6 @@ export type ButtonProps = {
     marginBottomMultiplier?: number;
     marginLeftMultiplier?: number;
     marginRightMultiplier?: number;
+    addedClass?: string;
     children: any;
 }
