@@ -47,6 +47,44 @@
     ></iframe>
 </section>
 <section id="stuff">
+    <div>
+        <h2>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="200"
+                height="60"
+                viewBox="0 0 200 60"
+            >
+                <g
+                    stroke="currentColor"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                >
+                    <line x1="2.5" y1="30" x2="197.5" y2="30" />
+                    <line x1="2.5" y1="30" x2="40" y2="2.5" />
+                    <line x1="2.5" y1="30" x2="40" y2="57.5" />
+                </g>
+            </svg>How to Attend
+        </h2>
+        <h2>
+            Common Issues<svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="200"
+                height="60"
+                viewBox="0 0 200 60"
+            >
+                <g
+                    stroke="currentColor"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                >
+                    <line x1="2.5" y1="30" x2="197.5" y2="30 " />
+                    <line x1="197.5" y1="30" x2="160" y2="2.5" />
+                    <line x1="197.5" y1="30" x2="160" y2="57.5" />
+                </g>
+            </svg>
+        </h2>
+    </div>
     <ExpandableSection title="How to Attend" ordered>
         <ListSectionWrapper ordered>
             <ListSection title="Download VRChat">
@@ -240,6 +278,20 @@
         display: flex;
         width: 80%;
         justify-content: space-between;
+        & > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            & svg {
+                height: 1em;
+                width: auto;
+                padding: 0px 10px;
+                vertical-align: middle;
             }
         }
     }
