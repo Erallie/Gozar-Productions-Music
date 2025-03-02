@@ -15,7 +15,8 @@
         align-items: center; /* Center items vertically */
         font-family: Montserrat;
         color: rgb(var(--text-color));
-        border-radius: 50px;
+        /* border-radius: 50px; */
+        border-radius: var(--rounded-radius);
         padding: 16px 28px;
         border: 2px solid rgb(var(--text-color));
         background-color: rgba(var(--text-color), 0);
