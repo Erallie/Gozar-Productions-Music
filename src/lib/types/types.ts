@@ -1,67 +1,68 @@
 export type InitialBoxProps = {
-    imageSource: string;
-    imageAlt: string;
-    children: any;
-}
+	imageSource: string;
+	imageAlt: string;
+	children: any;
+};
 
 export type audioSource = {
-    name: string,
-    src: string,
-    startTime: number,
-    endTime: number,
-}
+	name: string;
+	src: string;
+	startTime: number;
+	endTime: number;
+};
 
 export type AlbumPlayerProps = {
-    audioSources: audioSource[],
-    defaultSource: number
-}
+	audioSources: audioSource[];
+	defaultSource: number;
+};
 
 export type AudioPlayerProps = {
-    src: string,
-    startTime: number,
-    endTime: number,
-    player?: HTMLAudioElement;
-    removeMargins?: boolean
-}
+	src: string;
+	startTime: number;
+	endTime: number;
+	player?: HTMLAudioElement;
+	removeMargins?: boolean;
+};
 
 export enum TextColor {
-    White,
-    Black
+	White,
+	Black,
 }
 
 export enum ButtonDirection {
-    Right,
-    Left
+	Right,
+	Left,
 }
 
 export type ButtonProps = {
-    element?: HTMLAnchorElement | null;
-    link: string;
-    newTab: boolean;
-    color: TextColor;
-    invertBackground?: boolean;
-    direction?: ButtonDirection;
-    customSVG?: boolean;
-    marginTopMultiplier?: number;
-    marginBottomMultiplier?: number;
-    marginLeftMultiplier?: number;
-    marginRightMultiplier?: number;
-    addedClass?: string;
-    children: any;
-}
+	element?: HTMLAnchorElement | null;
+	link: string;
+	newTab: boolean;
+	color: TextColor;
+	invertBackground?: boolean;
+	direction?: ButtonDirection;
+	customSVG?: boolean;
+	marginTopMultiplier?: number;
+	marginBottomMultiplier?: number;
+	marginLeftMultiplier?: number;
+	marginRightMultiplier?: number;
+	addedClass?: string;
+	children: any;
+};
 
 export type SectionProps = {
-    title: string;
-    children?: any;
-}
+	title: string;
+	children?: any;
+};
 
 export type ExpandedSectionProps = {
-    title: string;
-    ordered?: boolean;
-    children?: any;
-}
+	element?: HTMLElement | null;
+	title: string;
+	ordered?: boolean;
+	children?: any;
+};
 
 export type ListSectionWrapperProps = {
-    ordered?: boolean;
-    children?: any;
-}
+	ordered?: boolean;
+	children?: any;
+};
