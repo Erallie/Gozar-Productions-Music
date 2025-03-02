@@ -185,10 +185,11 @@
                 alt={isPlaying ? "Pause" : "Play"}
             />
         </button>
-        <span id="timestamp"
-            ><span>{timeStamp(currentTime)}</span> /
-            <span>{timeStamp(duration)}</span></span
-        ><input
+        <span id="timestamp">
+            <span>{timeStamp(currentTime)}</span> /
+            <span>{timeStamp(duration)}</span>
+        </span>
+        <input
             type="range"
             id="time-slider"
             min="0"
