@@ -6,6 +6,13 @@
 	import ExpandableSection from "./ExpandableSection.svelte";
 	import ListSectionWrapper from "./ListSectionWrapper.svelte";
 
+	let howToAttend: HTMLElement | null = $state(null);
+
+	function openHowToAttend(ev: Event) {
+		ev.preventDefault();
+		howToAttend!.focus;
+	}
+
 	onMount(() => {
 		setBackground("/performances/background.png");
 	});
@@ -48,7 +55,7 @@
 </section>
 <section id="stuff">
 	<div>
-		<h2>
+		<button onclick={openHowToAttend}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="200"
@@ -65,8 +72,8 @@
 					<line x1="2.5" y1="30" x2="40" y2="57.5" />
 				</g>
 			</svg>How to Attend
-		</h2>
-		<h2>
+		</button>
+		<button>
 			Common Issues<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="200"
@@ -83,9 +90,9 @@
 					<line x1="197.5" y1="30" x2="160" y2="57.5" />
 				</g>
 			</svg>
-		</h2>
+		</button>
 	</div>
-	<ExpandableSection title="How to Attend" ordered>
+	<ExpandableSection bind:element={howToAttend} title="How to Attend" ordered>
 		<ListSectionWrapper ordered>
 			<ListSection title="Download VRChat">
 				<p>
@@ -276,7 +283,7 @@
 	#stuff {
 		position: relative;
 		display: flex;
-		width: 80%;
+		width: 660px;
 		justify-content: space-between;
 		& > div {
 			position: absolute;
@@ -288,10 +295,32 @@
 			flex-direction: column;
 			justify-content: center;
 			& svg {
-				height: 1em;
+				height: 0.8em;
 				width: auto;
 				padding: 0px 10px;
 				vertical-align: middle;
+			}
+			& > button {
+				display: inline-flex; /* Use flexbox for horizontal alignment */
+				align-items: center; /* Center items vertically */
+				font-family: Montserrat;
+				padding: 16px 28px;
+				border: none;
+				background: none;
+				text-align: center;
+				letter-spacing: initial;
+				text-transform: uppercase;
+				font-size: 1.5rem;
+				margin: 0px auto;
+				& svg {
+					transition: height 0.3s;
+				}
+				&:hover {
+					cursor: pointer;
+					& svg {
+						height: 1em;
+					}
+				}
 			}
 		}
 	}
