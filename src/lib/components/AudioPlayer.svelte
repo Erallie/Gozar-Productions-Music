@@ -1,363 +1,365 @@
 <script lang="ts">
-    import { onDestroy, onMount } from "svelte";
-    import { type AudioPlayerProps } from "$lib/types/types";
-    import Cookies from "js-cookie";
+	import { onDestroy, onMount } from "svelte";
+	import { type AudioPlayerProps } from "$lib/types/types";
+	import Cookies from "js-cookie";
 
-    let {
-        src,
-        startTime,
-        endTime,
-        player = $bindable(),
-        removeMargins,
-    }: AudioPlayerProps = $props();
+	let {
+		src,
+		startTime,
+		endTime,
+		player = $bindable(),
+		removeMargins,
+	}: AudioPlayerProps = $props();
 
-    let isPlaying = $state(false);
-    let volume = $state(1); // Default volume
+	let isPlaying = $state(false);
+	let volume = $state(1); // Default volume
 
-    let currentTime = $state(startTime); // Current playback time
-    let duration = $state(0); // Total duration of the audio
+	let currentTime = $state(startTime); // Current playback time
+	let duration = $state(0); // Total duration of the audio
 
-    let oldSrc = $state(src);
+	let oldSrc = $state(src);
 
-    function updateProgress() {
-        currentTime = player!.currentTime;
-        duration = player!.duration || 0; // Handle duration being NaN if audio is not loaded
-        if (currentTime > endTime && !player!.paused) {
-            pauseAudio(); // Pause the audio
-        }
-    }
+	function updateProgress() {
+		currentTime = player!.currentTime;
+		duration = player!.duration || 0; // Handle duration being NaN if audio is not loaded
+		if (currentTime > endTime && !player!.paused) {
+			pauseAudio(); // Pause the audio
+		}
+	}
 
-    function setVolume(event: Event) {
-        const target = event.target as HTMLInputElement;
-        volume = parseFloat(target.value);
-        player!.volume = volume;
-        Cookies.set("volume", volume.toString(), {
-            expires: 7,
-            sameSite: "Strict",
-        });
-    }
-    function playAudio() {
-        if (player!.currentTime < startTime || player!.currentTime >= endTime) {
-            player!.currentTime = startTime; // Seek to start time if before it
-        }
-        player!.play();
-        isPlaying = true;
-    }
+	function setVolume(event: Event) {
+		const target = event.target as HTMLInputElement;
+		volume = parseFloat(target.value);
+		player!.volume = volume;
+		Cookies.set("volume", volume.toString(), {
+			expires: 7,
+			sameSite: "Strict",
+		});
+	}
+	function playAudio() {
+		if (player!.currentTime < startTime || player!.currentTime >= endTime) {
+			player!.currentTime = startTime; // Seek to start time if before it
+		}
+		player!.play();
+		isPlaying = true;
+	}
 
-    function pauseAudio() {
-        player!.pause();
-        isPlaying = false;
-    }
+	function pauseAudio() {
+		player!.pause();
+		isPlaying = false;
+	}
 
-    function togglePlay() {
-        if (isPlaying) {
-            pauseAudio();
-        } else {
-            playAudio();
-        }
-    }
+	function togglePlay() {
+		if (isPlaying) {
+			pauseAudio();
+		} else {
+			playAudio();
+		}
+	}
 
-    function seek(event: Event) {
-        const target = event.target as HTMLInputElement;
-        const seekTime = parseFloat(target.value);
-        if (seekTime > endTime) {
-            currentTime = endTime;
-        } else if (seekTime < startTime) {
-            currentTime = startTime;
-        } else {
-            currentTime = seekTime;
-        }
-        player!.currentTime = currentTime;
-    }
+	function seek(event: Event) {
+		const target = event.target as HTMLInputElement;
+		const seekTime = parseFloat(target.value);
+		if (seekTime > endTime) {
+			currentTime = endTime;
+		} else if (seekTime < startTime) {
+			currentTime = startTime;
+		} else {
+			currentTime = seekTime;
+		}
+		player!.currentTime = currentTime;
+	}
 
-    onMount(() => {
-        volume = Number.parseFloat(Cookies.get("volume")!);
-        player!.volume = volume;
-        player!.currentTime = startTime;
+	onMount(() => {
+		volume = Number.parseFloat(Cookies.get("volume")!);
+		player!.volume = volume;
+		player!.currentTime = startTime;
 
-        player!.addEventListener("timeupdate", updateProgress);
-    });
+		player!.addEventListener("timeupdate", updateProgress);
+	});
 
-    $effect(() => {
-        if (oldSrc != src) {
-            currentTime = startTime;
-            player!.currentTime = currentTime;
-            if (isPlaying) {
-                playAudio();
-            } else {
-                pauseAudio();
-            }
-            oldSrc = src;
-        }
-    });
+	$effect(() => {
+		if (oldSrc != src) {
+			currentTime = startTime;
+			player!.currentTime = currentTime;
+			if (isPlaying) {
+				playAudio();
+			} else {
+				pauseAudio();
+			}
+			oldSrc = src;
+		}
+	});
 
-    function timeStamp(time: number) {
-        const stamp = Math.floor(time);
-        const seconds = stamp % 60;
-        const minutes = Math.floor(stamp / 60);
+	function timeStamp(time: number) {
+		const stamp = Math.floor(time);
+		const seconds = stamp % 60;
+		const minutes = Math.floor(stamp / 60);
 
-        return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-    }
-    function timeSliderStyle() {
-        function timePoint(point: number) {
-            return `${(point / duration) * 100}`;
-        }
+		return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+	}
+	function timeSliderStyle() {
+		function timePoint(point: number) {
+			return `${(point / duration) * 100}`;
+		}
 
-        // #region startingStyle
-        let startingStyle: string;
-        if (startTime !== 0) {
-            startingStyle = `background: linear-gradient(
+		// #region startingStyle
+		let startingStyle: string;
+		if (startTime !== 0) {
+			startingStyle = `background: linear-gradient(
                 to right,
                 rgba(0, 0, 0, 0.66) ${timePoint(startTime)}%,
                 rgba(0, 0, 0, 0.415) ${timePoint(startTime)}%,
                 rgba(0, 0, 0, 0.415) ${timePoint(currentTime)}%,
             `;
-        } else {
-            startingStyle = `background: linear-gradient(
+		} else {
+			startingStyle = `background: linear-gradient(
                 to right,
                 rgba(0, 0, 0, 0.5) ${timePoint(currentTime)}%,
             `;
-        }
-        // #endregion
+		}
+		// #endregion
 
-        const middleStyle = `
+		const middleStyle = `
             rgba(0, 0, 0, 0.17) ${timePoint(currentTime)}%
             `;
 
-        // #region endingStyle
-        let endingStyle: string;
-        if (endTime <= duration) {
-            endingStyle = `,
+		// #region endingStyle
+		let endingStyle: string;
+		if (endTime <= duration) {
+			endingStyle = `,
                 rgba(0, 0, 0, 0.17) ${timePoint(endTime)}%,
                 rgba(0, 0, 0, 0.66) ${timePoint(endTime)}%
                 );
             `;
-        } else {
-            endingStyle = ");";
-        }
-        // #endregion
+		} else {
+			endingStyle = ");";
+		}
+		// #endregion
 
-        return startingStyle + middleStyle + endingStyle;
-    }
+		return startingStyle + middleStyle + endingStyle;
+	}
 
-    function volumeSliderStyle() {
-        return `
+	function volumeSliderStyle() {
+		return `
             background: linear-gradient(
                 to right,
             rgba(0, 0, 0, 0.5) ${volume * 100}%,
             rgba(0, 0, 0, 0.17) ${volume * 100}%
             );
         `;
-    }
+	}
 
-    let isMuted = $state(false);
+	let isMuted = $state(false);
 
-    let oldVolume = $state(0);
+	let oldVolume = $state(0);
 
-    function toggleMute() {
-        isMuted = !isMuted;
-        if (isMuted) {
-            oldVolume = player!.volume;
-            volume = 0;
-        } else {
-            volume = oldVolume;
-        }
-        player!.volume = volume;
-    }
+	function toggleMute() {
+		isMuted = !isMuted;
+		if (isMuted) {
+			oldVolume = player!.volume;
+			volume = 0;
+		} else {
+			volume = oldVolume;
+		}
+		player!.volume = volume;
+	}
 
-    onDestroy(() => {
-        if (typeof document !== "undefined") {
-            player!.removeEventListener("timeupdate", updateProgress);
-        }
-    });
+	onDestroy(() => {
+		if (typeof document !== "undefined") {
+			player!.removeEventListener("timeupdate", updateProgress);
+		}
+	});
 </script>
 
 <section style="--margin: {removeMargins ? '0' : '10'}px">
-    <audio bind:this={player} controlslist="nodownload">
-        <source {src} type="audio/mpeg" />
-    </audio>
-    <div class="controls">
-        <button class="rounded" onclick={togglePlay}>
-            <img
-                src={isPlaying ? "/audio-player/pause.svg" : "/audio-player/play.svg"}
-                alt={isPlaying ? "Pause" : "Play"}
-            />
-        </button>
-        <span id="timestamp">
-            <span>{timeStamp(currentTime)}</span> /
-            <span>{timeStamp(duration)}</span>
-        </span>
-        <input
-            type="range"
-            id="time-slider"
-            min="0"
-            max={duration}
-            step="0.1"
-            bind:value={currentTime}
-            oninput={seek}
-            style={timeSliderStyle()}
-        />
-        <div id="volume-container" class="rounded">
-            <input
-                type="range"
-                id="volume"
-                min="0"
-                max="1"
-                step="0.01"
-                bind:value={volume}
-                oninput={setVolume}
-                style={volumeSliderStyle()}
-            />
-            <button class="rounded" onclick={toggleMute}>
-                <img
-                    src={volume === 0
-                        ? "/audio-player/volume/muted.svg"
-                        : volume >= 0.5
-                          ? "/audio-player/volume/volume-loud.svg"
-                          : "/audio-player/volume/volume-quiet.svg"}
-                    alt="Volume"
-                />
-            </button>
-        </div>
-    </div>
+	<audio bind:this={player} controlslist="nodownload">
+		<source {src} type="audio/mpeg" />
+	</audio>
+	<div class="controls">
+		<button class="rounded" onclick={togglePlay}>
+			<img
+				src={isPlaying
+					? "/audio-player/pause.svg"
+					: "/audio-player/play.svg"}
+				alt={isPlaying ? "Pause" : "Play"}
+			/>
+		</button>
+		<span id="timestamp">
+			<span>{timeStamp(currentTime)}</span> /
+			<span>{timeStamp(duration)}</span>
+		</span>
+		<input
+			type="range"
+			id="time-slider"
+			min="0"
+			max={duration}
+			step="0.1"
+			bind:value={currentTime}
+			oninput={seek}
+			style={timeSliderStyle()}
+		/>
+		<div id="volume-container" class="rounded">
+			<input
+				type="range"
+				id="volume"
+				min="0"
+				max="1"
+				step="0.01"
+				bind:value={volume}
+				oninput={setVolume}
+				style={volumeSliderStyle()}
+			/>
+			<button class="rounded" onclick={toggleMute}>
+				<img
+					src={volume === 0
+						? "/audio-player/volume/muted.svg"
+						: volume >= 0.5
+							? "/audio-player/volume/volume-loud.svg"
+							: "/audio-player/volume/volume-quiet.svg"}
+					alt="Volume"
+				/>
+			</button>
+		</div>
+	</div>
 </section>
 
 <style>
-    section {
-        margin: var(--margin) auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* border-radius: 8px; */
-        /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
-    }
+	section {
+		margin: var(--margin) auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		/* border-radius: 8px; */
+		/* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+	}
 
-    .controls {
-        display: flex;
-        align-items: center;
-        width: 350px;
-        /* margin-top: 10px; */
-    }
+	.controls {
+		display: flex;
+		align-items: center;
+		width: 350px;
+		/* margin-top: 10px; */
+	}
 
-    button {
-        flex-grow: 0;
-        flex-shrink: 0;
-        height: 2.4em;
-        background-color: rgba(0, 0, 0, 0);
-        border: none;
-        padding: 0px;
-        cursor: pointer;
-        margin: 0px;
-        padding: 0.5em;
-        transition: background-color 0.3s;
+	button {
+		flex-grow: 0;
+		flex-shrink: 0;
+		height: 2.4em;
+		background-color: rgba(0, 0, 0, 0);
+		border: none;
+		padding: 0px;
+		cursor: pointer;
+		margin: 0px;
+		padding: 0.5em;
+		transition: background-color 0.3s;
 
-        & > img {
-            height: 100%;
-            aspect-ratio: 1 / 1;
-            vertical-align: middle;
-        }
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-    }
+		& > img {
+			height: 100%;
+			aspect-ratio: 1 / 1;
+			vertical-align: middle;
+		}
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.2);
+		}
+	}
 
-    /* button:hover > img {
+	/* button:hover > img {
         height: 100%;
         margin: 0px;
         /* background-color: #0056b3;
     } */
 
-    input[type="range"] {
-        appearance: none;
-        margin: auto 10px;
-        -webkit-appearance: none; /* Override default CSS styles */
-        width: 100%; /* Full-width */
-        height: 8px; /* Height of the track */
-        border-radius: 5px; /* Rounded corners */
-        background: lightgray; /* Default background */
-        outline: none; /* Remove outline */
-        margin: auto 10px;
-        &::-webkit-slider-thumb {
-            -webkit-appearance: none; /* Override default styles */
-            appearance: none; /* Override default styles */
-            width: 20px; /* Width of the thumb */
-            height: 20px; /* Height of the thumb */
-            border-radius: 50%; /* Rounded thumb */
-            background: rgb(151, 151, 255); /* Color of the thumb */
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: background 0.2s;
-        }
-        &::-moz-range-thumb {
-            width: 20px; /* Width of the thumb */
-            height: 20px; /* Height of the thumb */
-            border-radius: 50%; /* Rounded thumb */
-            background: rgb(151, 151, 255); /* Color of the thumb */
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: background 0.2s;
-        }
-        &::-webkit-slider-thumb:hover {
-            background: hsl(240, 80%, 75%);
-        }
-        &::-moz-range-thumb:hover {
-            background: hsl(240, 80%, 75%);
-        }
-    }
+	input[type="range"] {
+		appearance: none;
+		margin: auto 10px;
+		-webkit-appearance: none; /* Override default CSS styles */
+		width: 100%; /* Full-width */
+		height: 8px; /* Height of the track */
+		border-radius: 5px; /* Rounded corners */
+		background: lightgray; /* Default background */
+		outline: none; /* Remove outline */
+		margin: auto 10px;
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none; /* Override default styles */
+			appearance: none; /* Override default styles */
+			width: 20px; /* Width of the thumb */
+			height: 20px; /* Height of the thumb */
+			border-radius: 50%; /* Rounded thumb */
+			background: rgb(151, 151, 255); /* Color of the thumb */
+			cursor: pointer; /* Pointer cursor on hover */
+			transition: background 0.2s;
+		}
+		&::-moz-range-thumb {
+			width: 20px; /* Width of the thumb */
+			height: 20px; /* Height of the thumb */
+			border-radius: 50%; /* Rounded thumb */
+			background: rgb(151, 151, 255); /* Color of the thumb */
+			cursor: pointer; /* Pointer cursor on hover */
+			transition: background 0.2s;
+		}
+		&::-webkit-slider-thumb:hover {
+			background: hsl(240, 80%, 75%);
+		}
+		&::-moz-range-thumb:hover {
+			background: hsl(240, 80%, 75%);
+		}
+	}
 
-    #timestamp {
-        /* white-space: nowrap; */
-        text-align: center;
-        display: flex;
-        flex-grow: 0;
-        flex-shrink: 0;
-        & > span {
-            width: 2.4em;
-            flex-shrink: 0;
-            flex-grow: 0;
-            text-align: center;
-        }
-    }
+	#timestamp {
+		/* white-space: nowrap; */
+		text-align: center;
+		display: flex;
+		flex-grow: 0;
+		flex-shrink: 0;
+		& > span {
+			width: 2.4em;
+			flex-shrink: 0;
+			flex-grow: 0;
+			text-align: center;
+		}
+	}
 
-    #volume-container {
-        display: flex;
-        flex-shrink: 0;
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-            & #volume {
-                width: 100px;
-                margin: auto 10px;
-                transition:
-                    width 0.4s,
-                    margin 0.4s;
-            }
-        }
-        &:not(:hover) #volume {
-            &::-webkit-slider-thumb {
-                background: rgb(151, 151, 255, 0);
-                /* width: 0px; */
-                transition: background 0.2s;
-            }
-            &::-moz-range-thumb {
-                background: rgb(151, 151, 255, 0);
-                /* width: 0px; */
-                transition: background 0.2s;
-            }
-        }
-    }
+	#volume-container {
+		display: flex;
+		flex-shrink: 0;
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.1);
+			& #volume {
+				width: 100px;
+				margin: auto 10px;
+				transition:
+					width 0.4s,
+					margin 0.4s;
+			}
+		}
+		&:not(:hover) #volume {
+			&::-webkit-slider-thumb {
+				background: rgb(151, 151, 255, 0);
+				/* width: 0px; */
+				transition: background 0.2s;
+			}
+			&::-moz-range-thumb {
+				background: rgb(151, 151, 255, 0);
+				/* width: 0px; */
+				transition: background 0.2s;
+			}
+		}
+	}
 
-    #volume {
-        flex-grow: 1;
-        width: 0px;
-        margin: auto 0px;
-        transition:
-            width 0.4s,
-            margin 0.4s;
-    }
+	#volume {
+		flex-grow: 1;
+		width: 0px;
+		margin: auto 0px;
+		transition:
+			width 0.4s,
+			margin 0.4s;
+	}
 
-    #time-slider {
-        flex-grow: 0;
-    }
+	#time-slider {
+		flex-grow: 0;
+	}
 
-    /* select {
+	/* select {
         margin-bottom: 10px;
     } */
 </style>
