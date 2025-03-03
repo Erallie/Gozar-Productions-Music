@@ -60,7 +60,7 @@
 	id={title.toLowerCase().replaceAll(" ", "-").replaceAll("'", "")}
 >
 	<h1>{title}</h1>
-	<ListSectionWrapper {ordered}>{@render children()}</ListSectionWrapper>
+	{@render children()}
 </section>
 
 <style>

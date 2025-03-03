@@ -121,7 +121,7 @@ section {
 			white-space: nowrap;
 		}
 
-		& > * {
+		& > *:not(ol):not(ul) {
 			max-width: 90%;
 			margin-left: auto;
 			margin-right: auto;
