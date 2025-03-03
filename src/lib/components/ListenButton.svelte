@@ -24,9 +24,9 @@
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
 		font-size: 0.95rem;
-		margin: 10px;
+		margin: var(--half-margin);
 		transition: background-color 0.3s;
-		width: calc(100% - 20px);
+		width: calc(100% - var(--margins));
 		& img {
 			width: auto;
 			/* aspect-ratio: 200 / 60; */

@@ -95,7 +95,7 @@
 <style>
 	.album-player {
 		width: min-content;
-		margin: 10px auto;
+		margin: var(--half-margin) auto;
 		text-align: center;
 		background-color: white;
 		padding: 0px;
@@ -110,7 +110,7 @@
 	}
 
 	.selected {
-		padding: 10px 20px;
+		padding: var(--half-margin) var(--margins);
 		border: 2px solid white;
 		background-color: white;
 		cursor: pointer; /* Ensure the cursor indicates it's clickable */
@@ -156,7 +156,7 @@
 		background-color: white;
 		appearance: none;
 		border: 2px solid white;
-		padding: 10px 20px;
+		padding: var(--half-margin) var(--margins);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

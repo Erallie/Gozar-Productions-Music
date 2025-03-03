@@ -60,12 +60,12 @@
 	hgroup {
 		z-index: 100;
 		position: sticky;
-		top: 10px;
+		top: var(--half-margin);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		width: max-content;
-		padding: 10px;
+		padding: var(--half-margin);
 		margin: 24px auto 0px;
 		text-shadow:
 			0 0 1em white,

@@ -100,19 +100,19 @@
 		flex-wrap: wrap;
 		& > * {
 			flex-grow: 1;
-			margin: auto 20px;
-			/* padding: 20px 0px; */
+			margin: auto var(--margins);
+			/* padding: var(--margins) 0px; */
 		}
 		& > :last-child {
-			margin: 20px;
+			margin: var(--margins);
 			& > :first-child {
-				margin-bottom: 10px;
+				margin-bottom: var(--half-margin);
 			}
 		}
 		& > :first-child {
 			text-align: left;
 			& * {
-				margin: 10px 0px;
+				margin: var(--half-margin) 0px;
 			}
 		}
 		& h3 {
@@ -124,7 +124,7 @@
 		& hr {
 			border-top: 1px solid black;
 			width: 50%;
-			/* margin: 10px auto; */
+			/* margin: var(--half-margin) auto; */
 		}
 	}
 </style>

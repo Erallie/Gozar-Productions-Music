@@ -66,7 +66,7 @@
 <style>
 	section.expandable-section {
 		z-index: 10;
-		max-width: 20px;
+		max-width: var(--margins);
 		text-wrap-mode: nowrap;
 		background-color: hsl(0, 0%, 90%);
 		/* width: 660px; */
@@ -75,7 +75,7 @@
 		margin: 0px;
 		&:hover,
 		&.clicked {
-			max-width: calc(100% - 60px);
+			max-width: calc(100% - var(--margins) * 3);
 		}
 	}
 </style>

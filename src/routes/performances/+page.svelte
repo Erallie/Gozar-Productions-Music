@@ -308,7 +308,7 @@
 			& svg {
 				height: 0.8em;
 				width: auto;
-				padding: 0px 10px;
+				padding: 0px var(--half-margin);
 				vertical-align: middle;
 			}
 			& > button {
@@ -340,10 +340,10 @@
 		width: 660px;
 	}
 	iframe {
-		width: 100%;
+		width: calc(100% - var(--margins));
 		aspect-ratio: 14 / 9;
 		height: auto;
-		padding: 10px;
-		margin: -10px;
+		padding: var(--half-margin);
+		margin: -var(--half-margin);
 	}
 </style>

@@ -47,12 +47,12 @@
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			gap: 0px;
-			padding: 10px;
+			padding: var(--half-margin);
 		}
 	}
 	h1 {
-		margin-top: 10px;
+		margin-top: var(--half-margin);
 		text-align: center;
-		margin-bottom: 10px;
+		margin-bottom: var(--half-margin);
 	}
 </style>

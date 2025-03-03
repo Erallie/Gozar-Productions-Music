@@ -223,7 +223,7 @@
 		background-color: rgba(119, 46, 46, 0.95);
 		/* text-align: center; */
 		justify-content: center;
-		padding: 10px;
+		padding: var(--half-margin);
 		/* & > :nth-child(2) {
             margin: auto 0px;
             background-color: black;
@@ -257,8 +257,8 @@
 		}
 		& > :first-child {
 			text-align: right;
-			margin: auto 10px;
-			/* margin-right: 10px; */
+			margin: auto var(--half-margin);
+			/* margin-right: var(--half-margin); */
 			/* max-width: 100%; */
 			height: min-content;
 			overflow: hidden;

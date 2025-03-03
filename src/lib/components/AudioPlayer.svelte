@@ -238,7 +238,7 @@
 		display: flex;
 		align-items: center;
 		width: 350px;
-		/* margin-top: 10px; */
+		/* margin-top: var(--half-margin); */
 	}
 
 	button {
@@ -271,14 +271,14 @@
 
 	input[type="range"] {
 		appearance: none;
-		margin: auto 10px;
+		margin: auto var(--half-margin);
 		-webkit-appearance: none; /* Override default CSS styles */
 		width: 100%; /* Full-width */
 		height: 8px; /* Height of the track */
 		border-radius: 5px; /* Rounded corners */
 		background: lightgray; /* Default background */
 		outline: none; /* Remove outline */
-		margin: auto 10px;
+		margin: auto var(--half-margin);
 		&::-webkit-slider-thumb {
 			-webkit-appearance: none; /* Override default styles */
 			appearance: none; /* Override default styles */
@@ -326,7 +326,7 @@
 			background-color: rgba(0, 0, 0, 0.1);
 			& #volume {
 				width: 100px;
-				margin: auto 10px;
+				margin: auto var(--half-margin);
 				transition:
 					width 0.4s,
 					margin 0.4s;
@@ -360,6 +360,6 @@
 	}
 
 	/* select {
-        margin-bottom: 10px;
+        margin-bottom: var(--half-margin);
     } */
 </style>

@@ -50,7 +50,7 @@
 		/* margin: 0px; */
 
 		margin: 12px auto;
-		padding: 10px;
+		padding: var(--half-margin);
 		transition:
 			background-color 0.2s,
 			color 0.2s;
@@ -89,14 +89,14 @@
 
 	.content.expanded {
 		max-height: 700px;
-		padding: 4px 20px;
-		margin: 10px 0px 0px;
+		padding: 4px var(--margins);
+		margin: var(--half-margin) 0px 0px;
 	}
 
 	.content {
 		max-height: 0px;
 		margin: 0px;
-		padding: 0px 20px;
+		padding: 0px var(--margins);
 		background-color: rgba(0, 0, 0, 0.2);
 		overflow-y: auto;
 		/* box-sizing: content-box; */

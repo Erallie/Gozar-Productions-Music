@@ -20,7 +20,7 @@
 		& > img {
 			width: 25%;
 			object-fit: cover;
-			margin: 10px;
+			margin: var(--half-margin);
 		}
 		& > div {
 			margin: auto 32px;

@@ -151,10 +151,10 @@
 		letter-spacing: 0.25em;
 		text-transform: uppercase;
 		font-size: 0.95rem;
-		margin: calc(20px * var(--margin-top-multiplier))
-			calc(20px * var(--margin-right-multiplier))
-			calc(20px * var(--margin-bottom-multiplier))
-			calc(20px * var(--margin-left-multiplier));
+		margin: calc(var(--margins) * var(--margin-top-multiplier))
+			calc(var(--margins) * var(--margin-right-multiplier))
+			calc(var(--margins) * var(--margin-bottom-multiplier))
+			calc(var(--margins) * var(--margin-left-multiplier));
 		transition: background-color 0.3s;
 	}
 
