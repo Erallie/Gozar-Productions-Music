@@ -89,10 +89,14 @@
 			: ''}"
 	>
 		<div>
-			<h2>Erika Gozar</h2>
-			has<br />
-			<h2>live performances</h2>
-			in virtual reality
+			<span>
+				<h2>Erika Gozar</h2>
+				<span>has</span>
+			</span>
+			<span>
+				<h2>live performances</h2>
+				<span>in virtual reality</span>
+			</span>
 		</div>
 		<Button
 			bind:element={attendButton}
@@ -266,7 +270,13 @@
 			flex-shrink: 10;
 			text-wrap-mode: nowrap;
 			& > * {
-				display: inline;
+				display: block;
+				& h2 {
+					display: inline;
+				}
+				& > * {
+					text-wrap-mode: nowrap;
+				}
 			}
 		}
 		& #line-vertical,
