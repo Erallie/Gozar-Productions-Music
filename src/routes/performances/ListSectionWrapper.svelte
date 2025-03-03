@@ -20,6 +20,8 @@
 		list-style-position: inside;
 		/* margin: 0px auto; */
 		padding: 0px;
+		margin-inline: 0px;
+		margin-block: 0px;
 	}
 
 	ul {
