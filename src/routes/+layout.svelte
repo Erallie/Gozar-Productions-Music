@@ -107,7 +107,7 @@
 			marginBottomMultiplier={0.5}
 			marginLeftMultiplier={0.5}
 			marginRightMultiplier={0.5}
-			>{#if !noticeMinimized}Attend{:else}View Performances{/if}</Button
+			>{#if !noticeMinimized}Attend{:else}Attend Live{/if}</Button
 		>
 		<button aria-label="Minimize" onclick={minimizeNotice}
 			><svg
