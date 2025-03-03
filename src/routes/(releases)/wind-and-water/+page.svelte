@@ -4,17 +4,32 @@
 	import { onMount } from "svelte";
 	import AudioPlayer from "$lib/components/AudioPlayer.svelte";
 	import { setBackground } from "$lib/scripts/set-background";
+	import { page } from "$app/state";
 
 	onMount(() => {
 		setBackground("/releases/wind-and-water/background.png");
 	});
+	const title = "Wind And Water";
+	const description =
+		'"Wind And Water" is a song inspired by "Go the Distance" from Disney\'s Hercules and "Colors of the Wind" by Disney\'s Pocahontas. It features an encouraging message about keeping faith when struggling to live up to your own expectations.';
+	const coverImage = "/releases/wind-and-water/cover.png";
 </script>
 
-<InitialBox
-	imageSource="/releases/wind-and-water/cover.png"
-	imageAlt="Wind And Water"
->
-	<h1>Wind And Water</h1>
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={coverImage} />
+	<meta property="og:image:width" content="2048" />
+	<meta property="og:image:height" content="2048" />
+	<meta property="og:url" content={page.url.toString()} />
+	<meta property="og:site_name" content="Gozar Productions Music" />
+	<meta property="og:type" content="website" />
+</svelte:head>
+
+<InitialBox imageSource={coverImage} imageAlt={title}>
+	<h1>{title}</h1>
 	<p>
 		"Wind And Water" is a song inspired by "Go the Distance" from Disney's
 		<i>Hercules</i> and "Colors of the Wind" by Disney's <i>Pocahontas</i>.

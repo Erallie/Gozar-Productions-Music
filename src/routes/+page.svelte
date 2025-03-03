@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from "$app/state";
 	import InitialBox from "$lib/components/InitialBox.svelte";
 	import Release from "$lib/components/Release.svelte";
 	import Releases from "$lib/components/Releases.svelte";
@@ -11,16 +12,30 @@
 	onMount(() => {
 		setBackground("/erika-gozar-background.png");
 	});
+
+	const title = "Erika Gozar";
+	const description =
+		"Erika Gozar has written music since she was 8 or 9 with simply an ear for music and no formal training in composition. Under the musical guidance of John Massaro and the vocal instruction of Gail Dubinbaum, Erika currently writes pieces for orchestra and voice in the style of film and musical theater.";
+	const coverImage = "/erika-gozar.png";
 </script>
 
-<InitialBox imageSource="/erika-gozar.png" imageAlt="Erika Gozar">
-	<h1>Erika Gozar</h1>
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={coverImage} />
+	<meta property="og:image:width" content="2048" />
+	<meta property="og:image:height" content="2048" />
+	<meta property="og:url" content={page.url.toString()} />
+	<meta property="og:site_name" content="Gozar Productions Music" />
+	<meta property="og:type" content="website" />
+</svelte:head>
+
+<InitialBox imageSource={coverImage} imageAlt={title}>
+	<h1>{title}</h1>
 	<p>
-		Erika Gozar has written music since she was 8 or 9 with simply an ear
-		for music and no formal training in composition. Under the musical
-		guidance of John Massaro and the vocal instruction of Gail Dubinbaum,
-		Erika currently writes pieces for orchestra and voice in the style of
-		film and musical theater.
+		{description}
 	</p>
 </InitialBox>
 

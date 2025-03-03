@@ -5,6 +5,7 @@
 	import ListSection from "./ListSection.svelte";
 	import ExpandableSection from "./ExpandableSection.svelte";
 	import ListSectionWrapper from "./ListSectionWrapper.svelte";
+	import { page } from "$app/state";
 
 	let howToAttendClicked = $state(false);
 	let commonIssuesClicked = $state(false);
@@ -20,10 +21,28 @@
 	onMount(() => {
 		setBackground("/performances/background-2.png");
 	});
+
+	const title = "Live Performances";
+	const description =
+		"Erika Gozar has live performances online in Virtual Reality. To watch, download VRChat and join the VRChat Group Erika's Voice via the group code ERIKA.6930. Then keep an eye out on the announcements in the group or on our Discord for information on her performances!";
+	const coverImage = "/performances/cover-2.png";
 </script>
 
-<InitialBox imageSource="/performances/cover-2.png" imageAlt="Performances"
-	><h1>Live Performances</h1>
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={coverImage} />
+	<meta property="og:image:width" content="2048" />
+	<meta property="og:image:height" content="2048" />
+	<meta property="og:url" content={page.url.toString()} />
+	<meta property="og:site_name" content="Gozar Productions Music" />
+	<meta property="og:type" content="website" />
+</svelte:head>
+
+<InitialBox imageSource={coverImage} imageAlt="Performances"
+	><h1>{title}</h1>
 	<p>Erika Gozar has live performances online in Virtual Reality.</p>
 	<p>
 		To watch, download

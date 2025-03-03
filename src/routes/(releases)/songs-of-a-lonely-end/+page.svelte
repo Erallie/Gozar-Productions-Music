@@ -5,6 +5,7 @@
 	import { setBackground } from "$lib/scripts/set-background";
 	import { type audioSource } from "$lib/types/types";
 	import AlbumPlayer from "$lib/components/AlbumPlayer.svelte";
+	import { page } from "$app/state";
 
 	onMount(() => {
 		setBackground("/releases/songs-of-a-lonely-end/background.png");
@@ -49,13 +50,27 @@
 			endTime: 60,
 		},
 	];
+	const title = "Songs of a Lonely End";
+	const description =
+		"Songs of a Lonely End is a collection of pieces written for a lore-heavy Minecraft server. It follows the journey of the Grand Archmage Varnius as he inadvertently nearly destroys the world, and banishes himself to another dimension in an attempt to save the home he loves so dearly.";
+	const coverImage = "/releases/songs-of-a-lonely-end/cover.png";
 </script>
 
-<InitialBox
-	imageSource="/releases/songs-of-a-lonely-end/cover.png"
-	imageAlt="Songs of a Lonely End"
->
-	<h1>Songs of a Lonely End</h1>
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={coverImage} />
+	<meta property="og:image:width" content="2048" />
+	<meta property="og:image:height" content="2048" />
+	<meta property="og:url" content={page.url.toString()} />
+	<meta property="og:site_name" content="Gozar Productions Music" />
+	<meta property="og:type" content="website" />
+</svelte:head>
+
+<InitialBox imageSource={coverImage} imageAlt={title}>
+	<h1>{title}</h1>
 	<p>
 		<em>Songs of a Lonely End</em> is a collection of pieces written for a lore-heavy
 		Minecraft server. It follows the journey of the Grand Archmage Varnius as
