@@ -14,11 +14,11 @@
 	}
 
 	onMount(() => {
-		setBackground("/performances/background.png");
+		setBackground("/performances/background-2.png");
 	});
 </script>
 
-<InitialBox imageSource="/performances/cover.png" imageAlt="Performances"
+<InitialBox imageSource="/performances/cover-2.png" imageAlt="Performances"
 	><h1>Live Performances</h1>
 	<p>Erika Gozar has live performances online in Virtual Reality.</p>
 	<p>
