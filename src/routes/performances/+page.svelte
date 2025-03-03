@@ -206,7 +206,7 @@
 	</ExpandableSection>
 	<ExpandableSection
 		bind:shouldOpen={commonIssuesClicked}
-		title="CommonIssues"
+		title="Common Issues"
 	>
 		<ListSectionWrapper>
 			<ListSection title="I'm Lagging">
