@@ -4,15 +4,21 @@
 	import { onMount, onDestroy } from "svelte";
 
 	let {
-		element = $bindable(),
 		title,
 		ordered,
 		children,
+		shouldOpen = $bindable(),
 	}: ExpandedSectionProps = $props();
+
+	let element: HTMLElement;
 
 	let isMaxWidth = $state(false);
 
 	let resizeObserver: ResizeObserver;
+
+	function onHover() {
+		shouldOpen = false;
+	}
 
 	const handleResize = (entries: ResizeObserverEntry[]) => {
 		for (const entry of entries) {
@@ -44,9 +50,13 @@
 	});
 </script>
 
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <section
 	bind:this={element}
-	class="expandable-section {isMaxWidth ? '' : 'not-max'}"
+	class="expandable-section {isMaxWidth ? '' : 'not-max'} {shouldOpen
+		? 'clicked'
+		: ''}"
+	onmouseenter={onHover}
 	id={title.toLowerCase().replaceAll(" ", "-").replaceAll("'", "")}
 >
 	<h1>{title}</h1>
@@ -63,7 +73,8 @@
 		overflow-x: clip;
 		transition: max-width 1s;
 		margin: 0px;
-		&:hover {
+		&:hover,
+		&.clicked {
 			max-width: calc(100% - 60px);
 		}
 	}

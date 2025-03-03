@@ -56,10 +56,10 @@ export type SectionProps = {
 };
 
 export type ExpandedSectionProps = {
-	element?: HTMLElement | null;
 	title: string;
 	ordered?: boolean;
 	children?: any;
+	shouldOpen?: boolean;
 };
 
 export type ListSectionWrapperProps = {

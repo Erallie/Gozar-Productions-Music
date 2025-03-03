@@ -6,11 +6,15 @@
 	import ExpandableSection from "./ExpandableSection.svelte";
 	import ListSectionWrapper from "./ListSectionWrapper.svelte";
 
-	let howToAttend: HTMLElement | null = $state(null);
+	let howToAttendClicked = $state(false);
+	let commonIssuesClicked = $state(false);
 
-	function openHowToAttend(ev: Event) {
-		ev.preventDefault();
-		howToAttend!.focus;
+	function openHowToAttend() {
+		howToAttendClicked = true;
+	}
+
+	function openCommonIssues() {
+		commonIssuesClicked = true;
 	}
 
 	onMount(() => {
@@ -53,7 +57,7 @@
 		scrolling="no"
 	></iframe>
 </section>
-<section id="stuff">
+<section class="expandable-sections">
 	<div>
 		<button onclick={openHowToAttend}>
 			<svg
@@ -73,7 +77,7 @@
 				</g>
 			</svg>How to Attend
 		</button>
-		<button>
+		<button onclick={openCommonIssues}>
 			Common Issues<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="200"
@@ -92,7 +96,11 @@
 			</svg>
 		</button>
 	</div>
-	<ExpandableSection bind:element={howToAttend} title="How to Attend" ordered>
+	<ExpandableSection
+		bind:shouldOpen={howToAttendClicked}
+		title="How to Attend"
+		ordered
+	>
 		<ListSectionWrapper ordered>
 			<ListSection title="Download VRChat">
 				<p>
@@ -196,7 +204,10 @@
 			</ListSection>
 		</ListSectionWrapper>
 	</ExpandableSection>
-	<ExpandableSection title="CommonIssues">
+	<ExpandableSection
+		bind:shouldOpen={commonIssuesClicked}
+		title="CommonIssues"
+	>
 		<ListSectionWrapper>
 			<ListSection title="I'm Lagging">
 				<p>
@@ -280,7 +291,7 @@
 </section>
 
 <style>
-	#stuff {
+	.expandable-sections {
 		position: relative;
 		display: flex;
 		width: 660px;
