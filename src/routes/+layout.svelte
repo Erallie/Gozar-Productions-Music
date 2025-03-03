@@ -286,7 +286,7 @@
 		&.minimized {
 			/* background-color: rgba(119, 46, 46, 0); */
 			max-width: var(--attend-button-width);
-			border-top-right-radius: 40px;
+			border-top-right-radius: var(--rounded-radius);
 			& > :first-child {
 				margin: auto 0px;
 				/* margin-right: 0px; */
