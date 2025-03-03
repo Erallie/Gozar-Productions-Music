@@ -137,12 +137,31 @@ section {
 @media (max-width: 480px) {
 	/* Styles for mobile devices */
 	:root {
-		font-size: 22px;
+		/* font-size: 16px; */
+		/* --margins: 12px; */
+	}
+
+	section:not(.remove-styles),
+	.album-player {
+		max-width: calc(100% - var(--margins) * 2);
+		width: calc(100% - var(--margins) * 2);
+	}
+
+	.album-player > section {
+		max-width: 100%;
+		width: 100%;
+	}
+	#performance-banner > :nth-child(2) button {
+		/* font-size: 0.8em; */
 	}
 }
 @media (max-width: 320px) {
-	/* Styles for mobile devices */
 	:root {
-		font-size: 20px;
+		/* font-size: 16px; */
+		--margins: 16px;
+	}
+
+	#performance-banner > :nth-child(2) button {
+		font-size: 0.8em;
 	}
 }

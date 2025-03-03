@@ -24,4 +24,12 @@
 	img {
 		width: 100%;
 	}
+
+	@media (max-width: 480px) {
+		/* Styles for mobile devices */
+		div {
+			width: calc(100% - var(--margins));
+			margin: var(--half-margin);
+		}
+	}
 </style>

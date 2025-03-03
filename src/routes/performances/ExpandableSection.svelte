@@ -78,4 +78,22 @@
 			max-width: calc(100% - var(--margins) * 3);
 		}
 	}
+	@media (max-width: 480px) {
+		/* Styles for mobile devices */
+		section.expandable-section {
+			text-wrap-mode: wrap;
+			&,
+			&:hover,
+			&.clicked {
+				max-width: 100%;
+				width: 100%;
+			}
+			&:nth-child(2) {
+				margin-bottom: var(--half-margin);
+			}
+			&:last-child {
+				margin-top: var(--half-margin);
+			}
+		}
+	}
 </style>

@@ -55,4 +55,14 @@
 		text-align: center;
 		margin-bottom: var(--half-margin);
 	}
+
+	@media (max-width: 480px) {
+		/* Styles for mobile devices */
+		section {
+			width: calc(100% - var(--margins) * 2);
+			& > div {
+				grid-template-columns: repeat(1, 1fr);
+			}
+		}
+	}
 </style>

@@ -27,4 +27,18 @@
 			width: 75%;
 		}
 	}
+	@media (max-width: 480px) {
+		/* Styles for mobile devices */
+		section {
+			flex-wrap: wrap;
+			width: calc(100% - var(--margins) * 2);
+			& > img {
+				width: calc(100% - var(--margins));
+			}
+			& > div {
+				margin: auto var(--margins);
+				width: max-content;
+			}
+		}
+	}
 </style>

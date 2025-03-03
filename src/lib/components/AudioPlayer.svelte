@@ -358,7 +358,15 @@
 	#time-slider {
 		flex-grow: 0;
 	}
-
+	@media (max-width: 480px) {
+		/* Styles for mobile devices */
+		#volume-container:hover #volume {
+			width: calc(var(--margins) * 4);
+		}
+		.controls {
+			max-width: 100%;
+		}
+	}
 	/* select {
         margin-bottom: var(--half-margin);
     } */

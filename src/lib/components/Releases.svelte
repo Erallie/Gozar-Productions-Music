@@ -22,4 +22,13 @@
 	h1 {
 		text-align: center;
 	}
+	@media (max-width: 480px) {
+		/* Styles for mobile devices */
+		section {
+			width: calc(100% - var(--margins) * 2);
+			& > div {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+	}
 </style>

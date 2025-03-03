@@ -110,4 +110,15 @@
 		display: flex;
 		justify-content: left;
 	}
+	@media (max-width: 480px) {
+		/* Styles for mobile devices */
+		header {
+			display: none;
+		}
+		hgroup {
+			font-size: calc(3.2dvw - 0.008em);
+			/* font-size: 3dvw; */
+			/* position: static; */
+		}
+	}
 </style>

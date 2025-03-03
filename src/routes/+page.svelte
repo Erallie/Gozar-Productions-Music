@@ -127,4 +127,11 @@
 			/* margin: var(--half-margin) auto; */
 		}
 	}
+	@media (max-width: 763px) {
+		#contact > :first-child {
+			text-align: center;
+			margin-bottom: var(--half-margin);
+			margin-top: var(--half-margin);
+		}
+	}
 </style>

@@ -346,4 +346,37 @@
 		padding: var(--half-margin);
 		margin: -var(--half-margin);
 	}
+	@media (max-width: 480px) {
+		/* Styles for mobile devices */
+		.expandable-sections {
+			flex-wrap: wrap;
+			& > :first-child {
+				display: none;
+			}
+		}
+
+		iframe {
+			aspect-ratio: 3 / 4;
+		}
+
+		section {
+			--margins: 12px;
+			--half-margin: calc(var(--margins) / 2);
+		}
+	}
+	@media (max-width: 320px) {
+		iframe {
+			width: min-content;
+		}
+		section {
+			--margins: 8px;
+			--half-margin: calc(var(--margins) / 2);
+			&#calendar {
+				max-width: 100%;
+				display: block;
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+		}
+	}
 </style>
