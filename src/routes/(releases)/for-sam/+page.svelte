@@ -34,7 +34,7 @@
 		{description}
 	</p>
 </InitialBox>
-<AudioPlayer src="/releases/for-sam/music.wav" startTime={30} endTime={60} />
+<AudioPlayer src="/releases/for-sam/music.mp3" startTime={30} endTime={60} />
 <Listen
 	spotify="https://open.spotify.com/track/0d3UuGgqGDP2XijOuJ1U5l?si=60ebe9f798cd4448"
 	appleMusic="https://music.apple.com/us/album/for-sam/1662010034?i=1662010035"
