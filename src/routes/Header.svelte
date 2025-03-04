@@ -43,6 +43,7 @@
 			newTab={false}
 			direction={ButtonDirection.Left}
 			color={TextColor.Black}
+			addedClass="nav-button"
 			invertBackground
 			>{isHome ? "Gozar Productions" : "Back to Erika Gozar"}</Button
 		>
@@ -54,6 +55,22 @@
 		<h2>Music</h2>
 	</div>
 	<img src={logo} alt="Gozar Productions Logo" />
+	<a
+		class="nav-back-link"
+		href={isHome ? "https://gozarproductions.com" : "/"}
+		aria-label={isHome ? "Gozar Productions" : "Back to Erika Gozar"}
+		><svg xmlns="http://www.w3.org/2000/svg" viewBox="-10.25 -10 120.5 120">
+			<g
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="10"
+				fill="none"
+			>
+				<polyline points="100,0 0,50 100,100" />
+			</g>
+		</svg>Back
+	</a>
 </hgroup>
 
 <style>
@@ -110,15 +127,46 @@
 		display: flex;
 		justify-content: left;
 	}
+	a.nav-back-link {
+		font-weight: initial;
+		display: none;
+		color: black;
+		background-color: hsl(0, 0%, 97%);
+		border-radius: var(--rounded-radius);
+		padding: var(--half-margin);
+		position: absolute;
+		top: calc(100% + var(--half-margin) / 2);
+		left: 0;
+		height: 1.4em;
+		font-size: 1.4em;
+		text-transform: uppercase;
+		transition:
+			background-color 0.2s,
+			color 0.2s;
+		line-height: 1.4em;
+		& > svg {
+			height: 80%;
+			aspect-ratio: 1 / 1;
+			width: auto;
+			vertical-align: middle;
+			transform: translate(0, -1.5px);
+			margin-right: var(--half-margin);
+		}
+		&:hover {
+			background-color: rgb(151, 151, 255);
+			color: white;
+			text-decoration: none;
+		}
+	}
 	@media (max-width: 480px) {
 		/* Styles for mobile devices */
-		header {
-			display: none;
-		}
 		hgroup {
 			font-size: calc(3.2dvw - 0.008em);
-			/* font-size: 3dvw; */
-			/* position: static; */
+			/* top: calc(var(--half-margin) + 100px); */
+			/* &.sticky */
+			> a.nav-back-link {
+				display: block;
+			}
 		}
 	}
 </style>

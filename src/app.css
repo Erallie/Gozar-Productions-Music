@@ -154,6 +154,9 @@ section {
 	#performance-banner > :nth-child(2) button {
 		/* font-size: 0.8em; */
 	}
+	button.nav-button {
+		display: none;
+	}
 }
 @media (max-width: 320px) {
 	:root {
