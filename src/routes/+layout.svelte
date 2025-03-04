@@ -129,7 +129,9 @@
 			<img src={logo} alt="Gozar Productions Logo" />Gozar Productions
 		</h1>
 		<div class="links">
-			<a href="/privacy-policy">Privacy Policy</a>
+			<a href="https://gozarproductions.com/privacy-policy">
+				Privacy Policy
+			</a>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="100"
@@ -138,7 +140,7 @@
 			>
 				<circle cx="50" cy="50" r="10" fill="currentColor" />
 			</svg>
-			<a href="/disclaimer">Disclaimer</a>
+			<a href="https://gozarproductions.com/disclaimer">Disclaimer</a>
 		</div>
 		<p>© 2025 Gozar Productions LLC. All Rights Reserved.</p>
 	</footer>
