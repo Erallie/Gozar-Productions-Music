@@ -44,8 +44,7 @@
 			direction={ButtonDirection.Left}
 			color={TextColor.Black}
 			addedClass="nav-button"
-			invertBackground
-			>{isHome ? "Gozar Productions" : "Back to Erika Gozar"}</Button
+			invertBackground>{isHome ? "Back" : "Home"}</Button
 		>
 	</nav>
 </header>
