@@ -26,6 +26,22 @@
 	const description =
 		"Erika Gozar has live performances online in Virtual Reality. To watch, download VRChat and join the VRChat Group Erika's Voice via the group code ERIKA.6930. Then keep an eye out on the announcements in the group or on our Discord for information on her performances!";
 	const coverImage = "/performances/cover-2.png";
+
+	function getLocalCalendar(): string {
+		// Get the user's local time zone
+		const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+		// Create a new URL object from the original link
+		const url = new URL(
+			"https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FPhoenix&mode=AGENDA&showCalendars=0&title=Erika%20Gozar's%20Performances&src=Y19hMTEyYzEwYTI4YWQ2NzRiMGU5MDg3Nzg3MDIwMTJmNGJjMTJkN2ViNGM2ZDA1YWNjODBhMDdiMWExNTgzODk3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23B39DDB"
+		);
+
+		// Update the 'ctz' parameter with the user's time zone
+		url.searchParams.set("ctz", userTimeZone);
+
+		// Return the updated link
+		return url.toString();
+	}
 </script>
 
 <svelte:head>
@@ -67,7 +83,7 @@
 	<h1>Performance Calendar</h1>
 	<iframe
 		title="Erika Gozar's Performances"
-		src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FPhoenix&mode=AGENDA&showCalendars=0&title=Erika%20Gozar's%20Performances&src=Y19hMTEyYzEwYTI4YWQ2NzRiMGU5MDg3Nzg3MDIwMTJmNGJjMTJkN2ViNGM2ZDA1YWNjODBhMDdiMWExNTgzODk3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23B39DDB"
+		src={getLocalCalendar()}
 		style="border-width:0"
 		class="rounded"
 		width="620"
