@@ -16,7 +16,6 @@
 		display: flex;
 		text-align: left;
 		height: min-content;
-		/* height: 300px; */
 		& > img {
 			width: 25%;
 			object-fit: cover;

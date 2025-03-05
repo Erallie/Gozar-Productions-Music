@@ -158,11 +158,8 @@
 		}
 	}
 	@media (max-width: 480px) {
-		/* Styles for mobile devices */
 		hgroup {
 			font-size: calc(3.2dvw - 0.008em);
-			/* top: calc(var(--half-margin) + 100px); */
-			/* &.sticky */
 			> a.nav-back-link {
 				display: block;
 			}
