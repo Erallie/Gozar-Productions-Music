@@ -57,7 +57,6 @@
 	<a
 		class="nav-back-link"
 		href={isHome ? "https://gozarproductions.com" : "/"}
-		aria-label={isHome ? "Gozar Productions" : "Back to Erika Gozar"}
 		><svg xmlns="http://www.w3.org/2000/svg" viewBox="-10.25 -10 120.5 120">
 			<g
 				stroke="currentColor"
@@ -68,7 +67,7 @@
 			>
 				<polyline points="100,0 0,50 100,100" />
 			</g>
-		</svg>Back
+		</svg>{isHome ? "Back" : "Home"}
 	</a>
 </hgroup>
 
