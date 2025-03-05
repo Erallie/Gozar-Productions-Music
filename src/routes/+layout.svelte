@@ -31,8 +31,8 @@
 				const performanceBannerWidth = entry.contentRect.width;
 
 				// widthMatching = performanceBannerWidth === attendButtonWidth;
-				widthMatching =
-					Math.abs(performanceBannerWidth - attendButtonWidth) <= 1;
+				if (Math.abs(performanceBannerWidth - attendButtonWidth) <= 1)
+					widthMatching = true;
 				/* // Check if the performance banner width matches the attend button width
                 if (performanceBannerWidth === attendButtonWidth) {
                     bannerClass = 'matching-width';
