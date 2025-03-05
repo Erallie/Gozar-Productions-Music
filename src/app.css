@@ -134,13 +134,13 @@ section {
 	}
 }
 
-@media (max-width: 480px) {
-	/* Styles for mobile devices */
-	:root {
-		/* font-size: 16px; */
-		/* --margins: 12px; */
+@media (max-width: 875px) {
+	button.nav-button {
+		display: none;
 	}
+}
 
+@media (max-width: 480px) {
 	section:not(.remove-styles),
 	.album-player {
 		max-width: calc(100% - var(--margins) * 2);
@@ -153,9 +153,6 @@ section {
 	}
 	#performance-banner > :nth-child(2) button {
 		/* font-size: 0.8em; */
-	}
-	button.nav-button {
-		display: none;
 	}
 }
 @media (max-width: 320px) {

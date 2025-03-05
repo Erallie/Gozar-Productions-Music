@@ -136,7 +136,7 @@
 		top: calc(100% + var(--half-margin) / 2);
 		left: 0;
 		height: 1.4em;
-		font-size: 1.4em;
+		font-size: 1em;
 		text-transform: uppercase;
 		transition:
 			background-color 0.2s,
@@ -156,11 +156,16 @@
 			text-decoration: none;
 		}
 	}
+	@media (max-width: 875px) {
+		a.nav-back-link {
+			display: block;
+		}
+	}
 	@media (max-width: 480px) {
 		hgroup {
 			font-size: calc(3.2dvw - 0.008em);
 			> a.nav-back-link {
-				display: block;
+				font-size: 1.4em;
 			}
 		}
 	}
