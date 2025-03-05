@@ -54,6 +54,13 @@
 		transition:
 			background-color 0.2s,
 			color 0.2s;
+		&:hover {
+			background-color: rgb(151, 151, 255);
+			color: white;
+			&:not(:has(*.expanded:hover)) {
+				cursor: pointer;
+			}
+		}
 	}
 
 	/* a {
@@ -78,19 +85,9 @@
 		display: inline;
 	}
 
-	li:hover:not(:has(*.expanded:hover)) {
-		cursor: pointer;
-	}
-
 	.reset-wrapper {
 		display: inline;
 		font-size: 1rem;
-	}
-
-	.content.expanded {
-		max-height: 700px;
-		padding: 4px var(--margins);
-		margin: var(--half-margin) 0px 0px;
 	}
 
 	.content {
@@ -105,9 +102,5 @@
 			padding-top 1s,
 			padding-bottom 1s,
 			margin-top 1s;
-	}
-	li:hover {
-		background-color: rgb(151, 151, 255);
-		color: white;
 	}
 </style>

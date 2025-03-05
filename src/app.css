@@ -119,9 +119,6 @@ section {
 		& p {
 			white-space: wrap;
 		}
-		&.not-max p {
-			white-space: nowrap;
-		}
 
 		& > *:not(ol):not(ul) {
 			max-width: 90%;
@@ -130,6 +127,15 @@ section {
 		}
 		& * {
 			overflow-x: clip;
+		}
+		&:not(.not-max),
+		&:hover,
+		&.clicked {
+			.list-section > .reset-wrapper > .content.expanded {
+				max-height: 700px;
+				padding: 4px var(--margins);
+				margin: var(--half-margin) 0px 0px;
+			}
 		}
 	}
 }
