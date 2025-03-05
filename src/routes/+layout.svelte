@@ -68,6 +68,14 @@
 		}
 	});
 
+	let footerHeight = $state(0);
+
+	$effect(() => {
+		if (performanceBanner && !isPerformancePage) {
+			footerHeight = performanceBanner.offsetHeight;
+		}
+	});
+
 	let { children } = $props();
 </script>
 
@@ -143,6 +151,7 @@
 			<a href="https://gozarproductions.com/disclaimer">Disclaimer</a>
 		</div>
 		<p>© 2025 Gozar Productions LLC. All Rights Reserved.</p>
+		<div class="empty" style="--height: {footerHeight}px"></div>
 	</footer>
 </div>
 
@@ -297,6 +306,11 @@
 		}
 		&.width-matching {
 			transition: none;
+		}
+	}
+	@media (max-width: 930px) {
+		div.empty {
+			height: var(--height);
 		}
 	}
 	@media (max-width: 480px) {
