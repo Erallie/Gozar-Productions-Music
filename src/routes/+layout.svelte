@@ -174,46 +174,42 @@
 		align-items: center;
 		padding: 12px;
 		background-color: black;
-	}
+		& img {
+			aspect-ratio: 1 / 1;
+			height: 4rem;
+			display: block;
+			margin: 12px auto;
+		}
+		&,
+		& a,
+		& p {
+			color: white;
+			font-weight: 300;
+			text-align: center;
+		}
+		& h1 {
+			font-size: 1.5rem;
+			font-weight: 300;
+			line-height: 1.1em;
+		}
 
-	footer img {
-		aspect-ratio: 1 / 1;
-		height: 4rem;
-		display: block;
-		margin: 12px auto;
-	}
-
-	footer,
-	footer a,
-	footer p {
-		color: white;
-		font-weight: 300;
-		text-align: center;
-	}
-
-	footer h1 {
-		font-size: 1.5rem;
-		font-weight: 300;
-		line-height: 1.1em;
-	}
-	footer svg {
-		aspect-ratio: 1 / 1;
-		width: auto;
-		height: 1em;
-		vertical-align: middle;
-	}
-
-	footer p {
-		line-height: 1.2em;
-	}
-
-	footer p,
-	footer a {
-		font-size: 0.85rem;
-		text-decoration: none;
-	}
-	footer a:hover {
-		text-decoration: underline;
+		& svg {
+			aspect-ratio: 1 / 1;
+			width: auto;
+			height: 1em;
+			vertical-align: middle;
+		}
+		& p {
+			line-height: 1.2em;
+		}
+		& p,
+		& a {
+			font-size: 0.85rem;
+			text-decoration: none;
+		}
+		& a:hover {
+			text-decoration: underline;
+		}
 	}
 
 	#performance-banner {
