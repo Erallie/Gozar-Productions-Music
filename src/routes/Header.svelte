@@ -45,11 +45,11 @@
 			color={TextColor.Black}
 			addedClass="nav-button"
 			invertBackground>{isHome ? "Back" : "Home"}</Button>
-		<paypal-cart-button class="paypal-desktop" data-id="pp-view-cart"
+		<!-- <paypal-cart-button class="paypal-desktop" data-id="pp-view-cart"
 		></paypal-cart-button>
 		<script>
 			cartPaypal.Cart({ id: "pp-view-cart" });
-		</script>
+		</script> -->
 	</nav>
 </header>
 <hgroup bind:this={hgroupElement} class={isSticky ? "sticky" : undefined}>
@@ -72,11 +72,11 @@
 			</g>
 		</svg>{isHome ? "Back" : "Home"}
 	</a>
-	<paypal-cart-button class="paypal-mobile" data-id="pp-view-cart"
+	<!-- <paypal-cart-button class="paypal-mobile" data-id="pp-view-cart"
 	></paypal-cart-button>
 	<script>
 		cartPaypal.Cart({ id: "pp-view-cart" });
-	</script>
+	</script> -->
 </hgroup>
 
 <style>
@@ -133,7 +133,7 @@
 		display: flex;
 		justify-content: space-between;
 	}
-	paypal-cart-button {
+	/* paypal-cart-button {
 		&.paypal-desktop {
 			margin: var(--margins);
 		}
@@ -143,7 +143,7 @@
 			right: 0;
 			top: calc(100% + var(--half-margin) / 2);
 		}
-	}
+	} */
 	a.nav-back-link {
 		font-weight: initial;
 		display: none;
@@ -180,7 +180,7 @@
 			display: block;
 		}
 	}
-	@media (max-width: 723px) {
+	/* @media (max-width: 723px) {
 		paypal-cart-button {
 			&.paypal-desktop {
 				display: none;
@@ -189,7 +189,7 @@
 				display: initial;
 			}
 		}
-	}
+	} */
 	@media (max-width: 480px) {
 		hgroup {
 			font-size: calc(3.2dvw - 0.008em);

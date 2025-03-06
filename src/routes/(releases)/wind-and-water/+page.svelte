@@ -5,7 +5,7 @@
 	import AudioPlayer from "$lib/components/AudioPlayer.svelte";
 	import { setBackground } from "$lib/scripts/set-background";
 	import { page } from "$app/state";
-	import Purchase from "../Purchase.svelte";
+	// import Purchase from "../Purchase.svelte";
 
 	onMount(() => {
 		setBackground("/releases/wind-and-water/background.png");
@@ -42,13 +42,13 @@
 	src="/releases/wind-and-water/music.mp3"
 	startTime={130.5}
 	endTime={178} />
-<Purchase>
+<!-- <Purchase>
 	<paypal-add-to-cart-button data-id="NCDYS9L7P67X8"
 	></paypal-add-to-cart-button>
 	<script>
 		cartPaypal.AddToCart({ id: "NCDYS9L7P67X8" });
 	</script>
-</Purchase>
+</Purchase> -->
 <Listen
 	spotify="https://open.spotify.com/album/5a5t04DsYZKqxZOUdZPRVP?si=pz5USCziRjWZKvCfTO6zrA"
 	appleMusic="https://music.apple.com/us/album/wind-and-water-single/1632963815"

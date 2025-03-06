@@ -5,7 +5,7 @@
 	import AudioPlayer from "$lib/components/AudioPlayer.svelte";
 	import { setBackground } from "$lib/scripts/set-background";
 	import { page } from "$app/state";
-	import Purchase from "../Purchase.svelte";
+	// import Purchase from "../Purchase.svelte";
 
 	onMount(() => {
 		setBackground("/releases/for-sam/background.png");
@@ -36,13 +36,13 @@
 	</p>
 </InitialBox>
 <AudioPlayer src="/releases/for-sam/music.mp3" startTime={30} endTime={60} />
-<Purchase>
+<!-- <Purchase>
 	<paypal-add-to-cart-button data-id="G5WRNPAMYLFFG"
 	></paypal-add-to-cart-button>
 	<script>
 		cartPaypal.AddToCart({ id: "G5WRNPAMYLFFG" });
 	</script>
-</Purchase>
+</Purchase> -->
 <Listen
 	spotify="https://open.spotify.com/track/0d3UuGgqGDP2XijOuJ1U5l?si=60ebe9f798cd4448"
 	appleMusic="https://music.apple.com/us/album/for-sam/1662010034?i=1662010035"
