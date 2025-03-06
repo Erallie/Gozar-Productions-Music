@@ -26,15 +26,13 @@
 
 <section
 	id={title.toLowerCase().replaceAll(" ", "-").replaceAll("'", "")}
-	class="remove-styles"
->
+	class="remove-styles">
 	<li bind:this={li} class="rounded list-section">
 		<div class="reset-wrapper">
 			<h2>{title}</h2>
 			<div
 				bind:this={content}
-				class="content rounded {expanded ? 'expanded' : ''}"
-			>
+				class="content rounded {expanded ? 'expanded' : ''}">
 				{@render children()}
 			</div>
 		</div>

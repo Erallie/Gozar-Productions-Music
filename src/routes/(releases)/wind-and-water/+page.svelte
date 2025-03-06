@@ -40,13 +40,11 @@
 <AudioPlayer
 	src="/releases/wind-and-water/music.mp3"
 	startTime={130.5}
-	endTime={178}
-/>
+	endTime={178} />
 <Listen
 	spotify="https://open.spotify.com/album/5a5t04DsYZKqxZOUdZPRVP?si=pz5USCziRjWZKvCfTO6zrA"
 	appleMusic="https://music.apple.com/us/album/wind-and-water-single/1632963815"
 	youtube="https://youtu.be/0V9jrgM7g_8"
 	youtubeMusic="https://music.youtube.com/playlist?list=OLAK5uy_kX10xFIFoEPkES3YCpK4u5XIitJYvwY2c&feature=share"
 	pandora="https://pandora.app.link/9PjhR0Y0hrb"
-	amazonMusic="https://music.amazon.com/albums/B0B5HSKKM5?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_MVSNjuwdS95oxEEr52KsJeWfY"
-/>
+	amazonMusic="https://music.amazon.com/albums/B0B5HSKKM5?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_MVSNjuwdS95oxEEr52KsJeWfY" />

@@ -57,8 +57,7 @@
 		? 'clicked'
 		: ''}"
 	onmouseenter={onHover}
-	id={title.toLowerCase().replaceAll(" ", "-").replaceAll("'", "")}
->
+	id={title.toLowerCase().replaceAll(" ", "-").replaceAll("'", "")}>
 	<h1>{title}</h1>
 	{@render children()}
 </section>

@@ -76,8 +76,7 @@
         --text-color: {textColor};
         --background-color: {backgroundColor};
         --background-opacity: {backgroundOpacity};
-        --border-width: {borderWidth}px"
->
+        --border-width: {borderWidth}px">
 	<button
 		class={addedClass}
 		style="--margin-top-multiplier: {marginTopMultiplier !== undefined
@@ -91,20 +90,17 @@
 			: '1'}; --margin-right-multiplier: {marginRightMultiplier !==
 		undefined
 			? `${marginRightMultiplier}`
-			: '1'}"
-	>
+			: '1'}">
 		{#if !customSVG && direction == ButtonDirection.Left}
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="200"
 				height="60"
-				viewBox="0 0 200 60"
-			>
+				viewBox="0 0 200 60">
 				<g
 					stroke="currentColor"
 					stroke-width="5"
-					stroke-linecap="round"
-				>
+					stroke-linecap="round">
 					<line x1="2.5" y1="30" x2="197.5" y2="30" />
 					<line x1="2.5" y1="30" x2="40" y2="2.5" />
 					<line x1="2.5" y1="30" x2="40" y2="57.5" />
@@ -117,13 +113,11 @@
 				xmlns="http://www.w3.org/2000/svg"
 				width="200"
 				height="60"
-				viewBox="0 0 200 60"
-			>
+				viewBox="0 0 200 60">
 				<g
 					stroke="currentColor"
 					stroke-width="5"
-					stroke-linecap="round"
-				>
+					stroke-linecap="round">
 					<line x1="2.5" y1="30" x2="197.5" y2="30 " />
 					<line x1="197.5" y1="30" x2="160" y2="2.5" />
 					<line x1="197.5" y1="30" x2="160" y2="57.5" />

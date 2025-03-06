@@ -45,29 +45,24 @@
 	youtube="https://youtube.com/GozarProductions"
 	youtubeMusic="https://music.youtube.com/channel/UCpBIOFSyWcJ_BMn9NDM3wLw?feature=share?sub_confirmation=1"
 	pandora="https://pandora.app.link/Xqthr6V0hrb"
-	amazonMusic="https://music.amazon.com/artists/B07VLX7KRL/erika-gozar?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_uIBs3sUrzG0tfE2fxiXk3USwj"
-/>
+	amazonMusic="https://music.amazon.com/artists/B07VLX7KRL/erika-gozar?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_uIBs3sUrzG0tfE2fxiXk3USwj" />
 <Releases title="Featured Releases">
 	<Release
 		link="/for-sam"
 		imageSource="/releases/for-sam/cover.png"
-		imageAlt="For Sam"
-	/>
+		imageAlt="For Sam" />
 	<Release
 		link="/in-the-darkness"
 		imageSource="/releases/in-the-darkness/cover.png"
-		imageAlt="In the Darkness"
-	/>
+		imageAlt="In the Darkness" />
 	<Release
 		link="/songs-of-a-lonely-end"
 		imageSource="/releases/songs-of-a-lonely-end/cover.png"
-		imageAlt="Songs of a Lonely End"
-	/>
+		imageAlt="Songs of a Lonely End" />
 	<Release
 		link="/wind-and-water"
 		imageSource="/releases/wind-and-water/cover.png"
-		imageAlt="Wind and Water"
-	/>
+		imageAlt="Wind and Water" />
 </Releases>
 <section id="contact">
 	<div>
@@ -79,8 +74,7 @@
 			<h3>Erika Gozar</h3>
 			<hr />
 			<a href="mailto:erika@gozarproductions.com"
-				>erika@gozarproductions.com</a
-			>
+				>erika@gozarproductions.com</a>
 		</div>
 		<!-- <span class="or">- or -</span> -->
 		<Button
@@ -97,11 +91,9 @@
 				xmlns="http://www.w3.org/2000/svg"
 				width="127.14px"
 				height="96.36px"
-				viewBox="0 0 127.14 96.36"
-			>
+				viewBox="0 0 127.14 96.36">
 				<path
-					d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"
-				/>
+					d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
 			</svg></Button
 		><br />
 	</div>

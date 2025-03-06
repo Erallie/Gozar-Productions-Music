@@ -85,5 +85,4 @@
 	youtube="https://youtube.com/playlist?list=OLAK5uy_nqpeOBpRJx-txxeFXPUkBB_BM919dReTM"
 	youtubeMusic="https://music.youtube.com/playlist?list=OLAK5uy_m2BMnRPOL2c5q6pdHBtaZ5xn4Z19SrQms&feature=share"
 	pandora="https://pandora.app.link/Vep10501hrb"
-	amazonMusic="https://music.amazon.com/albums/B0B5HS5HDS?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_BIdzrKplXfA0aeQenIUh6Ux6e"
-/>
+	amazonMusic="https://music.amazon.com/albums/B0B5HS5HDS?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_BIdzrKplXfA0aeQenIUh6Ux6e" />

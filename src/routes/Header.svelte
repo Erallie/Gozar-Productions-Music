@@ -44,8 +44,11 @@
 			direction={ButtonDirection.Left}
 			color={TextColor.Black}
 			addedClass="nav-button"
-			invertBackground>{isHome ? "Back" : "Home"}</Button
-		>
+			invertBackground>{isHome ? "Back" : "Home"}</Button>
+		<paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
+		<script>
+			cartPaypal.Cart({ id: "pp-view-cart" });
+		</script>
 	</nav>
 </header>
 <hgroup bind:this={hgroupElement} class={isSticky ? "sticky" : undefined}>
@@ -63,8 +66,7 @@
 				stroke-linecap="round"
 				stroke-linejoin="round"
 				stroke-width="10"
-				fill="none"
-			>
+				fill="none">
 				<polyline points="100,0 0,50 100,100" />
 			</g>
 		</svg>{isHome ? "Back" : "Home"}

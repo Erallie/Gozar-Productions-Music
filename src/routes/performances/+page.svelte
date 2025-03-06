@@ -57,18 +57,16 @@
 	<meta property="og:type" content="website" />
 </svelte:head>
 
-<InitialBox imageSource={coverImage} imageAlt="Performances"
-	><h1>{title}</h1>
+<InitialBox imageSource={coverImage} imageAlt="Performances">
+	<h1>{title}</h1>
 	<p>Erika Gozar has live performances online in Virtual Reality.</p>
 	<p>
 		To watch, download
 		<a href="https://hello.vrchat.com/" target="_blank"
-			><bold>VRChat</bold></a
-		>
+			><bold>VRChat</bold></a>
 		and join the VRChat Group
 		<a href="https://vrc.group/ERIKA.6930" target="_blank"
-			><bold>Erika's Voice</bold></a
-		>
+			><bold>Erika's Voice</bold></a>
 		via the group code
 		<a href="https://vrc.group/ERIKA.6930" target="_blank"
 			><code><bold>ERIKA.6930</bold></code></a
@@ -89,8 +87,7 @@
 		width="620"
 		height="400"
 		frameborder="0"
-		scrolling="no"
-	></iframe>
+		scrolling="no"></iframe>
 </section>
 <section class="expandable-sections">
 	<div>
@@ -99,13 +96,11 @@
 				xmlns="http://www.w3.org/2000/svg"
 				width="200"
 				height="60"
-				viewBox="0 0 200 60"
-			>
+				viewBox="0 0 200 60">
 				<g
 					stroke="currentColor"
 					stroke-width="5"
-					stroke-linecap="round"
-				>
+					stroke-linecap="round">
 					<line x1="2.5" y1="30" x2="197.5" y2="30" />
 					<line x1="2.5" y1="30" x2="40" y2="2.5" />
 					<line x1="2.5" y1="30" x2="40" y2="57.5" />
@@ -117,13 +112,11 @@
 				xmlns="http://www.w3.org/2000/svg"
 				width="200"
 				height="60"
-				viewBox="0 0 200 60"
-			>
+				viewBox="0 0 200 60">
 				<g
 					stroke="currentColor"
 					stroke-width="5"
-					stroke-linecap="round"
-				>
+					stroke-linecap="round">
 					<line x1="2.5" y1="30" x2="197.5" y2="30 " />
 					<line x1="197.5" y1="30" x2="160" y2="2.5" />
 					<line x1="197.5" y1="30" x2="160" y2="57.5" />
@@ -134,20 +127,17 @@
 	<ExpandableSection
 		bind:shouldOpen={howToAttendClicked}
 		title="How to Attend"
-		ordered
-	>
+		ordered>
 		<ListSectionWrapper ordered>
 			<ListSection title="Download VRChat">
 				<p>
 					<a href="https://hello.vrchat.com/" target="_blank"
-						>VRChat</a
-					>
+						>VRChat</a>
 					is primarily meant to be played in VR, but it is also available
 					on Windows desktop through
 					<a
 						href="https://store.steampowered.com/app/438100/VRChat/?utm-source=hello-home"
-						target="_blank">Steam</a
-					>
+						target="_blank">Steam</a>
 					or on Android via
 					<a
 						href="https://play.google.com/store/apps/details?id=com.vrchat.mobile.playstore&hl=en&utm-source=hello-home"
@@ -164,18 +154,15 @@
 					If you have none of these devices and want a cheaper option,
 					you can purchase a <a
 						href="https://www.meta.com/quest/quest-3s/"
-						target="_blank">Meta Quest 3S</a
-					>
+						target="_blank">Meta Quest 3S</a>
 					for <strong>300 USD</strong> or a
 					<a
 						href="https://www.meta.com/quest/quest-3/"
-						target="_blank">Meta Quest 3</a
-					>
+						target="_blank">Meta Quest 3</a>
 					for <strong>500 USD</strong> and download VRChat through the
 					<a
 						href="https://www.meta.com/experiences/vrchat/1856672347794301/"
-						target="_blank">Meta Quest store</a
-					>
+						target="_blank">Meta Quest store</a>
 					on your device.
 				</p>
 			</ListSection>
@@ -183,8 +170,7 @@
 				<p>
 					We have a <a
 						href="https://discord.gg/cCCEk7BX4W"
-						target="_blank">Discord server</a
-					>
+						target="_blank">Discord server</a>
 					and a public VRChat group (<a
 						href="https://vrc.group/ERIKA.6930"
 						target="_blank">Erika's Voice</a
@@ -193,14 +179,12 @@
 				<p>
 					Join either of them, and keep an eye on the <a
 						href="https://discord.com/channels/1102582171207741480/1220485752677470208"
-						target="_blank">announcements channel</a
-					>
+						target="_blank">announcements channel</a>
 
 					or on the
 					<a
 						href="https://vrchat.com/home/group/grp_61d1c3b2-c8e8-492a-92ca-1a1411e741a5/posts"
-						target="_blank">group posts</a
-					>
+						target="_blank">group posts</a>
 					for more information on where and when each performance takes
 					place.
 				</p>
@@ -210,12 +194,10 @@
 					When a performance is about to start, we will send an
 					announcement on our
 					<a href="https://discord.gg/cCCEk7BX4W" target="_blank"
-						>Discord</a
-					>
+						>Discord</a>
 					and in our
 					<a href="https://vrc.group/ERIKA.6930" target="_blank"
-						>VRChat group</a
-					>
+						>VRChat group</a>
 					with information on what group to join to attend the performance.
 				</p>
 				<p>
@@ -223,8 +205,7 @@
 						>This group is usually different from our own (<a
 							href="https://vrc.group/ERIKA.6930"
 							target="_blank">Erika's Voice</a
-						>) and is specific to the venue.</bold
-					>
+						>) and is specific to the venue.</bold>
 				</p>
 				<p>
 					Make sure you join the correct group, and then launch VRChat
@@ -241,8 +222,7 @@
 	</ExpandableSection>
 	<ExpandableSection
 		bind:shouldOpen={commonIssuesClicked}
-		title="Common Issues"
-	>
+		title="Common Issues">
 		<ListSectionWrapper>
 			<ListSection title="I'm Lagging">
 				<p>
@@ -253,21 +233,19 @@
 					<ListSection title="Safety Settings">
 						<p>
 							Make sure you adjust your <bold
-								>safety settings</bold
-							>
+								>safety settings</bold>
 							to avoid rendering parts of avatars that can lag you.
 						</p>
 						<p>
 							This setting can be found by clicking the <bold
-								>shield icon</bold
-							>
+								>shield icon</bold>
 							on the <bold>top-right</bold> of your
 							<bold>big menu</bold>.
 						</p>
 						<p>
 							If you are on PCVR, Make sure to turn <bold
-								>shaders off</bold
-							> for most people, as those are the most intensive.
+								>shaders off</bold> for most people, as those are
+							the most intensive.
 						</p>
 					</ListSection>
 					<ListSection title="Avatar Culling">
@@ -277,8 +255,7 @@
 						</p>
 						<p>
 							This setting can be found in your <bold
-								>small menu</bold
-							>
+								>small menu</bold>
 							under the <bold>settings tab</bold> under the header
 							<bold>"Avatar Culling"</bold>.
 						</p>
@@ -287,8 +264,7 @@
 							turning safety settings to maximum or turning safe
 							mode on, as it renders everyone as
 							<bold>non-skeletal diamonds</bold> instead of robots.
-						</p></ListSection
-					>
+						</p></ListSection>
 				</ListSectionWrapper>
 			</ListSection>
 
@@ -305,8 +281,7 @@
 				</p>
 				<p>
 					If that still doesn't fix it, make sure you <bold
-						>allow untrusted URLs</bold
-					>
+						>allow untrusted URLs</bold>
 					in your settings. This can be found in your
 					<bold>big menu</bold>
 					under the <bold>Comfort & Safety</bold> tab, under the
@@ -315,8 +290,7 @@
 				<p>
 					If you've done all of these things, but the issue still
 					persists, there may be an issue with the video player. Try <bold
-						>resyncing the video</bold
-					>
+						>resyncing the video</bold>
 					to update your feed. The button for this should be by the
 					<bold>video controls</bold> in the world.
 				</p>

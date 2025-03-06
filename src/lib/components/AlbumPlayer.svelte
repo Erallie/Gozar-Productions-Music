@@ -45,8 +45,7 @@
 			class="selected rounded"
 			onclick={() => (isOpen = !isOpen)}
 			aria-haspopup="true"
-			aria-expanded={isOpen}
-		>
+			aria-expanded={isOpen}>
 			<span>
 				Track {audioSources.findIndex(
 					(source) => source.src === selectedSource.src
@@ -58,8 +57,7 @@
 				fill="currentColor"
 				width="8"
 				height="4"
-				viewBox="4 6 8 4"
-			>
+				viewBox="4 6 8 4">
 				<path d="M4 6l4 4 4-4H4z" />
 			</svg>
 		</button>
@@ -71,11 +69,9 @@
 						role="option"
 						aria-selected={source.src === selectedSource.src}
 						onclick={() => changeSource(source)}
-						tabindex="0"
-					>
+						tabindex="0">
 						<span class="track-index">{index + 1}:</span><span
-							>{source.name}</span
-						>
+							>{source.name}</span>
 						<span></span>
 					</button>
 				{/each}
@@ -88,8 +84,7 @@
 		startTime={selectedSource.startTime}
 		endTime={selectedSource.endTime}
 		bind:player={audio}
-		removeMargins
-	/>
+		removeMargins />
 </div>
 
 <style>

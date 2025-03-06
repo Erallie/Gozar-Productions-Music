@@ -94,8 +94,7 @@
 			: ''}"
 		style="--attend-button-width: {attendButtonWidth}px; {isPerformancePage
 			? 'display: none'
-			: ''}"
-	>
+			: ''}">
 		<div>
 			<span>
 				<h2>Erika Gozar</h2>
@@ -115,21 +114,18 @@
 			marginBottomMultiplier={0.5}
 			marginLeftMultiplier={0.5}
 			marginRightMultiplier={0.5}
-			>{#if !noticeMinimized}Attend{:else}Attend Live{/if}</Button
-		>
+			>{#if !noticeMinimized}Attend{:else}Attend Live{/if}</Button>
 		<button aria-label="Minimize" onclick={minimizeNotice}
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="100"
 				height="100"
-				viewBox="0 -10 100 100"
-			>
+				viewBox="0 -10 100 100">
 				<g stroke="currentColor" stroke-width="20">
 					<line id="line-vertical" x1="0" y1="0" x2="100" y2="0" />
 					<line id="line-horizontal" x1="0" y1="0" x2="100" y2="0" />
 				</g>
-			</svg></button
-		>
+			</svg></button>
 	</div>
 
 	<footer>
@@ -144,8 +140,7 @@
 				xmlns="http://www.w3.org/2000/svg"
 				width="100"
 				height="100"
-				viewBox="0 0 100 100"
-			>
+				viewBox="0 0 100 100">
 				<circle cx="50" cy="50" r="10" fill="currentColor" />
 			</svg>
 			<a href="https://gozarproductions.com/disclaimer">Disclaimer</a>

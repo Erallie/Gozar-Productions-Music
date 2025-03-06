@@ -182,8 +182,7 @@
 				src={isPlaying
 					? "/audio-player/pause.svg"
 					: "/audio-player/play.svg"}
-				alt={isPlaying ? "Pause" : "Play"}
-			/>
+				alt={isPlaying ? "Pause" : "Play"} />
 		</button>
 		<span id="timestamp">
 			<span>{timeStamp(currentTime)}</span> /
@@ -197,8 +196,7 @@
 			step="0.1"
 			bind:value={currentTime}
 			oninput={seek}
-			style={timeSliderStyle()}
-		/>
+			style={timeSliderStyle()} />
 		<div id="volume-container" class="rounded">
 			<input
 				type="range"
@@ -208,8 +206,7 @@
 				step="0.01"
 				bind:value={volume}
 				oninput={setVolume}
-				style={volumeSliderStyle()}
-			/>
+				style={volumeSliderStyle()} />
 			<button class="rounded" onclick={toggleMute}>
 				<img
 					src={volume === 0
@@ -217,8 +214,7 @@
 						: volume >= 0.5
 							? "/audio-player/volume/volume-loud.svg"
 							: "/audio-player/volume/volume-quiet.svg"}
-					alt="Volume"
-				/>
+					alt="Volume" />
 			</button>
 		</div>
 	</div>

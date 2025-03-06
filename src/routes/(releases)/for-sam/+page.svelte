@@ -41,5 +41,4 @@
 	youtube="https://youtu.be/iW2p6FjE7jo"
 	youtubeMusic="https://music.youtube.com/watch?v=iW2p6FjE7jo&feature=share"
 	pandora="https://pandora.app.link/j9gUnin49vb"
-	amazonMusic="https://music.amazon.com/albums/B0BRBSBPR9?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_MMBqKhz1Fyd7Ejygxie0NOaau&trackAsin=B0BRBQ2L8H"
-/>
+	amazonMusic="https://music.amazon.com/albums/B0BRBSBPR9?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_MMBqKhz1Fyd7Ejygxie0NOaau&trackAsin=B0BRBQ2L8H" />

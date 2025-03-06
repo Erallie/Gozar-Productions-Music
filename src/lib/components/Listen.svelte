@@ -10,33 +10,27 @@
 		<ListenButton
 			link={spotify}
 			imageSource="/social-branding/spotify.svg"
-			imageAlt="Spotify"
-		/>
+			imageAlt="Spotify" />
 		<ListenButton
 			link={appleMusic}
 			imageSource="/social-branding/apple-music.svg"
-			imageAlt="Apple Music"
-		/>
+			imageAlt="Apple Music" />
 		<ListenButton
 			link={youtube}
 			imageSource="/social-branding/youtube.svg"
-			imageAlt="YouTube"
-		/>
+			imageAlt="YouTube" />
 		<ListenButton
 			link={youtubeMusic}
 			imageSource="/social-branding/youtube-music.svg"
-			imageAlt="YouTube Music"
-		/>
+			imageAlt="YouTube Music" />
 		<ListenButton
 			link={pandora}
 			imageSource="/social-branding/pandora.svg"
-			imageAlt="Pandora"
-		/>
+			imageAlt="Pandora" />
 		<ListenButton
 			link={amazonMusic}
 			imageSource="/social-branding/amazon-music-logo.svg"
-			imageAlt="Amazon Music"
-		/>
+			imageAlt="Amazon Music" />
 	</div>
 </section>
 
