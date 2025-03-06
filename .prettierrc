@@ -14,11 +14,11 @@
             "files": "*.svelte",
             "options": {
                 "parser": "svelte",
-                "svelteBracketNewLine": true,
                 "svelteAllowShorthand": true,
                 "svelteIndentScriptAndStyle": true,
                 "svelteSortOrder": "scripts-options-markup-styles"
             }
         }
     ]
+				"svelteBracketNewLine": false,
 }
