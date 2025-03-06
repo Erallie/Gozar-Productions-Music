@@ -5,6 +5,7 @@
 	import AudioPlayer from "$lib/components/AudioPlayer.svelte";
 	import { setBackground } from "$lib/scripts/set-background";
 	import { page } from "$app/state";
+	import Purchase from "../Purchase.svelte";
 
 	onMount(() => {
 		setBackground("/releases/in-the-darkness/background.png");
@@ -38,6 +39,13 @@
 	src="/releases/in-the-darkness/music.mp3"
 	startTime={15}
 	endTime={45} />
+<Purchase>
+	<paypal-add-to-cart-button data-id="44RAZ9VVGJRAU"
+	></paypal-add-to-cart-button>
+	<script>
+		cartPaypal.AddToCart({ id: "44RAZ9VVGJRAU" });
+	</script>
+</Purchase>
 <Listen
 	spotify="https://open.spotify.com/album/7fJfWpRIb3ZuLUBmuTN7zW?si=0_8JKnxiTCCbNo8h93Ha5A"
 	appleMusic="https://music.apple.com/us/album/in-the-darkness-single/1652446209"

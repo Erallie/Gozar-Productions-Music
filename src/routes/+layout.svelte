@@ -79,6 +79,12 @@
 	let { children } = $props();
 </script>
 
+<svelte:head>
+	<script
+		src="https://www.paypalobjects.com/ncp/cart/cart.js"
+		data-merchant-id="75LK4PR9TCJ6Q"></script>
+</svelte:head>
+
 <div class="app">
 	<Header />
 

@@ -6,6 +6,7 @@
 	import { type audioSource } from "$lib/types/types";
 	import AlbumPlayer from "$lib/components/AlbumPlayer.svelte";
 	import { page } from "$app/state";
+	import Purchase from "../Purchase.svelte";
 
 	onMount(() => {
 		setBackground("/releases/songs-of-a-lonely-end/background.png");
@@ -79,6 +80,13 @@
 	</p>
 </InitialBox>
 <AlbumPlayer {audioSources} defaultSource={4} />
+<Purchase>
+	<paypal-add-to-cart-button data-id="WRK46E3AB3D4L"
+	></paypal-add-to-cart-button>
+	<script>
+		cartPaypal.AddToCart({ id: "WRK46E3AB3D4L" });
+	</script>
+</Purchase>
 <Listen
 	spotify="https://open.spotify.com/album/0FMiavhfR8urUExuGSKAfB?si=rFNuy3kwTjS4k5zreGQgzg"
 	appleMusic="https://music.apple.com/us/album/songs-of-a-lonely-end-ep/1632944405"

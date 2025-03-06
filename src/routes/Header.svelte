@@ -45,7 +45,8 @@
 			color={TextColor.Black}
 			addedClass="nav-button"
 			invertBackground>{isHome ? "Back" : "Home"}</Button>
-		<paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
+		<paypal-cart-button class="paypal-desktop" data-id="pp-view-cart"
+		></paypal-cart-button>
 		<script>
 			cartPaypal.Cart({ id: "pp-view-cart" });
 		</script>
@@ -71,6 +72,11 @@
 			</g>
 		</svg>{isHome ? "Back" : "Home"}
 	</a>
+	<paypal-cart-button class="paypal-mobile" data-id="pp-view-cart"
+	></paypal-cart-button>
+	<script>
+		cartPaypal.Cart({ id: "pp-view-cart" });
+	</script>
 </hgroup>
 
 <style>
@@ -125,7 +131,18 @@
 	nav {
 		width: 100%;
 		display: flex;
-		justify-content: left;
+		justify-content: space-between;
+	}
+	paypal-cart-button {
+		&.paypal-desktop {
+			margin: var(--margins);
+		}
+		&.paypal-mobile {
+			display: none;
+			position: absolute;
+			right: 0;
+			top: calc(100% + var(--half-margin) / 2);
+		}
 	}
 	a.nav-back-link {
 		font-weight: initial;
@@ -161,6 +178,16 @@
 	@media (max-width: 875px) {
 		a.nav-back-link {
 			display: block;
+		}
+	}
+	@media (max-width: 723px) {
+		paypal-cart-button {
+			&.paypal-desktop {
+				display: none;
+			}
+			&.paypal-mobile {
+				display: initial;
+			}
 		}
 	}
 	@media (max-width: 480px) {
