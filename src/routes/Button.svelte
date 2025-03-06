@@ -150,32 +150,28 @@
 			calc(var(--margins) * var(--margin-bottom-multiplier))
 			calc(var(--margins) * var(--margin-left-multiplier));
 		transition: background-color 0.3s;
-	}
-
-	button > svg {
-		width: auto;
-		/* aspect-ratio: 200 / 60; */
-		height: 0.8em;
-		vertical-align: middle; /* This can be removed with flexbox */
-		transform: translate(0, -1px);
-		transition: height 0.3s;
-	}
-
-	button > svg:last-child {
-		padding-left: 0.5em;
-	}
-	button > svg:first-child {
-		padding-right: 0.5em;
-	}
-
-	button:hover {
-		background-color: rgba(
-			var(--background-color),
-			min(calc(var(--background-opacity) + 0.15), 1)
-		);
-	}
-
-	button:hover > svg {
-		height: 1em;
+		& > svg {
+			width: auto;
+			/* aspect-ratio: 200 / 60; */
+			height: 0.8em;
+			vertical-align: middle; /* This can be removed with flexbox */
+			transform: translate(0, -1px);
+			transition: height 0.3s;
+			&:last-child {
+				padding-left: 0.5em;
+			}
+			&:first-child {
+				padding-right: 0.5em;
+			}
+		}
+		&:hover {
+			background-color: rgba(
+				var(--background-color),
+				min(calc(var(--background-opacity) + 0.15), 1)
+			);
+			& > svg {
+				height: 1em;
+			}
+		}
 	}
 </style>
