@@ -21,7 +21,7 @@ export type AudioPlayerProps = {
 	startTime: number;
 	endTime: number;
 	player?: HTMLAudioElement;
-	removeMargins?: boolean;
+	nested?: boolean;
 };
 
 export enum TextColor {

@@ -31,7 +31,7 @@
 	// svelte-ignore non_reactive_update
 	let backgroundColor: string;
 	// svelte-ignore non_reactive_update
-	let backgroundOpacity: number;
+	let backgroundOpacity: number | string;
 	// svelte-ignore non_reactive_update
 	let borderWidth: number;
 	switch (color) {
@@ -39,15 +39,15 @@
 			textColor = "255, 255, 255";
 			shadowColor = "0, 0, 0";
 			if (invertBackground) {
-				backgroundColor = "0, 0, 0";
+				backgroundColor = "255, 255, 255";
 			}
 			break;
 		case TextColor.Black:
-			textColor = "0, 0, 0";
-			shadowColor = "255, 255, 255";
+			textColor = "var(--foreground)";
+			shadowColor = "var(--background)";
 			if (invertBackground) {
-				// backgroundColor = "255, 255, 255";
-				backgroundColor = "247, 247, 247";
+				// backgroundColor = "var(--background)";
+				backgroundColor = "var(--background-2)";
 			}
 			break;
 	}
@@ -58,7 +58,7 @@
 		borderWidth = 2;
 	} else {
 		// backgroundOpacity = 0.7;
-		backgroundOpacity = 1;
+		backgroundOpacity = "var(--background-opacity)";
 		borderWidth = 0;
 	}
 
@@ -75,7 +75,7 @@
 	style="text-decoration: none;
         --text-color: {textColor};
         --background-color: {backgroundColor};
-        --background-opacity: {backgroundOpacity};
+        --background-opacity-button: {backgroundOpacity};
         --border-width: {borderWidth}px">
 	<button
 		class={addedClass}
@@ -129,7 +129,7 @@
 
 <style>
 	button {
-		/* --text-color: 0, 0, 0; */
+		/* --text-color: var(--foreground); */
 		display: inline-flex; /* Use flexbox for horizontal alignment */
 		align-items: center; /* Center items vertically */
 		font-family: Montserrat;
@@ -139,8 +139,11 @@
 		border: var(--border-width) solid rgb(var(--text-color));
 		background-color: rgba(
 			var(--background-color),
-			var(--background-opacity)
+			var(--background-opacity-button)
 		);
+
+		/* backdrop-filter: blur(50px); */
+		/* z-index: 100; */
 		text-align: center;
 		letter-spacing: 0.25em;
 		text-transform: uppercase;
@@ -167,7 +170,7 @@
 		&:hover {
 			background-color: rgba(
 				var(--background-color),
-				min(calc(var(--background-opacity) + 0.15), 1)
+				min(calc(var(--background-opacity-button) + 0.15), 1)
 			);
 			& > svg {
 				height: 1em;

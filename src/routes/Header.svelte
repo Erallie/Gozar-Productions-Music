@@ -4,6 +4,8 @@
 	import Button from "./Button.svelte";
 	import { page } from "$app/state";
 	import logo from "$lib/images/gozar-productions-logo.svg";
+	import LightDarkSwitcher from "./LightDarkSwitcher.svelte";
+	let { isDarkMode = $bindable() } = $props();
 
 	let isSticky = $state(false);
 	let hgroupElement: HTMLElement | null = null;
@@ -51,8 +53,11 @@
 			cartPaypal.Cart({ id: "pp-view-cart" });
 		</script> -->
 	</nav>
+
+	<LightDarkSwitcher addedClass="nav-switcher" bind:isDarkMode />
 </header>
 <hgroup bind:this={hgroupElement} class={isSticky ? "sticky" : undefined}>
+	<div class="backdrop"></div>
 	<div>
 		<h1>Gozar Productions</h1>
 		<h2>Music</h2>
@@ -72,6 +77,8 @@
 			</g>
 		</svg>{isHome ? "Back" : "Home"}
 	</a>
+
+	<LightDarkSwitcher addedClass="mobile-switcher" bind:isDarkMode />
 	<!-- <paypal-cart-button class="paypal-mobile" data-id="pp-view-cart"
 	></paypal-cart-button>
 	<script>
@@ -91,11 +98,23 @@
 		padding: var(--half-margin);
 		margin: 24px auto 0px;
 		text-shadow:
-			0 0 1em white,
-			0 0 1em white;
+			0 0 1em rgb(var(--background)),
+			0 0 1em rgb(var(--background));
 
 		border-radius: 35px;
-		transition: background-color 0.3s;
+
+		& > .backdrop {
+			z-index: -1;
+			border-radius: 35px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			transition:
+				background-color 0.3s,
+				backdrop-filter 0.3s;
+		}
 		& > img {
 			aspect-ratio: 1 / 1;
 			height: 4em;
@@ -109,7 +128,13 @@
 		}
 		&.sticky {
 			text-shadow: none;
-			background-color: hsl(0, 0%, 97%);
+			& > .backdrop {
+				background-color: rgba(
+					var(--background-2),
+					var(--background-opacity)
+				);
+				backdrop-filter: blur(50px);
+			}
 			/* border-style: solid; */
 			/* border-width: 2px; */
 		}
@@ -125,6 +150,7 @@
 
 	header {
 		position: fixed;
+		z-index: 1;
 		width: 100%;
 	}
 
@@ -147,8 +173,9 @@
 	a.nav-back-link {
 		font-weight: initial;
 		display: none;
-		color: black;
-		background-color: hsl(0, 0%, 97%);
+		color: rgb(var(--foreground));
+		background-color: rgba(var(--background-2), var(--background-opacity));
+		backdrop-filter: blur(50px);
 		border-radius: var(--rounded-radius);
 		padding: var(--half-margin);
 		position: absolute;

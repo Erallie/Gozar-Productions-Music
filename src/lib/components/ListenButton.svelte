@@ -1,16 +1,19 @@
 <script lang="ts">
-	let { link, imageSource, imageAlt } = $props();
+	let { link, imageSource, imageAlt, children } = $props();
 </script>
 
 <a href={link} target="_blank">
-	<button>
-		<span>{imageAlt}</span><img src={imageSource} alt={imageAlt} />
+	<button class="listen-button">
+		<span>{imageAlt}</span
+		><!-- <img
+			src={imageSource}
+			alt={imageAlt} /> -->{@render children()}
 	</button>
 </a>
 
 <style>
 	button {
-		--text-color: 0, 0, 0;
+		--text-color: var(--foreground);
 		display: inline-flex; /* Use flexbox for horizontal alignment */
 		align-items: center; /* Center items vertically */
 		font-family: Montserrat;
@@ -27,16 +30,6 @@
 		margin: var(--half-margin);
 		transition: background-color 0.3s;
 		width: calc(100% - var(--margins));
-		& img {
-			width: auto;
-			/* aspect-ratio: 200 / 60; */
-			height: 1.5em;
-			vertical-align: middle; /* This can be removed with flexbox */
-			transform: translate(0, -1px);
-			padding-left: 0.5em;
-			transition: height 0.3s;
-			margin-right: auto;
-		}
 		& > span {
 			margin-left: auto;
 		}

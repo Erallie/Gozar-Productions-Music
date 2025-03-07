@@ -6,6 +6,7 @@
 	import "../app.css";
 	import { onDestroy, onMount } from "svelte";
 	import Button from "./Button.svelte";
+	import LightDarkSwitcher from "./LightDarkSwitcher.svelte";
 
 	let isPerformancePage = $state(false);
 
@@ -77,6 +78,7 @@
 	});
 
 	let { children } = $props();
+	let isDarkMode = $state(false);
 </script>
 
 <!-- <svelte:head>
@@ -85,8 +87,8 @@
 		data-merchant-id="75LK4PR9TCJ6Q"></script>
 </svelte:head> -->
 
-<div class="app">
-	<Header />
+<div class="app {isDarkMode ? 'dark' : 'light'}">
+	<Header bind:isDarkMode />
 
 	<main>
 		{@render children()}
@@ -161,6 +163,24 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100dvh;
+	}
+
+	.dark {
+		/* --background: 99, 39, 39; */
+		--background-opacity: 0.7;
+		--background: 0, 0, 0;
+		--background-test: rgb(94, 43, 43);
+		/* --background-2: 94, 43, 43; */
+		--background-2: 12, 12, 12;
+		--foreground: 255, 255, 255;
+		color: rgb(var(--foreground));
+	}
+	.light {
+		--background-opacity: 1;
+		--background: 255, 255, 255;
+		--background-2: 247, 247, 247;
+		--foreground: 0, 0, 0;
+		color: rgb(var(--foreground));
 	}
 
 	main {

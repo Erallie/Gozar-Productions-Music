@@ -40,6 +40,7 @@
 </script>
 
 <div class="album-player rounded">
+	<div class="backdrop"></div>
 	<div class="custom-dropdown">
 		<button
 			class="selected rounded"
@@ -84,16 +85,31 @@
 		startTime={selectedSource.startTime}
 		endTime={selectedSource.endTime}
 		bind:player={audio}
-		removeMargins />
+		nested />
 </div>
 
 <style>
 	.album-player {
+		position: relative;
 		width: min-content;
 		margin: var(--half-margin) auto;
 		text-align: center;
-		background-color: white;
 		padding: 0px;
+
+		& > .backdrop {
+			z-index: -1;
+			border-radius: var(--rounded-radius);
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(
+				var(--background),
+				var(--background-opacity)
+			);
+			backdrop-filter: blur(50px);
+		}
 	}
 	.custom-dropdown {
 		position: relative;
@@ -106,8 +122,10 @@
 
 	.selected {
 		padding: var(--half-margin) var(--margins);
-		border: 2px solid white;
-		background-color: white;
+		border: 2px solid /* rgb(var(--background)) */
+			rgba(var(--background), 0);
+		/* background-color: rgba(var(--background), var(--background-opacity)); */
+		/* backdrop-filter: blur(50px); */
 		cursor: pointer; /* Ensure the cursor indicates it's clickable */
 		& > * {
 			margin: auto 4px;
@@ -125,32 +143,34 @@
 		font-family: Montserrat;
 		font-weight: 400;
 		font-size: 1em;
+		background-color: rgba(151, 151, 255, 0);
 		transition:
 			background-color 0.2s,
 			color 0.2s;
 		&:hover,
 		&:active {
-			background-color: rgb(151, 151, 255);
+			background-color: rgba(151, 151, 255, 1);
 			color: white;
 		}
 	}
 
 	.options {
 		position: absolute;
-		background: white;
+		background: rgba(var(--background), var(--background-opacity));
+		backdrop-filter: blur(50px);
+		border-radius: 25px;
 		z-index: 1000;
 		width: max-content;
 		min-width: 100%;
 		margin-top: 5px;
-		/* overflow: hidden; */
-		/* border: 2px solid white; */
+		overflow: hidden;
+		border: 2px solid rgba(var(--background), 0);
 	}
 
 	.option {
 		width: 100%;
-		background-color: white;
 		appearance: none;
-		border: 2px solid white;
+		border: 2px solid rgba(var(--background), 0);
 		padding: var(--half-margin) var(--margins);
 		display: flex;
 		justify-content: space-between;
@@ -179,9 +199,13 @@
 		transform: translate(0px, -1px);
 	}
 	hr {
-		border-color: black;
+		border-color: rgb(var(--foreground));
 		border-top-width: 1px;
 		margin: 0px auto;
 		width: 50%;
+	}
+
+	button {
+		color: inherit;
 	}
 </style>

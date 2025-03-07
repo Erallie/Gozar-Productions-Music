@@ -57,6 +57,14 @@ button.discord-button {
 	}
 }
 
+button.listen-button:hover > svg {
+	height: 1.8em;
+}
+
+button.nav-button {
+	backdrop-filter: blur(50px);
+}
+
 body {
 	line-height: 25.6px;
 	min-height: 100dvh;
@@ -76,12 +84,19 @@ section {
 }
 
 a {
-	color: rgb(106, 91, 213);
 	text-decoration: none;
 	font-weight: 700;
 	&:hover {
 		text-decoration: underline;
 	}
+}
+
+.light a {
+	color: rgb(106, 91, 213);
+}
+
+.dark a {
+	color: rgb(151, 151, 255);
 }
 
 bold,
@@ -110,7 +125,8 @@ section {
 	&:not(.remove-styles) {
 		margin: var(--margins) auto;
 		padding: var(--margins);
-		background-color: white;
+		background-color: rgba(var(--background), var(--background-opacity));
+		backdrop-filter: blur(50px);
 		box-sizing: border-box;
 		max-width: 80%;
 		text-align: center;

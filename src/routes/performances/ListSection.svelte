@@ -42,7 +42,7 @@
 <style>
 	li {
 		/* color: inherit; */
-		background-color: rgba(0, 0, 0, 0.1);
+		background-color: rgba(var(--foreground), 0.1);
 		font-size: 1.5em;
 		font-family: Montserrat;
 		/* margin: 0px; */
@@ -92,7 +92,7 @@
 		max-height: 0px;
 		margin: 0px;
 		padding: 0px var(--margins);
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: rgba(var(--foreground), 0.2);
 		overflow-y: auto;
 		/* box-sizing: content-box; */
 		transition:

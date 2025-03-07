@@ -38,10 +38,15 @@
 		section {
 			flex-wrap: wrap;
 			background: none;
+			backdrop-filter: none;
 			margin: 0px auto;
 			padding: 0px;
 			& > div {
-				background-color: white;
+				background-color: rgba(
+					var(--background),
+					var(--background-opacity)
+				);
+				backdrop-filter: blur(50px);
 				border-radius: var(--rounded-radius);
 			}
 			& > div:first-child {
@@ -66,7 +71,7 @@
 		/* Styles for mobile devices */
 		section {
 			flex-wrap: wrap;
-			background: white;
+			background: rgb(var(--background));
 			width: calc(100% - var(--margins) * 2);
 
 			padding: var(--margins);

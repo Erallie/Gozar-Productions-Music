@@ -8,7 +8,7 @@
 		startTime,
 		endTime,
 		player = $bindable(),
-		removeMargins,
+		nested,
 	}: AudioPlayerProps = $props();
 
 	let isPlaying = $state(false);
@@ -115,28 +115,28 @@
 		if (startTime !== 0) {
 			startingStyle = `background: linear-gradient(
                 to right,
-                rgba(0, 0, 0, 0.66) ${timePoint(startTime)}%,
-                rgba(0, 0, 0, 0.415) ${timePoint(startTime)}%,
-                rgba(0, 0, 0, 0.415) ${timePoint(currentTime)}%,
+                rgba(var(--foreground), 0.66) ${timePoint(startTime)}%,
+                rgba(var(--foreground), 0.415) ${timePoint(startTime)}%,
+                rgba(var(--foreground), 0.415) ${timePoint(currentTime)}%,
             `;
 		} else {
 			startingStyle = `background: linear-gradient(
                 to right,
-                rgba(0, 0, 0, 0.5) ${timePoint(currentTime)}%,
+                rgba(var(--foreground), 0.5) ${timePoint(currentTime)}%,
             `;
 		}
 		// #endregion
 
 		const middleStyle = `
-            rgba(0, 0, 0, 0.17) ${timePoint(currentTime)}%
+            rgba(var(--foreground), 0.17) ${timePoint(currentTime)}%
             `;
 
 		// #region endingStyle
 		let endingStyle: string;
 		if (endTime <= duration) {
 			endingStyle = `,
-                rgba(0, 0, 0, 0.17) ${timePoint(endTime)}%,
-                rgba(0, 0, 0, 0.66) ${timePoint(endTime)}%
+                rgba(var(--foreground), 0.17) ${timePoint(endTime)}%,
+                rgba(var(--foreground), 0.66) ${timePoint(endTime)}%
                 );
             `;
 		} else {
@@ -151,8 +151,8 @@
 		return `
             background: linear-gradient(
                 to right,
-            rgba(0, 0, 0, 0.5) ${volume * 100}%,
-            rgba(0, 0, 0, 0.17) ${volume * 100}%
+            rgba(var(--foreground), 0.5) ${volume * 100}%,
+            rgba(var(--foreground), 0.17) ${volume * 100}%
             );
         `;
 	}
@@ -179,17 +179,42 @@
 	});
 </script>
 
-<section style="--margin: {removeMargins ? '0' : '10'}px">
+<section
+	class={nested ? "nested" : ""}
+	style="--margin: {nested ? '0' : '10'}px">
 	<audio bind:this={player} controlslist="nodownload">
 		<source {src} type="audio/mpeg" />
 	</audio>
 	<div class="controls">
-		<button class="rounded" onclick={togglePlay}>
-			<img
+		<button class="rounded audio-player" onclick={togglePlay}>
+			<!-- <img
 				src={isPlaying
 					? "/audio-player/pause.svg"
 					: "/audio-player/play.svg"}
-				alt={isPlaying ? "Pause" : "Play"} />
+				alt={isPlaying ? "Pause" : "Play"} /> -->
+			{#if isPlaying}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="100"
+					height="100"
+					viewBox="-20 -20 140 140">
+					<g stroke="currentColor" stroke-width="20">
+						<line x1="25" y1="0" x2="25" y2="100" />
+						<line x1="75" y1="0" x2="75" y2="100" />
+					</g>
+				</svg>
+			{:else}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="100"
+					height="100"
+					viewBox="-20 -20 140 140">
+					<polygon
+						fill="currentColor"
+						stroke-width="0"
+						points="0,0 100,50 0,100" />
+				</svg>
+			{/if}
 		</button>
 		<span id="timestamp">
 			<span>{timeStamp(currentTime)}</span> /
@@ -214,14 +239,45 @@
 				bind:value={volume}
 				oninput={setVolume}
 				style={volumeSliderStyle()} />
-			<button class="rounded" onclick={toggleMute}>
-				<img
+			<button class="rounded audio-player" onclick={toggleMute}>
+				{#if volume === 0}
+					<svg
+						fill="currentColor"
+						height="256px"
+						width="256px"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24">
+						<path
+							d="M22.29,16.21l-2.79-2.79l-2.79,2.79l-1.41-1.41L18.09,12l-2.79-2.79l1.41-1.41l2.79,2.79l2.79-2.79l1.41,1.41L20.91,12 l2.79,2.79L22.29,16.21z M1,12v4h5l6,5V3L6,8H1V12" />
+					</svg>
+				{:else if volume >= 0.5}
+					<svg
+						fill="currentColor"
+						height="256px"
+						width="256px"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24">
+						<path
+							d="M15,21v-2c3.86,0,7-3.14,7-7s-3.14-7-7-7V3c4.96,0,9,4.04,9,9S19.96,21,15,21z M15,17v-2c1.65,0,3-1.35,3-3s-1.35-3-3-3V7 c2.76,0,5,2.24,5,5S17.76,17,15,17z M1,12v4h5l6,5V3L6,8H1V12" />
+					</svg>
+				{:else}
+					<svg
+						fill="currentColor"
+						height="256px"
+						width="256px"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24">
+						<path
+							d="M1,12V8h5l6-5v18l-6-5H1V12 M20,12c0-2.76-2.24-5-5-5v2c1.65,0,3,1.35,3,3s-1.35,3-3,3v2C17.76,17,20,14.76,20,12z" />
+					</svg>
+				{/if}
+				<!-- <img
 					src={volume === 0
 						? "/audio-player/volume/muted.svg"
 						: volume >= 0.5
 							? "/audio-player/volume/volume-loud.svg"
 							: "/audio-player/volume/volume-quiet.svg"}
-					alt="Volume" />
+					alt="Volume" /> -->
 			</button>
 		</div>
 	</div>
@@ -234,7 +290,11 @@
 		flex-direction: column;
 		align-items: center;
 		/* border-radius: 8px; */
-		/* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+		/* box-shadow: 0 2px 10px rgba(var(--foreground), 0.1); */
+		&.nested {
+			background: none;
+			backdrop-filter: none;
+		}
 	}
 
 	.controls {
@@ -245,10 +305,11 @@
 	}
 
 	button {
+		color: rgb(var(--foreground));
 		flex-grow: 0;
 		flex-shrink: 0;
 		height: 2.4em;
-		background-color: rgba(0, 0, 0, 0);
+		background-color: rgba(var(--foreground), 0);
 		border: none;
 		padding: 0px;
 		cursor: pointer;
@@ -256,13 +317,14 @@
 		padding: 0.5em;
 		transition: background-color 0.3s;
 
-		& > img {
+		& > svg {
 			height: 100%;
+			width: 100%;
 			aspect-ratio: 1 / 1;
 			vertical-align: middle;
 		}
 		&:hover {
-			background-color: rgba(0, 0, 0, 0.2);
+			background-color: rgba(var(--foreground), 0.2);
 		}
 	}
 
@@ -326,7 +388,7 @@
 		display: flex;
 		flex-shrink: 0;
 		&:hover {
-			background-color: rgba(0, 0, 0, 0.1);
+			background-color: rgba(var(--foreground), 0.1);
 			& #volume {
 				width: 100px;
 				margin: auto var(--half-margin);
