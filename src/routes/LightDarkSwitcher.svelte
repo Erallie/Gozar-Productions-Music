@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Cookies from "js-cookie";
 	import { onMount } from "svelte";
 
 	let { isDarkMode = $bindable(), addedClass } = $props();
@@ -8,8 +9,18 @@
 	};
 
 	onMount(() => {
+		const isChecked = Cookies.get("isDarkMode");
 		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-		isDarkMode = mediaQuery.matches; // Set initial value
+		switch (isChecked) {
+			case "false":
+				isDarkMode = false;
+				break;
+			case "true":
+				isDarkMode = true;
+				break;
+			default:
+				isDarkMode = mediaQuery.matches;
+		}
 
 		// Listen for changes
 		mediaQuery.addEventListener("change", updateTheme);
@@ -19,10 +30,18 @@
 			mediaQuery.removeEventListener("change", updateTheme);
 		};
 	});
+
+	function saveDarkMode(ev: Event) {
+		const isChecked = (ev.target as HTMLInputElement).checked;
+		Cookies.set("isDarkMode", isChecked.toString(), {
+			expires: 7,
+			sameSite: "Strict",
+		});
+	}
 </script>
 
 <label class={addedClass}>
-	<input type="checkbox" bind:checked={isDarkMode} />
+	<input type="checkbox" bind:checked={isDarkMode} onchange={saveDarkMode} />
 	<span class="toggle-thumb"> <div class="backdrop"></div></span>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
