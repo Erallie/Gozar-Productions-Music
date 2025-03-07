@@ -177,7 +177,8 @@
 	.light {
 		--background-opacity: 0.65;
 		--background: 255, 255, 255;
-		--background-2: 247, 247, 247;
+		/* --background-2: 247, 247, 247; */
+		--background-2: 255, 255, 255;
 		--foreground: 0, 0, 0;
 		color: rgb(var(--foreground));
 	}
