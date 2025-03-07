@@ -42,7 +42,7 @@
 <style>
 	li {
 		/* color: inherit; */
-		background-color: rgba(var(--foreground), 0.1);
+		background-color: rgba(var(--list-bg), 0.1);
 		font-size: 1.5em;
 		font-family: Montserrat;
 		/* margin: 0px; */
@@ -53,8 +53,6 @@
 			background-color 0.2s,
 			color 0.2s;
 		&:hover {
-			background-color: rgb(151, 151, 255);
-			color: white;
 			&:not(:has(*.expanded:hover)) {
 				cursor: pointer;
 			}
@@ -92,7 +90,8 @@
 		max-height: 0px;
 		margin: 0px;
 		padding: 0px var(--margins);
-		background-color: rgba(var(--foreground), 0.2);
+		background-color: rgba(0, 0, 0, 0.2);
+		--list-bg: 0, 0, 0;
 		overflow-y: auto;
 		/* box-sizing: content-box; */
 		transition:

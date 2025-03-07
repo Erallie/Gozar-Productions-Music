@@ -314,6 +314,12 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			background-color: rgba(
+				var(--background),
+				var(--background-opacity)
+			);
+			backdrop-filter: blur(50px);
+			border-radius: var(--rounded-radius);
 			& svg {
 				height: 0.8em;
 				width: auto;
@@ -332,6 +338,7 @@
 				text-transform: uppercase;
 				font-size: 1.5rem;
 				margin: 0px auto;
+				color: inherit;
 				& svg {
 					transition: height 0.3s;
 				}

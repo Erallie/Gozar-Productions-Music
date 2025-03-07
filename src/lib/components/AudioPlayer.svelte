@@ -350,7 +350,7 @@
 			width: 20px; /* Width of the thumb */
 			height: 20px; /* Height of the thumb */
 			border-radius: 50%; /* Rounded thumb */
-			background: rgb(151, 151, 255); /* Color of the thumb */
+			background: rgb(var(--accent)); /* Color of the thumb */
 			cursor: pointer; /* Pointer cursor on hover */
 			transition: background 0.2s;
 		}
@@ -358,15 +358,15 @@
 			width: 20px; /* Width of the thumb */
 			height: 20px; /* Height of the thumb */
 			border-radius: 50%; /* Rounded thumb */
-			background: rgb(151, 151, 255); /* Color of the thumb */
+			background: rgb(var(--accent)); /* Color of the thumb */
 			cursor: pointer; /* Pointer cursor on hover */
 			transition: background 0.2s;
 		}
 		&::-webkit-slider-thumb:hover {
-			background: hsl(240, 80%, 75%);
+			background: hsl(240, 75%, 70%);
 		}
 		&::-moz-range-thumb:hover {
-			background: hsl(240, 80%, 75%);
+			background: hsl(240, 75%, 70%);
 		}
 	}
 
@@ -399,12 +399,12 @@
 		}
 		&:not(:hover) #volume {
 			&::-webkit-slider-thumb {
-				background: rgb(151, 151, 255, 0);
+				background: rgb(var(--accent), 0);
 				/* width: 0px; */
 				transition: background 0.2s;
 			}
 			&::-moz-range-thumb {
-				background: rgb(151, 151, 255, 0);
+				background: rgb(var(--accent), 0);
 				/* width: 0px; */
 				transition: background 0.2s;
 			}

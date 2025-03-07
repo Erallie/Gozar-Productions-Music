@@ -143,13 +143,13 @@
 		font-family: Montserrat;
 		font-weight: 400;
 		font-size: 1em;
-		background-color: rgba(151, 151, 255, 0);
+		background-color: rgba(var(--accent), 0);
 		transition:
 			background-color 0.2s,
 			color 0.2s;
 		&:hover,
 		&:active {
-			background-color: rgba(151, 151, 255, 1);
+			background-color: rgba(var(--accent), 1);
 			color: white;
 		}
 	}

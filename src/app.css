@@ -91,12 +91,29 @@ a {
 	}
 }
 
-.light a {
-	color: rgb(106, 91, 213);
+.light {
+	& a {
+		color: rgb(106, 91, 213);
+	}
+
+	li:has(> * > div.expanded),
+	li.list-section:hover {
+		background-color: rgb(var(--accent));
+		color: white;
+	}
 }
 
-.dark a {
-	color: rgb(151, 151, 255);
+.dark {
+	& a {
+		color: rgb(151, 151, 255);
+	}
+
+	li:has(> * > div.expanded),
+	li.list-section:hover {
+		/* background-color: rgb(36, 36, 66); */
+		background-color: rgb(var(--accent));
+		color: white;
+	}
 }
 
 bold,
@@ -110,11 +127,6 @@ li:has(.expanded) a:not([role="button"]),
 	color: hsl(202, 100%, 75%);
 }
 
-li:has(> * > div.expanded) {
-	background-color: rgb(151, 151, 255);
-	color: white;
-}
-
 #performance-banner > :nth-child(2) {
 	flex-grow: 0;
 	flex-shrink: 0;
@@ -125,11 +137,16 @@ section {
 	&:not(.remove-styles) {
 		margin: var(--margins) auto;
 		padding: var(--margins);
-		background-color: rgba(var(--background), var(--background-opacity));
-		backdrop-filter: blur(50px);
 		box-sizing: border-box;
 		max-width: 80%;
 		text-align: center;
+		&:not(.expandable-sections) {
+			background-color: rgba(
+				var(--background),
+				var(--background-opacity)
+			);
+			backdrop-filter: blur(50px);
+		}
 	}
 	&.expandable-section {
 		& p {

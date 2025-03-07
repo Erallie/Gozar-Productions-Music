@@ -67,7 +67,8 @@
 		z-index: 10;
 		max-width: var(--margins);
 		text-wrap-mode: nowrap;
-		background-color: hsl(0, 0%, 90%);
+		background-color: rgba(var(--background-2), var(--background-opacity));
+		--list-bg: var(--foreground);
 		/* width: 660px; */
 		overflow-x: clip;
 		transition: max-width 1s;

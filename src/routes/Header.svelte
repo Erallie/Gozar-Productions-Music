@@ -197,7 +197,7 @@
 			margin-right: var(--half-margin);
 		}
 		&:hover {
-			background-color: rgb(151, 151, 255);
+			background-color: rgb(var(--accent));
 			color: white;
 			text-decoration: none;
 		}
