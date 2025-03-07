@@ -35,9 +35,6 @@
 		}
 		&:hover {
 			background-color: rgba(var(--text-color), 0.15);
-			& img {
-				height: 1.8em;
-			}
 		}
 	}
 
