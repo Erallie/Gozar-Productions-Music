@@ -19,7 +19,7 @@
 	}
 
 	onMount(() => {
-		setBackground("/performances/background-2.png");
+		setBackground("/performances/background-3.png");
 	});
 
 	const title = "Live Performances";
