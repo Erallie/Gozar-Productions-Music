@@ -72,7 +72,12 @@
 
 	onMount(() => {
 		const newVolume = Number.parseFloat(Cookies.get("volume")!);
-		if (newVolume && Number.isFinite(newVolume)) {
+		if (
+			newVolume !== undefined &&
+			newVolume !== null &&
+			Number.isFinite(newVolume)
+		) {
+			volume = newVolume;
 			player!.volume = volume;
 		}
 		player!.currentTime = startTime;
