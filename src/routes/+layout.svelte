@@ -169,7 +169,6 @@
 		/* --background: 99, 39, 39; */
 		--background-opacity: 0.7;
 		--background: 0, 0, 0;
-		--background-test: rgb(94, 43, 43);
 		/* --background-2: 94, 43, 43; */
 		--background-2: 12, 12, 12;
 		--foreground: 255, 255, 255;
