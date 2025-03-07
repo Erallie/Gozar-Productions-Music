@@ -113,11 +113,11 @@
 			/* border-style: solid; */
 			/* border-width: 2px; */
 		}
-		& > :first-child {
+		& > :nth-child(2) {
 			margin: auto 0px;
 			margin-right: 0.4em;
 		}
-		& > :last-child {
+		& > :nth-child(3) {
 			margin: auto 0px;
 			margin-left: 0.4em;
 		}
