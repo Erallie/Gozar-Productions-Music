@@ -35,7 +35,7 @@
 		}
 	}
 	@media (max-width: 960px) {
-		section {
+		section:not(.expandable-sections) {
 			flex-wrap: wrap;
 			background: none;
 			backdrop-filter: none;
@@ -69,14 +69,16 @@
 	}
 	@media (max-width: 480px) {
 		/* Styles for mobile devices */
-		section {
+		section:not(.expandable-sections) {
 			flex-wrap: wrap;
-			background: rgb(var(--background));
+			background-color: rgb(var(--background), var(--background-opacity));
+			backdrop-filter: blur(50px);
 			width: calc(100% - var(--margins) * 2);
 
 			padding: var(--margins);
 			& > div:first-child {
 				background: none;
+				backdrop-filter: none;
 				border-radius: 0px;
 
 				padding: 0px;
@@ -86,6 +88,8 @@
 				}
 			}
 			& > div:last-child {
+				background: none;
+				backdrop-filter: none;
 				padding: 0px;
 				margin: auto var(--margins);
 				width: max-content;
