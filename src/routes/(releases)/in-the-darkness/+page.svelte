@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import InitialBox from "$lib/components/InitialBox.svelte";
 	import Listen from "$lib/components/Listen.svelte";
 	import { onMount } from "svelte";
@@ -10,6 +10,7 @@
 	onMount(() => {
 		setBackground("/releases/in-the-darkness/background.png");
 	});
+	let audio: HTMLAudioElement;
 	const title = "In the Darkness";
 	const description =
 		'"In the Darkness" is a song about hope enduring through the hardest of times. Written in the style of musical theater and film, this ballad hopes to encourage people who are in the midst of a dark season in their life.';
@@ -36,6 +37,7 @@
 	</p>
 </InitialBox>
 <AudioPlayer
+	bind:player={audio}
 	src="/releases/in-the-darkness/music.mp3"
 	startTime={15}
 	endTime={45} />

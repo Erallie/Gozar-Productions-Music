@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import InitialBox from "$lib/components/InitialBox.svelte";
 	import Listen from "$lib/components/Listen.svelte";
 	import { onMount } from "svelte";
@@ -10,6 +10,7 @@
 	onMount(() => {
 		setBackground("/releases/for-sam/background.png");
 	});
+	let audio: HTMLAudioElement;
 	const title = "For Sam";
 	const description =
 		'"For Sam" is a goofy song that Erika Gozar wrote for her sister\'s boyfriend as a present for Christmas. Loosely based on the style of folk pop, this silly little ditty has inside jokes that can be enjoyed by family and fans alike.';
@@ -35,7 +36,11 @@
 		{description}
 	</p>
 </InitialBox>
-<AudioPlayer src="/releases/for-sam/music.mp3" startTime={30} endTime={60} />
+<AudioPlayer
+	bind:player={audio}
+	src="/releases/for-sam/music.mp3"
+	startTime={30}
+	endTime={60} />
 <!-- <Purchase>
 	<paypal-add-to-cart-button data-id="G5WRNPAMYLFFG"
 	></paypal-add-to-cart-button>

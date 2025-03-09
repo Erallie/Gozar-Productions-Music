@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import InitialBox from "$lib/components/InitialBox.svelte";
 	import Listen from "$lib/components/Listen.svelte";
 	import { onMount } from "svelte";
@@ -10,6 +10,7 @@
 	onMount(() => {
 		setBackground("/releases/wind-and-water/background.png");
 	});
+	let audio: HTMLAudioElement;
 	const title = "Wind And Water";
 	const description =
 		'"Wind And Water" is a song inspired by "Go the Distance" from Disney\'s Hercules and "Colors of the Wind" by Disney\'s Pocahontas. It features an encouraging message about keeping faith when struggling to live up to your own expectations.';
@@ -39,6 +40,7 @@
 	</p>
 </InitialBox>
 <AudioPlayer
+	bind:player={audio}
 	src="/releases/wind-and-water/music.mp3"
 	startTime={130.5}
 	endTime={178} />
