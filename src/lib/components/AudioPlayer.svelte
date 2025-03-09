@@ -71,7 +71,6 @@
 	}
 
 	onMount(() => {
-		player!.src = src;
 		const newVolume = Number.parseFloat(Cookies.get("volume")!);
 		if (
 			newVolume !== undefined &&
