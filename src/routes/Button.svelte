@@ -177,4 +177,10 @@
 			}
 		}
 	}
+
+	@media (max-width: 875px) {
+		button.nav-button {
+			display: none;
+		}
+	}
 </style>

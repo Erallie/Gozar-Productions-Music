@@ -173,12 +173,6 @@ section {
 	}
 }
 
-@media (max-width: 875px) {
-	button.nav-button {
-		display: none;
-	}
-}
-
 @media (max-width: 480px) {
 	section:not(.remove-styles),
 	.album-player {
