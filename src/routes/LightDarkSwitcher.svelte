@@ -42,7 +42,7 @@
 
 <label class={addedClass}>
 	<input type="checkbox" bind:checked={isDarkMode} onchange={saveDarkMode} />
-	<span class="toggle-thumb"> <div class="backdrop"></div></span>
+	<span class="toggle-thumb"><div class="backdrop"></div></span>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="10 10 80 80"
