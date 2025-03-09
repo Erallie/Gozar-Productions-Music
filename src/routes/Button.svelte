@@ -118,7 +118,7 @@
 					stroke="currentColor"
 					stroke-width="5"
 					stroke-linecap="round">
-					<line x1="2.5" y1="30" x2="197.5" y2="30 " />
+					<line x1="2.5" y1="30" x2="197.5" y2="30" />
 					<line x1="197.5" y1="30" x2="160" y2="2.5" />
 					<line x1="197.5" y1="30" x2="160" y2="57.5" />
 				</g>
