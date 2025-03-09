@@ -308,6 +308,7 @@
 		color: rgb(var(--foreground));
 		flex-grow: 0;
 		flex-shrink: 0;
+		width: 2.4em;
 		height: 2.4em;
 		background-color: rgba(var(--foreground), 0);
 		border: none;
@@ -384,6 +385,15 @@
 		}
 	}
 
+	#volume {
+		flex-grow: 1;
+		width: 0px;
+		margin: auto 0px;
+		transition:
+			width 0.4s,
+			margin 0.4s;
+	}
+
 	#volume-container {
 		display: flex;
 		flex-shrink: 0;
@@ -409,15 +419,6 @@
 				transition: background 0.2s;
 			}
 		}
-	}
-
-	#volume {
-		flex-grow: 1;
-		width: 0px;
-		margin: auto 0px;
-		transition:
-			width 0.4s,
-			margin 0.4s;
 	}
 
 	#time-slider {
