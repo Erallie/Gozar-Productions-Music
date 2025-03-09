@@ -354,6 +354,7 @@
 			background: rgb(var(--accent)); /* Color of the thumb */
 			cursor: pointer; /* Pointer cursor on hover */
 			transition: background 0.2s;
+			box-shadow: none;
 		}
 		&::-moz-range-thumb {
 			width: 20px; /* Width of the thumb */
