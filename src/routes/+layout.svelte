@@ -88,6 +88,7 @@
 </svelte:head> -->
 
 <div class="app {isDarkMode ? 'dark' : 'light'}">
+	<img id="background-image" alt="Background" />
 	<Header bind:isDarkMode />
 
 	<main>
@@ -236,6 +237,18 @@
 		& a:hover {
 			text-decoration: underline;
 		}
+	}
+
+	img#background-image {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
 	}
 
 	#performance-banner {
