@@ -387,10 +387,11 @@
 
 	#volume {
 		flex-grow: 1;
-		width: 0px;
+		width: 100px;
+		max-width: 0px;
 		margin: auto 0px;
 		transition:
-			width 0.4s,
+			max-width 0.4s,
 			margin 0.4s;
 	}
 
@@ -400,10 +401,10 @@
 		&:hover {
 			background-color: rgba(var(--foreground), 0.1);
 			& #volume {
-				width: 100px;
+				max-width: 100px;
 				margin: auto var(--half-margin);
 				transition:
-					width 0.4s,
+					max-width 0.4s,
 					margin 0.4s;
 			}
 		}
