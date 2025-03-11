@@ -22,11 +22,13 @@
 		"https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FPhoenix&mode=AGENDA&showCalendars=0&title=Erika%20Gozar's%20Performances&src=Y19hMTEyYzEwYTI4YWQ2NzRiMGU5MDg3Nzg3MDIwMTJmNGJjMTJkN2ViNGM2ZDA1YWNjODBhMDdiMWExNTgzODk3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23B39DDB"
 	);
 
+	let userTimeZone = $state("");
+
 	onMount(() => {
 		setBackground("/performances/background-3.png");
 
 		// Get the user's local time zone
-		const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+		userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 		// Create a new URL object from the original link
 		const url = new URL(
@@ -90,6 +92,9 @@
 		height="400"
 		frameborder="0"
 		scrolling="no"></iframe>
+	<p class="footnote">
+		*Displaying events in the local timezone for {userTimeZone}.
+	</p>
 </section>
 <section class="expandable-sections">
 	<div>
@@ -356,6 +361,16 @@
 
 	#calendar {
 		width: 660px;
+		& .footnote {
+			text-align: left;
+			margin: calc(var(--half-margin) * -1) var(--half-margin)
+				var(--half-margin) calc(var(--half-margin) + 0.5em);
+			font-size: 0.8em;
+			line-height: 1.2em;
+			text-indent: -0.5em;
+			/* display: none; */
+			opacity: 0.75;
+		}
 	}
 	iframe {
 		width: calc(100% - var(--margins));
