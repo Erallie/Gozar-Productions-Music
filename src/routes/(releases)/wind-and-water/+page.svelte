@@ -8,13 +8,13 @@
 	// import Purchase from "../Purchase.svelte";
 
 	onMount(() => {
-		setBackground("/releases/wind-and-water/background.png");
+		setBackground("/releases/wind-and-water/background.webp");
 	});
 	let audio: HTMLAudioElement;
 	const title = "Wind And Water";
 	const description =
 		'"Wind And Water" is a song inspired by "Go the Distance" from Disney\'s Hercules and "Colors of the Wind" by Disney\'s Pocahontas. It features an encouraging message about keeping faith when struggling to live up to your own expectations.';
-	const coverImage = "/releases/wind-and-water/cover.png";
+	const coverImage = "/releases/wind-and-water/cover.webp";
 </script>
 
 <svelte:head>

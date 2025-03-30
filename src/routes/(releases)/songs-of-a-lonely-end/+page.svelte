@@ -9,7 +9,7 @@
 	// import Purchase from "../Purchase.svelte";
 
 	onMount(() => {
-		setBackground("/releases/songs-of-a-lonely-end/background.png");
+		setBackground("/releases/songs-of-a-lonely-end/background.webp");
 	});
 
 	// Define the audio sources
@@ -54,7 +54,7 @@
 	const title = "Songs of a Lonely End";
 	const description =
 		"Songs of a Lonely End is a collection of pieces written for a lore-heavy Minecraft server. It follows the journey of the Grand Archmage Varnius as he inadvertently nearly destroys the world, and banishes himself to another dimension in an attempt to save the home he loves so dearly.";
-	const coverImage = "/releases/songs-of-a-lonely-end/cover.png";
+	const coverImage = "/releases/songs-of-a-lonely-end/cover.webp";
 </script>
 
 <svelte:head>

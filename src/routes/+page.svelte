@@ -10,13 +10,13 @@
 	import { TextColor } from "$lib/types/types";
 
 	onMount(() => {
-		setBackground("/erika-gozar-background.png");
+		setBackground("/erika-gozar-background.webp");
 	});
 
 	const title = "Erika Gozar";
 	const description =
 		"Erika Gozar has written music since she was 8 or 9 with simply an ear for music and no formal training in composition. Under the musical guidance of John Massaro and the vocal instruction of Gail Dubinbaum, Erika currently writes pieces for orchestra and voice in the style of film and musical theater.";
-	const coverImage = "/erika-gozar.png";
+	const coverImage = "/erika-gozar.webp";
 </script>
 
 <svelte:head>
@@ -49,19 +49,19 @@
 <Releases title="Featured Releases">
 	<Release
 		link="/for-sam"
-		imageSource="/releases/for-sam/cover.png"
+		imageSource="/releases/for-sam/cover.webp"
 		imageAlt="For Sam" />
 	<Release
 		link="/in-the-darkness"
-		imageSource="/releases/in-the-darkness/cover.png"
+		imageSource="/releases/in-the-darkness/cover.webp"
 		imageAlt="In the Darkness" />
 	<Release
 		link="/songs-of-a-lonely-end"
-		imageSource="/releases/songs-of-a-lonely-end/cover.png"
+		imageSource="/releases/songs-of-a-lonely-end/cover.webp"
 		imageAlt="Songs of a Lonely End" />
 	<Release
 		link="/wind-and-water"
-		imageSource="/releases/wind-and-water/cover.png"
+		imageSource="/releases/wind-and-water/cover.webp"
 		imageAlt="Wind and Water" />
 </Releases>
 <section id="contact">

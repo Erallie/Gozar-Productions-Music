@@ -8,13 +8,13 @@
 	// import Purchase from "../Purchase.svelte";
 
 	onMount(() => {
-		setBackground("/releases/in-the-darkness/background.png");
+		setBackground("/releases/in-the-darkness/background.webp");
 	});
 	let audio: HTMLAudioElement;
 	const title = "In the Darkness";
 	const description =
 		'"In the Darkness" is a song about hope enduring through the hardest of times. Written in the style of musical theater and film, this ballad hopes to encourage people who are in the midst of a dark season in their life.';
-	const coverImage = "/releases/in-the-darkness/cover.png";
+	const coverImage = "/releases/in-the-darkness/cover.webp";
 </script>
 
 <svelte:head>
