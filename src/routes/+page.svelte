@@ -78,7 +78,7 @@
 		</div>
 		<!-- <span class="or">- or -</span> -->
 		<Button
-			link="https://discord.gg/cCCEk7BX4W"
+			link="https://discord.gozarproductions.com/"
 			color={TextColor.Black}
 			newTab={true}
 			customSVG
