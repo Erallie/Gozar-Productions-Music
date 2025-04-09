@@ -25,7 +25,7 @@
 	let userTimeZone = $state("");
 
 	onMount(() => {
-		setBackground("/performances/background-3.webp");
+		setBackground("/performances/background.webp");
 
 		// Get the user's local time zone
 		userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
