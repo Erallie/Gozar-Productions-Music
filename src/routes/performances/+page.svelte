@@ -380,6 +380,18 @@
 		padding: var(--half-margin);
 		margin: -var(--half-margin);
 	}
+	@media (max-width: 700px) {
+		iframe {
+			aspect-ratio: 1/1;
+			/* aspect-ratio: none;
+			min-height: 385px; */
+		}
+	}
+	@media (max-width: 600px) {
+		iframe {
+			aspect-ratio: 5/6;
+		}
+	}
 	@media (max-width: 480px) {
 		/* Styles for mobile devices */
 		.expandable-sections {
