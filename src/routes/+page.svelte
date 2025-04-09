@@ -64,6 +64,16 @@
 		imageSource="/releases/wind-and-water/cover.webp"
 		imageAlt="Wind and Water" />
 </Releases>
+<section id="performances">
+	<h1>Performances</h1>
+	<p>
+		Since the pandemic, it has been hard for Erika to get out to perform in
+		real life. Despite this, virtual reality has provided opportunities to
+		share her music when real life provided none.
+	</p>
+	<Button link="/performances" color={TextColor.Black} newTab={false}
+		>Attend Live</Button>
+</section>
 <section id="contact">
 	<div>
 		<h1>Contact</h1>
@@ -133,6 +143,13 @@
 			border-top: 1px solid rgb(var(--foreground));
 			width: 50%;
 			/* margin: var(--half-margin) auto; */
+		}
+	}
+	#performances {
+		width: 660px;
+		& > p {
+			max-width: min(90%, 50rem);
+			margin: 0.5em auto;
 		}
 	}
 	@media (max-width: 778px) {
