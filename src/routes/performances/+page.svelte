@@ -75,8 +75,8 @@
 		<a href="https://vrc.group/ERIKA.6930" target="_blank"
 			><code><bold>ERIKA.6930</bold></code></a
 		>. Then keep an eye out on the announcements in the group or on
-		<a href="https://discord.gozarproductions.com/" target="_blank">our Discord</a> for
-		information on her performances!
+		<a href="https://discord.gozarproductions.com/" target="_blank"
+			>our Discord</a> for information on her performances!
 	</p>
 	<p>See <a href="#how-to-attend">How to Attend</a> for more information.</p>
 </InitialBox>
@@ -200,8 +200,9 @@
 				><p>
 					When a performance is about to start, we will send an
 					announcement on our
-					<a href="https://discord.gozarproductions.com/" target="_blank"
-						>Discord</a>
+					<a
+						href="https://discord.gozarproductions.com/"
+						target="_blank">Discord</a>
 					and in our
 					<a href="https://vrc.group/ERIKA.6930" target="_blank"
 						>VRChat group</a>
