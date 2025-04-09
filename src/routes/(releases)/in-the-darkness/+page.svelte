@@ -39,8 +39,8 @@
 <AudioPlayer
 	bind:player={audio}
 	src="/releases/in-the-darkness/music.mp3"
-	startTime={15}
-	endTime={45} />
+	startTime={26.5}
+	endTime={63} />
 <!-- <Purchase>
 	<paypal-add-to-cart-button data-id="44RAZ9VVGJRAU"
 	></paypal-add-to-cart-button>
