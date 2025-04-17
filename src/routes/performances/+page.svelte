@@ -45,7 +45,7 @@
 	const title = "Live Performances";
 	const description =
 		"Erika Gozar has live performances online in Virtual Reality. To watch, download VRChat and join the VRChat Group Erika's Voice via the group code ERIKA.6930. Then keep an eye out on the announcements in the group or on our Discord for information on her performances!";
-	const coverImage = "/performances/cover-2.webp";
+	const coverImage = "/performances/cover-4.webp";
 </script>
 
 <svelte:head>
