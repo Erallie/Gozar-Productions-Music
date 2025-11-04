@@ -144,18 +144,16 @@
 					on Windows desktop through
 					<a
 						href="https://store.steampowered.com/app/438100/VRChat/?utm-source=hello-home"
-						target="_blank">Steam</a>
-					or on Android via
+						target="_blank">Steam</a
+					>, on Android via
 					<a
 						href="https://play.google.com/store/apps/details?id=com.vrchat.mobile.playstore&hl=en&utm-source=hello-home"
 						target="_blank">Google Play</a
+					>, or on iOS via the
+					<a
+						href="https://apps.apple.com/us/app/vrchat/id6448578770"
+						target="_blank">App Store</a
 					>.
-				</p>
-				<p>
-					VRChat on iOS is currently in <a
-						href="https://hello.vrchat.com/blog/apple-ios-beta-signup"
-						target="_blank">Closed Beta</a
-					>. It is otherwise not available on Apple products.
 				</p>
 				<p>
 					If you have none of these devices and want a cheaper option,
