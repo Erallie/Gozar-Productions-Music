@@ -136,16 +136,20 @@ section {
 	scroll-margin-top: 120px;
 	&:not(.remove-styles) {
 		margin: var(--margins) auto;
-		padding: var(--margins);
+		&:not(.modal) {
+			padding: var(--margins);
+		}
 		box-sizing: border-box;
 		max-width: 80%;
 		text-align: center;
 		&:not(.expandable-sections) {
-			background-color: rgba(
-				var(--background),
-				var(--background-opacity)
-			);
-			backdrop-filter: blur(50px);
+			&:not(.modal) {
+				background-color: rgba(
+					var(--background),
+					var(--background-opacity)
+				);
+				backdrop-filter: blur(50px);
+			}
 		}
 	}
 	&.expandable-section {

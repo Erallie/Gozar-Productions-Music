@@ -1,15 +1,31 @@
 <script lang="ts">
+	import ComingSoon from "./ComingSoon.svelte";
 	let { link, imageSource, imageAlt, children } = $props();
+
+	let showModal = $state(false);
 </script>
 
-<a href={link} target="_blank">
-	<button class="listen-button">
-		<span>{imageAlt}</span
-		><!-- <img
+{#if link != "Coming Soon"}
+	<a href={link} target="_blank">
+		<button class="listen-button">
+			<span>{imageAlt}</span
+			><!-- <img
 			src={imageSource}
 			alt={imageAlt} /> -->{@render children()}
+		</button>
+	</a>
+{:else}
+	<button class="listen-button" onclick={() => (showModal = true)}>
+		<span>{imageAlt}</span
+		><!-- <img
+        src={imageSource}
+        alt={imageAlt} /> -->{@render children()}
 	</button>
-</a>
+{/if}
+
+{#if showModal}
+	<ComingSoon onClose={() => (showModal = false)} />
+{/if}
 
 <style>
 	button {

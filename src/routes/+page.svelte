@@ -48,6 +48,10 @@
 	amazonMusic="https://music.amazon.com/artists/B07VLX7KRL/erika-gozar?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_uIBs3sUrzG0tfE2fxiXk3USwj" />
 <Releases title="Featured Releases">
 	<Release
+		link="/you-are-god"
+		imageSource="/releases/you-are-god/cover.webp"
+		imageAlt="You Are God" />
+	<Release
 		link="/for-sam"
 		imageSource="/releases/for-sam/cover.webp"
 		imageAlt="For Sam" />
