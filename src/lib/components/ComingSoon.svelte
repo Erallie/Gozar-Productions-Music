@@ -8,7 +8,7 @@
 
 	<section class="rounded modal">
 		<!-- Your modal content goes here -->
-		<h1>Coming Soon . . .</h1>
+		<h1>Coming Soon…</h1>
 		<button on:click={onClose} aria-label="close"
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
