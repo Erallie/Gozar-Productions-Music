@@ -51,7 +51,7 @@
 <Listen
 	spotify="Coming Soon"
 	appleMusic="Coming Soon"
-	youtube="Coming Soon"
+	youtube="https://youtu.be/tAOvEYSL2l4"
 	youtubeMusic="Coming Soon"
 	pandora="Coming Soon"
 	amazonMusic="Coming Soon" />
