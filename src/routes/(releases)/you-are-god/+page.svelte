@@ -49,9 +49,9 @@
 	</script>
 </Purchase> -->
 <Listen
-	spotify="Coming Soon"
-	appleMusic="Coming Soon"
+	spotify="https://open.spotify.com/album/76kaqNxvrEGd7LwYdSO5Ok?si=6wSaA-8_TtCBDlpbAY6N0w"
+	appleMusic="https://music.apple.com/us/album/you-are-god-single/1854635859"
 	youtube="https://youtu.be/tAOvEYSL2l4"
 	youtubeMusic="Coming Soon"
 	pandora="Coming Soon"
-	amazonMusic="Coming Soon" />
+	amazonMusic="https://music.amazon.com/albums/B0G383MM7G?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_HIbmJBq6NxC8muVNXPerHuulc" />
