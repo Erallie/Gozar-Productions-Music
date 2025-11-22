@@ -53,5 +53,5 @@
 	appleMusic="https://music.apple.com/us/song/you-are-god/1854635860"
 	youtube="https://youtu.be/tAOvEYSL2l4"
 	youtubeMusic="https://music.youtube.com/watch?v=qJrhkMuPHd8&si=mVYP8JCBGOfmXlh7"
-	pandora="https://pandora.app.link/eRGr4hsuuYb"
+	pandora="https://www.pandora.com/artist/erika-gozar/you-are-god/ALpZPjhgJ9dKgw9"
 	amazonMusic="https://music.amazon.com/albums/B0G383MM7G?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_wH1FRd8bBo3cFI7niFC85ATGb&trackAsin=B0G384B1B5" />
