@@ -67,6 +67,10 @@
 		link="/wind-and-water"
 		imageSource="/releases/wind-and-water/cover.webp"
 		imageAlt="Wind and Water" />
+	<Release
+		link="/till-you-take-a-chance"
+		imageSource="/releases/till-you-take-a-chance/cover.webp"
+		imageAlt="'Till You Take a Chance" />
 </Releases>
 <section id="performances">
 	<h1>Performances</h1>
