@@ -33,7 +33,16 @@
 <InitialBox imageSource={coverImage} imageAlt={title}>
 	<h1>{title}</h1>
 	<p>
-		{description}
+		"'Till You Take a Chance" is a fan-made song about <a
+			href="https://www.youtube.com/VivaLaDirtLeague"
+			target="_blank">Viva La Dirt League</a
+		>'s YouTube series,
+		<a
+			href="https://youtube.com/playlist?list=PLSMETuURtTXDkOm6Xx4Q-1HS8W54GrBDm&si=xcubV3vkbXoAt3CG"
+			target="_blank">"Bored"</a
+		>. Featuring a beautiful piano accompaniment, this song shares an
+		inspirational message about the possibilities that may ensue when taking
+		initiative.
 	</p>
 </InitialBox>
 <AudioPlayer
