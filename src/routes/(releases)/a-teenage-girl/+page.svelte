@@ -13,7 +13,7 @@
 	let audio: HTMLAudioElement;
 	const title = "A Teenage Girl";
 	const description =
-		'"A Teenage Girl" is an enraged venting of the many troubles of a young highschooler. Written in 2016, this release is one of Erika Gozar\'s very first finished, performed, and produced works of art.';
+		'"A Teenage Girl" is an enraged venting of the many troubles of a young highschooler. Written in 2016, this release is Erika Gozar\'s very first finished, performed, and produced original song.';
 	const coverImage = "/releases/a-teenage-girl/cover.webp";
 </script>
 

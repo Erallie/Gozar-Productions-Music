@@ -15,7 +15,7 @@
 	let audio: HTMLAudioElement;
 	const title = "I'm Waiting for My Prince to Come";
 	const description =
-		'"I\'m Waiting for My Prince to Come" is a playoff on the classic Disney princess happy ending, with a twist of reality. With illustrations by Juliana Herrera, this song was meant to subvert expectations after a whimsical lead-on.';
+		"\"I'm Waiting for My Prince to Come\" is a playoff on the classic Disney princess happy ending, with a twist of reality. One of Erika Gozar's early compositions, this song was meant to subvert expectations after a whimsical lead-on.";
 	const coverImage = "/releases/im-waiting-for-my-prince-to-come/cover.webp";
 </script>
 
