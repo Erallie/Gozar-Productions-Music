@@ -46,7 +46,11 @@
 	youtubeMusic="https://music.youtube.com/channel/UCpBIOFSyWcJ_BMn9NDM3wLw?feature=share?sub_confirmation=1"
 	pandora="https://pandora.app.link/Xqthr6V0hrb"
 	amazonMusic="https://music.amazon.com/artists/B07VLX7KRL/erika-gozar?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_uIBs3sUrzG0tfE2fxiXk3USwj" />
-<Releases title="Featured Releases">
+<Releases title="All Releases">
+	<Release
+		link="/till-you-take-a-chance"
+		imageSource="/releases/till-you-take-a-chance/cover.webp"
+		imageAlt="'Till You Take a Chance" />
 	<Release
 		link="/you-are-god"
 		imageSource="/releases/you-are-god/cover.webp"
@@ -68,9 +72,13 @@
 		imageSource="/releases/wind-and-water/cover.webp"
 		imageAlt="Wind and Water" />
 	<Release
-		link="/till-you-take-a-chance"
-		imageSource="/releases/till-you-take-a-chance/cover.webp"
-		imageAlt="'Till You Take a Chance" />
+		link="/im-waiting-for-my-prince-to-come"
+		imageSource="/releases/im-waiting-for-my-prince-to-come/cover.webp"
+		imageAlt="I'm Waiting for My Prince to Come" />
+	<Release
+		link="/a-teenage-girl"
+		imageSource="/releases/a-teenage-girl/cover.webp"
+		imageAlt="A Teenage Girl" />
 </Releases>
 <section id="performances">
 	<h1>Performances</h1>
