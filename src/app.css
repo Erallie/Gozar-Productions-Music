@@ -142,14 +142,12 @@ section {
 		box-sizing: border-box;
 		max-width: 80%;
 		text-align: center;
-		&:not(.expandable-sections) {
-			&:not(.modal) {
-				background-color: rgba(
-					var(--background),
-					var(--background-opacity)
-				);
-				backdrop-filter: blur(50px);
-			}
+		&:not(.expandable-sections):not(.modal):not(.nested) {
+			background-color: rgba(
+				var(--background),
+				var(--background-opacity)
+			);
+			backdrop-filter: blur(50px);
 		}
 	}
 	&.expandable-section {
