@@ -2,11 +2,19 @@
 	import ListenButton from "./ListenButton.svelte";
 	const { spotify, appleMusic, youtube, youtubeMusic, pandora, amazonMusic } =
 		$props();
+
+	let copied = $state(false);
+
+	async function copyText() {
+		await navigator.clipboard.writeText("Erika Gozar");
+		copied = true;
+		setTimeout(() => (copied = false), 10000);
+	}
 </script>
 
 <section id="listen">
 	<h1>Listen On</h1>
-	<div>
+	<div class="listen-buttons">
 		<ListenButton
 			link={spotify}
 			imageSource="/social-branding/spotify.svg"
@@ -261,16 +269,38 @@
 					d="M1334.64453,0c44.36621,0,71.62402,36.5376,71.62402,95.40332v143.39404c0,4.34961-3.18945,7.53955-7.53906,7.53955h-46.39648c-4.34961,0-7.53906-3.18994-7.53906-7.53955V100.04297c0-28.12793-11.88965-43.78711-33.34766-43.78711-23.48828,0-36.24707,18.26855-36.24707,51.90625v130.63525c0,4.34961-3.19043,7.53955-7.54004,7.53955h-46.39648c-4.34961,0-7.53906-3.18994-7.53906-7.53955V12.75928c0-4.34961,3.18945-7.53955,7.53906-7.53955h38.27734c4.34961,0,7.17676,2.8999,8.11914,7.53955l5.7998,28.41797h2.31934c10.43945-26.31543,31.31836-41.17725,58.86621-41.17725Z" /></svg>
 		</ListenButton>
 	</div>
+	<div class="other-options">
+		<h1>Don't have any of these?</h1>
+		<p>
+			Search <a
+				title="Click to copy"
+				tabindex={0}
+				role="button"
+				onclick={copyText}>"Erika Gozar"</a> in your favorite streaming service,
+			and see if she's there!
+		</p>
+		{#if copied}<p>
+				<small>"Erika Gozar" copied to clipboard.</small>
+			</p>{/if}
+	</div>
 </section>
 
 <style>
 	section {
 		width: 660px;
-		& > div {
+		& > div.listen-buttons {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			gap: 0px;
 			padding: var(--half-margin);
+		}
+		& > div.other-options {
+			margin: var(--margins) auto;
+			& > p {
+				width: 400px;
+				max-width: 90%;
+				margin: auto;
+			}
 		}
 	}
 	h1 {
@@ -287,6 +317,10 @@
 		padding-left: 0.5em;
 		transition: height 0.3s;
 		margin-right: auto;
+	}
+
+	small {
+		color: rgba(var(--foreground), 0.6);
 	}
 
 	@media (max-width: 480px) {
