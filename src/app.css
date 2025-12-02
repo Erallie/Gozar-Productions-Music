@@ -175,18 +175,7 @@ section {
 	}
 }
 
-@media (max-width: 960px) {
-	section#home {
-		background: none;
-		backdrop-filter: none;
-	}
-}
-
 @media (max-width: 480px) {
-	section#home {
-		background-color: rgba(var(--background), var(--background-opacity));
-		backdrop-filter: blur(50px);
-	}
 	section:not(.remove-styles),
 	.album-player {
 		max-width: calc(100% - var(--margins) * 2);

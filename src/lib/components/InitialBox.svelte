@@ -66,6 +66,10 @@
 				/* width: 100%; */
 			}
 		}
+		section#home {
+			background: none;
+			backdrop-filter: none;
+		}
 	}
 	@media (max-width: 480px) {
 		/* Styles for mobile devices */
@@ -95,6 +99,13 @@
 				width: max-content;
 			}
 			margin: var(--margins) auto;
+		}
+		section#home {
+			background-color: rgba(
+				var(--background),
+				var(--background-opacity)
+			);
+			backdrop-filter: blur(50px);
 		}
 	}
 </style>
