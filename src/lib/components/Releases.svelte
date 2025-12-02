@@ -22,6 +22,13 @@
 	h1 {
 		text-align: center;
 	}
+	@media (max-width: 720px) {
+		section {
+			& > div {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+	}
 	@media (max-width: 480px) {
 		/* Styles for mobile devices */
 		section {
