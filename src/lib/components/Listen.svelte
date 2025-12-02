@@ -270,7 +270,7 @@
 		</ListenButton>
 	</div>
 	<div class="other-options">
-		<h1>Don't have any of these?</h1>
+		<h1>Don't use any of these?</h1>
 		<p>
 			Search <a
 				title="Click to copy"
