@@ -272,11 +272,11 @@
 	<div class="other-options">
 		<h1>Don't use any of these?</h1>
 		<p>
-			Search <a
+			You can find Erika's music almost anywhere! Search for <a
 				title="Click to copy"
 				tabindex={0}
 				role="button"
-				onclick={copyText}>"Erika Gozar"</a> in your favorite streaming service,
+				onclick={copyText}>"Erika Gozar"</a> on your favorite streaming service,
 			and see if she's there!
 		</p>
 		{#if copied}<p>
