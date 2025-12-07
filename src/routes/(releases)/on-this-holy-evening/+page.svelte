@@ -49,9 +49,9 @@
 	</script>
 </Purchase> -->
 <Listen
-	spotify="Coming Soon"
-	appleMusic="Coming Soon"
+	spotify="https://open.spotify.com/track/167ouY14UVR5k9ethukQMB?si=741e3ff736154e0d"
+	appleMusic="https://music.apple.com/us/song/on-this-holy-evening/1859428427"
 	youtube="Coming Soon"
-	youtubeMusic="Coming Soon"
+	youtubeMusic="https://music.youtube.com/watch?v=QL9hn2TeJX4&si=0xeqBDgmpDuPep9w"
 	pandora="Coming Soon"
-	amazonMusic="Coming Soon" />
+	amazonMusic="https://music.amazon.com/albums/B0G5M4RQ6Z?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_hlnz8zrXc0t2zes3J7a4s4NhT&trackAsin=B0G5LKHSCQ" />
