@@ -22,7 +22,7 @@
 	h1 {
 		text-align: center;
 	}
-	@media (max-width: 720px) {
+	@media (max-width: 755px) {
 		section {
 			& > div {
 				grid-template-columns: repeat(3, 1fr);
