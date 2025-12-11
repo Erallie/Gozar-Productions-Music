@@ -1,7 +1,14 @@
 <script lang="ts">
 	import ListenButton from "./ListenButton.svelte";
-	const { spotify, appleMusic, youtube, youtubeMusic, pandora, amazonMusic } =
-		$props();
+	const {
+		download,
+		spotify,
+		appleMusic,
+		youtube,
+		youtubeMusic,
+		pandora,
+		amazonMusic,
+	} = $props();
 
 	let copied = $state(false);
 
@@ -15,10 +22,7 @@
 <section id="listen">
 	<h1>Listen On</h1>
 	<div class="listen-buttons">
-		<ListenButton
-			link={spotify}
-			imageSource="/social-branding/spotify.svg"
-			imageAlt="Spotify">
+		<ListenButton link={spotify} text="Spotify">
 			<svg
 				version="1.0"
 				xmlns="http://www.w3.org/2000/svg"
@@ -57,10 +61,7 @@
 				</g>
 			</svg>
 		</ListenButton>
-		<ListenButton
-			link={appleMusic}
-			imageSource="/social-branding/apple-music.svg"
-			imageAlt="Apple Music">
+		<ListenButton link={appleMusic} text="Apple Music">
 			<svg
 				version="1.1"
 				id="Artwork"
@@ -107,10 +108,7 @@
 			c5.78-0.5,9.03,3.3,9.03,9.46V234.26z" />
 			</svg>
 		</ListenButton>
-		<ListenButton
-			link={youtube}
-			imageSource="/social-branding/youtube.svg"
-			imageAlt="YouTube">
+		<ListenButton link={youtube} text="YouTube">
 			<svg
 				version="1.0"
 				xmlns="http://www.w3.org/2000/svg"
@@ -159,10 +157,7 @@
 				</g>
 			</svg>
 		</ListenButton>
-		<ListenButton
-			link={youtubeMusic}
-			imageSource="/social-branding/youtube-music.svg"
-			imageAlt="YouTube Music">
+		<ListenButton link={youtubeMusic} text="YouTube Music">
 			<svg
 				version="1.0"
 				xmlns="http://www.w3.org/2000/svg"
@@ -196,10 +191,7 @@
 				</g>
 			</svg>
 		</ListenButton>
-		<ListenButton
-			link={pandora}
-			imageSource="/social-branding/pandora.svg"
-			imageAlt="Pandora">
+		<ListenButton link={pandora} text="Pandora">
 			<svg
 				version="1.0"
 				xmlns="http://www.w3.org/2000/svg"
@@ -223,10 +215,7 @@
 				</g>
 			</svg>
 		</ListenButton>
-		<ListenButton
-			link={amazonMusic}
-			imageSource="/social-branding/amazon-music-logo.svg"
-			imageAlt="Amazon Music"
+		<ListenButton link={amazonMusic} text="Amazon Music"
 			><svg
 				id="Layer_1"
 				xmlns="http://www.w3.org/2000/svg"
@@ -283,6 +272,38 @@
 				<small>"Erika Gozar" copied to clipboard.</small>
 			</p>{/if}
 	</div>
+	<h1>Or</h1>
+	<ListenButton link={download} text="Purchase Download"
+		><svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="100"
+			height="100"
+			viewBox="0 0 100 100">
+			<defs>
+				<mask id="squareMask">
+					<!-- White = visible. Black = hidden. -->
+					<rect width="100%" height="100%" fill="white" />
+					<line
+						x1="30"
+						x2="70"
+						y1="10"
+						y2="10"
+						stroke-width="15"
+						stroke="black" />
+				</mask>
+			</defs>
+			<g stroke="currentColor" stroke-width="10" fill="none">
+				<rect
+					x="10"
+					y="10"
+					width="80"
+					height="80"
+					mask="url(#squareMask)" />
+				<line x1="50" x2="50" y1="0" y2="60" />
+				<polyline points="30,40 50,60 70,40" />
+			</g>
+		</svg>
+	</ListenButton>
 </section>
 
 <style>

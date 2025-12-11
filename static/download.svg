@@ -1,0 +1,20 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="100"
+    height="100"
+    viewBox="0 0 100 100"
+>
+
+    <defs>
+        <mask id="squareMask">
+            <!-- White = visible. Black = hidden. -->
+            <rect width="100%" height="100%" fill="white" />
+            <line x1="30" x2="70" y1="10" y2="10" stroke-width="15" stroke="black"/>
+        </mask>
+    </defs>
+    <g stroke="currentColor" stroke-width="10" fill="none">
+        <rect x="10" y="10" width="80" height="80" mask="url(#squareMask)"/>
+        <line x1="50" x2="50" y1="0" y2="60"/>
+        <polyline points="30,40 50,60 70,40" />
+    </g>
+</svg>
