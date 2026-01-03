@@ -49,13 +49,13 @@
 	amazonMusic="https://music.amazon.com/artists/B07VLX7KRL/erika-gozar?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_uIBs3sUrzG0tfE2fxiXk3USwj" />
 <Releases title="All Releases">
 	<Release
-		link="/on-this-holy-evening"
-		imageSource="/releases/on-this-holy-evening/cover.webp"
-		imageAlt="On This Holy Evening" />
-	<Release
 		link="/till-you-take-a-chance"
 		imageSource="/releases/till-you-take-a-chance/cover.webp"
 		imageAlt="'Till You Take a Chance" />
+	<Release
+		link="/on-this-holy-evening"
+		imageSource="/releases/on-this-holy-evening/cover.webp"
+		imageAlt="On This Holy Evening" />
 	<Release
 		link="/you-are-god"
 		imageSource="/releases/you-are-god/cover.webp"
