@@ -59,9 +59,9 @@
 </Purchase> -->
 <Listen
 	download="https://ko-fi.com/s/e5f625dc96"
-	spotify="Coming Soon"
-	appleMusic="Coming Soon"
+	spotify="https://open.spotify.com/track/3HJEOe6xlaO5Mp5oht2Qhw?si=0728c866d5524bf5"
+	appleMusic="https://music.apple.com/us/song/till-you-take-a-chance/1861940507"
 	youtube="https://youtu.be/ozpqbv4CxiY"
-	youtubeMusic="Coming Soon"
-	pandora="Coming Soon"
-	amazonMusic="Coming Soon" />
+	youtubeMusic="https://music.youtube.com/watch?v=iCL-HzRCuXc&si=iKpUrtnKgRYWU-QH"
+	pandora="https://www.pandora.com/artist/erika-gozar/till-you-take-a-chance/till-you-take-a-chance/TRzxmxkrrhmxppc?part=ug-desktop&corr=129617029899525102"
+	amazonMusic="https://music.amazon.com/albums/B0G7MTNCPW?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_caVo5CHFZrRN2rYBXfb9orsTF&trackAsin=B0G7NHK9Z9" />
