@@ -44,7 +44,7 @@
 
 	const title = "Live Performances";
 	const description =
-		"Erika Gozar has live performances online in Virtual Reality. To watch, download VRChat and join the VRChat Group Erika's Voice via the group code ERIKA.6930. Then keep an eye out on the announcements in the group or on our Discord for information on her performances!";
+		"Erika Gozar has live performances online in Virtual Reality. To watch, download VRChat and join the VRChat Group Gozar Productions via the group code GOZAR.6930. Then keep an eye out on the announcements in the group or on our Discord for information on her performances!";
 	const coverImage = "/performances/cover-6.webp";
 </script>
 
@@ -69,11 +69,11 @@
 		<a href="https://hello.vrchat.com/" target="_blank"
 			><bold>VRChat</bold></a>
 		and join the VRChat Group
-		<a href="https://vrc.group/ERIKA.6930" target="_blank"
-			><bold>Erika's Voice</bold></a>
+		<a href="https://vrc.group/GOZAR.6930" target="_blank"
+			><bold>Gozar Productions</bold></a>
 		via the group code
-		<a href="https://vrc.group/ERIKA.6930" target="_blank"
-			><code><bold>ERIKA.6930</bold></code></a
+		<a href="https://vrc.group/GOZAR.6930" target="_blank"
+			><code><bold>GOZAR.6930</bold></code></a
 		>. Then keep an eye out on the announcements in the group or on
 		<a href="https://discord.gozarproductions.com/" target="_blank"
 			>our Discord</a> for information on her performances!
@@ -177,8 +177,8 @@
 						href="https://discord.gozarproductions.com/"
 						target="_blank">Discord server</a>
 					and a public VRChat group (<a
-						href="https://vrc.group/ERIKA.6930"
-						target="_blank">Erika's Voice</a
+						href="https://vrc.group/GOZAR.6930"
+						target="_blank">Gozar Productions</a
 					>) where we send announcements about our performances.
 				</p>
 				<p>
@@ -202,15 +202,15 @@
 						href="https://discord.gozarproductions.com/"
 						target="_blank">Discord</a>
 					and in our
-					<a href="https://vrc.group/ERIKA.6930" target="_blank"
+					<a href="https://vrc.group/GOZAR.6930" target="_blank"
 						>VRChat group</a>
 					with information on what group to join to attend the performance.
 				</p>
 				<p>
 					<bold
 						>This group is usually different from our own (<a
-							href="https://vrc.group/ERIKA.6930"
-							target="_blank">Erika's Voice</a
+							href="https://vrc.group/GOZAR.6930"
+							target="_blank">Gozar Productions</a
 						>) and is specific to the venue.</bold>
 				</p>
 				<p>
