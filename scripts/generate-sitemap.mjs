@@ -24,7 +24,7 @@ async function getRoutes(dir) {
 			continue;
 		}
 
-		let relative = path
+		let segments = path
 			.relative(ROUTES_DIR, path.dirname(fullPath))
 			.split(path.sep)
 			.filter(Boolean);
