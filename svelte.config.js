@@ -1,14 +1,26 @@
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
-import adapter from "svelte-adapter-github";
+import adapter from "@sveltejs/adapter-static";
 
+/** @type {import('@sveltejs/kit').Config} */
 const config = {
+	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter({
-			domain: "music.gozarproductions.com",
+			// IMPORTANT for GitHub Pages:
+			pages: "docs",
+			assets: "docs",
+			fallback: "404.html",
 		}),
-		// No need to set paths.base, the adapter handles it
-	},
-	preprocess: vitePreprocess(),
-};
+		prerender: {
+			handleHttpError: "warn",
+		},
 
+		paths: {
+			base:
+				process.env.NODE_ENV === "production"
+					? "/Gozar-Productions-Music"
+					: "",
+		},
+	},
+};
 export default config;
