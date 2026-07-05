@@ -6,7 +6,7 @@ import { createWriteStream } from "fs";
 const ROUTES_DIR = path.resolve("src/routes");
 const HOSTNAME = "https://gozarproductions.com";
 
-async function getRoutes(dir) {
+async function getRoutes(dir, baseDir = ROUTES_DIR) {
 	const entries = await fs.readdir(dir, { withFileTypes: true });
 
 	let routes = [];
@@ -15,17 +15,17 @@ async function getRoutes(dir) {
 		const fullPath = path.join(dir, entry.name);
 
 		if (entry.isDirectory()) {
-			routes.push(...(await getRoutes(fullPath)));
+			routes.push(...(await getRoutes(fullPath, baseDir)));
 			continue;
 		}
 
-		// Ignore everything except +page.svelte and +page.ts
 		if (entry.name !== "+page.svelte") {
 			continue;
 		}
 
-		let segments = path
-			.relative(ROUTES_DIR, path.dirname(fullPath))
+		// 👇 IMPORTANT: always compute relative to baseDir, NOT dir
+		const segments = path
+			.relative(baseDir, path.dirname(fullPath))
 			.split(path.sep)
 			.filter(Boolean);
 
@@ -34,19 +34,13 @@ async function getRoutes(dir) {
 		let skip = false;
 
 		for (const segment of segments) {
-			// Remove route groups: (group)
-			if (segment.startsWith("(") && segment.endsWith(")")) {
-				continue;
-			}
+			if (segment.startsWith("(") && segment.endsWith(")")) continue;
 
-			// Skip dynamic routes:
-			// [slug], [[slug]], [...slug], [[...slug]]
 			if (segment.includes("[") || segment.includes("]")) {
 				skip = true;
 				break;
 			}
 
-			// Skip named layouts: @foo
 			if (segment.startsWith("@")) {
 				skip = true;
 				break;
@@ -55,12 +49,9 @@ async function getRoutes(dir) {
 			cleaned.push(segment);
 		}
 
-		if (skip) {
-			continue;
-		}
+		if (skip) continue;
 
 		const route = cleaned.length === 0 ? "/" : "/" + cleaned.join("/");
-
 		routes.push(route);
 	}
 
