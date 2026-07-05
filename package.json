@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"generate-sitemap": "node scripts/generate-sitemap.js",
+		"generate-sitemap": "node scripts/generate-sitemap.mjs",
 		"build": "npm run generate-sitemap && vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
