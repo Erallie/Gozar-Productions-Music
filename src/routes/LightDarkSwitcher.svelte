@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Cookies from "js-cookie";
 	import { onMount } from "svelte";
 
 	let { isDarkMode = $bindable(), addedClass } = $props();
@@ -9,7 +8,7 @@
 	};
 
 	onMount(() => {
-		const isChecked = Cookies.get("isDarkMode");
+		const isChecked = localStorage.getItem("isDarkMode");
 		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 		switch (isChecked) {
 			case "false":
@@ -33,10 +32,7 @@
 
 	function saveDarkMode(ev: Event) {
 		const isChecked = (ev.target as HTMLInputElement).checked;
-		Cookies.set("isDarkMode", isChecked.toString(), {
-			expires: 7,
-			sameSite: "Strict",
-		});
+		localStorage.setItem("isDarkMode", isChecked.toString());
 	}
 </script>
 

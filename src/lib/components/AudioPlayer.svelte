@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from "svelte";
 	import { type AudioPlayerProps } from "$lib/types/types";
-	import Cookies from "js-cookie";
 
 	let {
 		src,
@@ -31,10 +30,7 @@
 		const target = event.target as HTMLInputElement;
 		volume = parseFloat(target.value);
 		player!.volume = volume;
-		Cookies.set("volume", volume.toString(), {
-			expires: 7,
-			sameSite: "Strict",
-		});
+		localStorage.setItem("volume", volume.toString());
 	}
 	function playAudio() {
 		if (player!.currentTime < startTime || player!.currentTime >= endTime) {
@@ -71,14 +67,15 @@
 	}
 
 	onMount(() => {
-		const newVolume = Number.parseFloat(Cookies.get("volume")!);
-		if (
-			newVolume !== undefined &&
-			newVolume !== null &&
-			Number.isFinite(newVolume)
-		) {
-			volume = newVolume;
-			player!.volume = volume;
+		const savedVolume = localStorage.getItem("volume");
+
+		if (savedVolume !== null) {
+			const newVolume = Number.parseFloat(savedVolume);
+
+			if (Number.isFinite(newVolume)) {
+				volume = newVolume;
+				player!.volume = volume;
+			}
 		}
 		player!.currentTime = startTime;
 
