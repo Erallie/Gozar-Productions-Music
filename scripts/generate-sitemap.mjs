@@ -3,7 +3,7 @@ import path from "path";
 import { SitemapStream, streamToPromise } from "sitemap";
 import { createWriteStream } from "fs";
 
-const ROUTES_DIR = "src/routes";
+const ROUTES_DIR = "src\\routes";
 const HOSTNAME = "https://gozarproductions.com";
 
 async function getRoutes(dir) {
@@ -20,48 +20,27 @@ async function getRoutes(dir) {
 		}
 
 		// Ignore everything except +page.svelte and +page.ts
-		if (entry.name !== "+page.svelte") {
+		if (entry.name !== "+page.svelte" && entry.name !== "+page.ts") {
 			continue;
 		}
 
-		const relative = path.relative(ROUTES_DIR, path.dirname(fullPath));
+		let route = path
+			.dirname(fullPath)
+			.replace(ROUTES_DIR, "")
+			.replace(/\\/g, "/");
 
-		const segments = relative
-			.replace(/\\/g, "/")
-			.split("/")
-			.filter(Boolean);
-
-		const cleaned = [];
-
-		let skip = false;
-
-		for (const segment of segments) {
-			// Remove route groups: (group)
-			if (segment.startsWith("(") && segment.endsWith(")")) {
-				continue;
-			}
-
-			// Skip dynamic routes:
-			// [slug], [[slug]], [...slug], [[...slug]]
-			if (segment.includes("[") || segment.includes("]")) {
-				skip = true;
-				break;
-			}
-
-			// Skip named layouts: @foo
-			if (segment.startsWith("@")) {
-				skip = true;
-				break;
-			}
-
-			cleaned.push(segment);
-		}
-
-		if (skip) {
+		// Skip dynamic routes like [slug]
+		if (route.includes("[")) {
 			continue;
 		}
 
-		const route = cleaned.length === 0 ? "/" : "/" + cleaned.join("/");
+		// Remove SvelteKit route groups like (app)
+		route = route.replace(/\/\([^)]*\)/g, "");
+
+		// Root page
+		if (route === "") {
+			route = "/";
+		}
 
 		routes.push(route);
 	}
