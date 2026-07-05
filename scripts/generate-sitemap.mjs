@@ -24,13 +24,6 @@ async function getRoutes(dir) {
 			continue;
 		}
 
-		if (
-			entry.name.startsWith("+layout") ||
-			entry.name.startsWith("+page")
-		) {
-			continue;
-		}
-
 		let relative = path
 			.relative(ROUTES_DIR, path.dirname(fullPath))
 			.split(path.sep)
