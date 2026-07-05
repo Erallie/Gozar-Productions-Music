@@ -29,11 +29,6 @@ async function getRoutes(dir) {
 			.split(path.sep)
 			.filter(Boolean);
 
-		const segments = relative
-			.replace(/\\/g, "/")
-			.split("/")
-			.filter(Boolean);
-
 		const cleaned = [];
 
 		let skip = false;
