@@ -18,10 +18,7 @@ const config = {
 		},
 
 		paths: {
-			base:
-				process.env.NODE_ENV === "production"
-					? "/Gozar-Productions-Music"
-					: "",
+			base: "",
 		},
 	},
 };
