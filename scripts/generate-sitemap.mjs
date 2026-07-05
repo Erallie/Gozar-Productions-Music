@@ -3,7 +3,7 @@ import path from "path";
 import { SitemapStream, streamToPromise } from "sitemap";
 import { createWriteStream } from "fs";
 
-const ROUTES_DIR = "src/routes";
+const ROUTES_DIR = path.resolve("src/routes");
 const HOSTNAME = "https://gozarproductions.com";
 
 async function getRoutes(dir) {
@@ -24,7 +24,17 @@ async function getRoutes(dir) {
 			continue;
 		}
 
-		const relative = path.relative(ROUTES_DIR, path.dirname(fullPath));
+		if (
+			entry.name.startsWith("+layout") ||
+			entry.name.startsWith("+page")
+		) {
+			continue;
+		}
+
+		let relative = path
+			.relative(ROUTES_DIR, path.dirname(fullPath))
+			.split(path.sep)
+			.filter(Boolean);
 
 		const segments = relative
 			.replace(/\\/g, "/")
