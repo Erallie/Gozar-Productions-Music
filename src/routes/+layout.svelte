@@ -6,7 +6,6 @@
 	import "../app.css";
 	import { onDestroy, onMount } from "svelte";
 	import Button from "./Button.svelte";
-	import LightDarkSwitcher from "./LightDarkSwitcher.svelte";
 
 	let isPerformancePage = $state(false);
 
