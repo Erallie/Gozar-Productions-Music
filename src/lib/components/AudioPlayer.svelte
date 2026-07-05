@@ -80,6 +80,10 @@
 		player!.currentTime = startTime;
 
 		player!.addEventListener("timeupdate", updateProgress);
+
+		return () => {
+			player!.removeEventListener("timeupdate", updateProgress);
+		};
 	});
 
 	$effect(() => {
