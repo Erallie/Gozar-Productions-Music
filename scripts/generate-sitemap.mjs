@@ -24,10 +24,9 @@ async function getRoutes(dir) {
 			continue;
 		}
 
-		let route = path
-			.dirname(fullPath)
-			.replace(ROUTES_DIR, "")
-			.replace(/\\/g, "/");
+		const relative = path.relative(ROUTES_DIR, path.dirname(fullPath));
+
+		let route = relative.replace(/\\/g, "/");
 
 		// Skip dynamic routes like [slug]
 		if (route.includes("[")) {
@@ -37,10 +36,8 @@ async function getRoutes(dir) {
 		// Remove SvelteKit route groups like (app)
 		route = route.replace(/\/\([^)]*\)/g, "");
 
-		// Root page
-		if (route === "") {
-			route = "/";
-		}
+		// Add leading slash (unless it's the root page)
+		route = route === "" ? "/" : `/${route}`;
 
 		routes.push(route);
 	}
