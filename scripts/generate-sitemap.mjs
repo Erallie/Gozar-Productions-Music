@@ -4,7 +4,7 @@ import { SitemapStream, streamToPromise } from "sitemap";
 import { createWriteStream } from "fs";
 
 const ROUTES_DIR = path.resolve("src/routes");
-const HOSTNAME = "https://gozarproductions.com";
+const HOSTNAME = "https://music.gozarproductions.com";
 
 async function getRoutes(dir, baseDir = ROUTES_DIR) {
 	const entries = await fs.readdir(dir, { withFileTypes: true });
