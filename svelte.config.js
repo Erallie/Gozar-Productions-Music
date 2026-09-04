@@ -11,7 +11,7 @@ const config = {
 			// IMPORTANT for GitHub Pages:
 			pages: "docs",
 			assets: "docs",
-			fallback: "index.html",
+			fallback: "404.html",
 		}),
 		prerender: {
 			handleHttpError: "warn",
