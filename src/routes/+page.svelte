@@ -49,6 +49,10 @@
 	amazonMusic="https://music.amazon.com/artists/B07VLX7KRL/erika-gozar?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_uIBs3sUrzG0tfE2fxiXk3USwj" />
 <Releases title="All Releases">
 	<Release
+		link="/until-that-day-comes"
+		imageSource="/releases/until-that-day-comes/cover.webp"
+		imageAlt="Until That Day Comes" />
+	<Release
 		link="/till-you-take-a-chance"
 		imageSource="/releases/till-you-take-a-chance/cover.webp"
 		imageAlt="'Till You Take a Chance" />
