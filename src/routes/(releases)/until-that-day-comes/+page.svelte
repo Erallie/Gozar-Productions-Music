@@ -52,7 +52,7 @@
 	download="Coming Soon"
 	spotify="Coming Soon"
 	appleMusic="Coming Soon"
-	youtube="https://youtu.be/tRMEbR-XI0Q"
+	youtube="https://youtu.be/Fr65IlnNtbQ"
 	youtubeMusic="Coming Soon"
 	pandora="Coming Soon"
 	amazonMusic="Coming Soon" />
