@@ -50,9 +50,9 @@
 </Purchase> -->
 <Listen
 	download="https://ko-fi.com/s/9489e7a287"
-	spotify="Coming Soon"
-	appleMusic="Coming Soon"
+	spotify="https://open.spotify.com/track/3KqQgq7uZgKffyT6IVLIAU?si=8bdf3f33a45e4395"
+	appleMusic="https://music.apple.com/us/song/until-that-day-comes/6838928232"
 	youtube="https://youtu.be/Fr65IlnNtbQ"
-	youtubeMusic="Coming Soon"
-	pandora="Coming Soon"
-	amazonMusic="Coming Soon" />
+	youtubeMusic="https://music.youtube.com/watch?v=TahdxCUo_So&si=2c3DU2qmgAFEvYnC&drli=1"
+	pandora="https://www.pandora.com/artist/erika-gozar/until-that-day-comes/until-that-day-comes/TRhtcJk3dPj99VP?part=ug-desktop&corr=126397659853403035"
+	amazonMusic="https://music.amazon.com/tracks/B0HST8P3R8?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_mflEswmUsb7fLSXPl4dUYNTk0" />
