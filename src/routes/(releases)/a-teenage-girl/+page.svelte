@@ -28,6 +28,17 @@
 	<meta property="og:url" content={page.url.toString()} />
 	<meta property="og:site_name" content="Gozar Productions Music" />
 	<meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ErikaGozar" />
+    <meta name="twitter:creator" content="@ErikaGozar" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta
+		name="twitter:image"
+		content="https://music.gozarproductions.com{coverImage}" />
+
+	<link rel="canonical" href="https://music.gozarproductions.com/a-teenage-girl" />
 </svelte:head>
 
 <InitialBox imageSource={coverImage} imageAlt={title}>
@@ -38,9 +49,9 @@
 </InitialBox>
 <AudioPlayer
 	bind:player={audio}
-	src="/releases/a-teenage-girl/music.mp3"
+	src="/releases/a-teenage-girl/music.mp3?preview=1"
 	startTime={91}
-	endTime={122} />
+	fullTime={227.573333} />
 <!-- <Purchase>
 	<paypal-add-to-cart-button data-id="G5WRNPAMYLFFG"
 	></paypal-add-to-cart-button>

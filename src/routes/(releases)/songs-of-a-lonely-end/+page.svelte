@@ -16,39 +16,39 @@
 	const audioSources: audioSource[] = [
 		{
 			name: "Adventure Awaits",
-			src: "/releases/songs-of-a-lonely-end/music/1-adventure-awaits.mp3",
+			src: "/releases/songs-of-a-lonely-end/music/1-adventure-awaits.mp3?preview=1",
 			startTime: 0,
-			endTime: 30,
+			fullTime: 128.15675,
 		},
 		{
 			name: "The Archmage",
-			src: "/releases/songs-of-a-lonely-end/music/2-the-archmage.mp3",
+			src: "/releases/songs-of-a-lonely-end/music/2-the-archmage.mp3?preview=1",
 			startTime: 41,
-			endTime: 71,
+			fullTime: 153.07755,
 		},
 		{
 			name: "The Mystery of the Nexus",
 			src: "/releases/songs-of-a-lonely-end/music/3-the-mystery-of-the-nexus.mp3",
 			startTime: 0,
-			endTime: 60,
+			fullTime: 37.9559,
 		},
 		{
 			name: "The Rise of Tiamat",
 			src: "/releases/songs-of-a-lonely-end/music/4-the-rise-of-tiamat.mp3",
 			startTime: 0,
-			endTime: 60,
+			fullTime: 34.87345,
 		},
 		{
 			name: "Pandemonium",
-			src: "/releases/songs-of-a-lonely-end/music/5-pandemonium.mp3",
+			src: "/releases/songs-of-a-lonely-end/music/5-pandemonium.mp3?preview=1",
 			startTime: 16.5,
-			endTime: 60,
+			fullTime: 191.7649,
 		},
 		{
 			name: "An Answered Prayer",
-			src: "/releases/songs-of-a-lonely-end/music/6-an-answered-prayer.mp3",
+			src: "/releases/songs-of-a-lonely-end/music/6-an-answered-prayer.mp3?preview=1",
 			startTime: 30,
-			endTime: 60,
+			fullTime: 134.13875,
 		},
 	];
 	const title = "Songs of a Lonely End";
@@ -68,6 +68,17 @@
 	<meta property="og:url" content={page.url.toString()} />
 	<meta property="og:site_name" content="Gozar Productions Music" />
 	<meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ErikaGozar" />
+    <meta name="twitter:creator" content="@ErikaGozar" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta
+		name="twitter:image"
+		content="https://music.gozarproductions.com{coverImage}" />
+
+	<link rel="canonical" href="https://music.gozarproductions.com/songs-of-a-lonely-end" />
 </svelte:head>
 
 <InitialBox imageSource={coverImage} imageAlt={title}>

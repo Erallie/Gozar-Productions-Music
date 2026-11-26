@@ -6,18 +6,12 @@
 	let { audioSources, defaultSource }: AlbumPlayerProps = $props();
 
 	let selectedSource: audioSource = $state(audioSources[defaultSource]); // Default to the first audio source
-	// svelte-ignore non_reactive_update
-	let audio: HTMLAudioElement;
 	let isOpen = $state(false); // State to track dropdown visibility
 
 	// Function to handle source change
 	function changeSource(source: audioSource) {
 		selectedSource = source;
 		isOpen = false; // Close the dropdown after selection
-		if (audio) {
-			audio.src = selectedSource.src;
-			// audio.play(); // Optionally play the new source immediately
-		}
 	}
 
 	// Function to handle clicks outside the dropdown
@@ -83,8 +77,7 @@
 	<AudioPlayer
 		src={selectedSource.src}
 		startTime={selectedSource.startTime}
-		endTime={selectedSource.endTime}
-		bind:player={audio}
+		fullTime={selectedSource.fullTime}
 		nested />
 </div>
 

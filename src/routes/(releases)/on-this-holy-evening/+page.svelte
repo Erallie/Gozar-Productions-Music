@@ -28,6 +28,17 @@
 	<meta property="og:url" content={page.url.toString()} />
 	<meta property="og:site_name" content="Gozar Productions Music" />
 	<meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ErikaGozar" />
+    <meta name="twitter:creator" content="@ErikaGozar" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta
+		name="twitter:image"
+		content="https://music.gozarproductions.com{coverImage}" />
+
+	<link rel="canonical" href="https://music.gozarproductions.com/on-this-holy-evening" />
 </svelte:head>
 
 <InitialBox imageSource={coverImage} imageAlt={title}>
@@ -38,9 +49,9 @@
 </InitialBox>
 <AudioPlayer
 	bind:player={audio}
-	src="/releases/on-this-holy-evening/music.mp3"
+	src="/releases/on-this-holy-evening/music.mp3?preview=1"
 	startTime={29}
-	endTime={72} />
+	fullTime={127.79102} />
 <!-- <Purchase>
 	<paypal-add-to-cart-button data-id="44RAZ9VVGJRAU"
 	></paypal-add-to-cart-button>

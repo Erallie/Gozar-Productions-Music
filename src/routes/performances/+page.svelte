@@ -59,6 +59,17 @@
 	<meta property="og:url" content={page.url.toString()} />
 	<meta property="og:site_name" content="Gozar Productions Music" />
 	<meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ErikaGozar" />
+    <meta name="twitter:creator" content="@ErikaGozar" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta
+		name="twitter:image"
+		content="https://music.gozarproductions.com{coverImage}" />
+
+	<link rel="canonical" href="https://music.gozarproductions.com/performances" />
 </svelte:head>
 
 <InitialBox imageSource={coverImage} imageAlt="Performances">

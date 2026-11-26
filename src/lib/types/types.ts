@@ -8,7 +8,7 @@ export type audioSource = {
 	name: string;
 	src: string;
 	startTime: number;
-	endTime: number;
+	fullTime: number;
 };
 
 export type AlbumPlayerProps = {
@@ -19,8 +19,8 @@ export type AlbumPlayerProps = {
 export type AudioPlayerProps = {
 	src: string;
 	startTime: number;
-	endTime: number;
-	player: HTMLAudioElement;
+	fullTime: number;
+	player?: HTMLAudioElement;
 	nested?: boolean;
 };
 

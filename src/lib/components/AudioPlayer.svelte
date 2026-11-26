@@ -1,29 +1,33 @@
 <script lang="ts">
-	import { onDestroy, onMount } from "svelte";
+	import { onMount } from "svelte";
 	import { type AudioPlayerProps } from "$lib/types/types";
 
 	let {
 		src,
 		startTime,
-		endTime,
+		fullTime,
 		player = $bindable(),
 		nested,
 	}: AudioPlayerProps = $props();
 
 	let isPlaying = $state(false);
-	let volume = $state(1); // Default volume
-
-	let currentTime = $state(startTime); // Current playback time
-	let duration = $state(0); // Total duration of the audio
-
-	let oldSrc = $state(src);
+	let volume = $state(1);
+	let clipTime = $state(0);
+	let clipDuration = $state(0);
+	let currentTime = $derived(Math.min(fullTime, startTime + clipTime));
+	let previewEnd = $derived(Math.min(fullTime, startTime + clipDuration));
 
 	function updateProgress() {
-		currentTime = player!.currentTime;
-		duration = player!.duration || 0; // Handle duration being NaN if audio is not loaded
-		if (currentTime > endTime && !player!.paused) {
-			pauseAudio(); // Pause the audio
-		}
+		clipTime = player!.currentTime;
+	}
+
+	function updateDuration() {
+		const duration = player!.duration;
+		clipDuration = Number.isFinite(duration) ? duration : 0;
+	}
+
+	function updatePlaying() {
+		isPlaying = !!player && !player.paused && !player.ended;
 	}
 
 	function setVolume(event: Event) {
@@ -32,38 +36,29 @@
 		player!.volume = volume;
 		localStorage.setItem("volume", volume.toString());
 	}
-	function playAudio() {
-		if (player!.currentTime < startTime || player!.currentTime >= endTime) {
-			player!.currentTime = startTime; // Seek to start time if before it
-		}
-		player!.play();
-		isPlaying = true;
-	}
 
-	function pauseAudio() {
-		player!.pause();
-		isPlaying = false;
+	function playAudio(audio: HTMLAudioElement) {
+		if (audio.ended || audio.currentTime >= audio.duration) {
+			audio.currentTime = 0;
+		}
+		void audio.play().catch(() => updatePlaying());
 	}
 
 	function togglePlay() {
-		if (isPlaying) {
-			pauseAudio();
+		const audio = player!;
+		if (audio.paused) {
+			playAudio(audio);
 		} else {
-			playAudio();
+			audio.pause();
 		}
 	}
 
 	function seek(event: Event) {
 		const target = event.target as HTMLInputElement;
-		const seekTime = parseFloat(target.value);
-		if (seekTime > endTime) {
-			currentTime = endTime;
-		} else if (seekTime < startTime) {
-			currentTime = startTime;
-		} else {
-			currentTime = seekTime;
-		}
-		player!.currentTime = currentTime;
+		const seekTime = Math.max(startTime, Math.min(target.valueAsNumber, previewEnd));
+		player!.currentTime = seekTime - startTime;
+		updateProgress();
+		target.valueAsNumber = currentTime;
 	}
 
 	onMount(() => {
@@ -77,25 +72,19 @@
 				player!.volume = volume;
 			}
 		}
-		player!.currentTime = startTime;
-
-		player!.addEventListener("timeupdate", updateProgress);
-
-		return () => {
-			player!.removeEventListener("timeupdate", updateProgress);
-		};
 	});
 
 	$effect(() => {
-		if (oldSrc != src) {
-			currentTime = startTime;
-			player!.currentTime = currentTime;
-			if (isPlaying) {
-				playAudio();
-			} else {
-				pauseAudio();
-			}
-			oldSrc = src;
+		const audio = player;
+		const source = src;
+		if (!audio || audio.getAttribute("src") === source) return;
+
+		const shouldResume = !audio.paused && !audio.ended;
+		clipTime = 0;
+		clipDuration = 0;
+		audio.src = source;
+		if (shouldResume) {
+			playAudio(audio);
 		}
 	});
 
@@ -107,45 +96,18 @@
 		return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
 	}
 	function timeSliderStyle() {
-		function timePoint(point: number) {
-			return `${(point / duration) * 100}`;
-		}
+		const start = fullTime > 0 ? (startTime / fullTime) * 100 : 0;
+		const position = fullTime > 0 ? (currentTime / fullTime) * 100 : 0;
+		const end = fullTime > 0 ? (previewEnd / fullTime) * 100 : 0;
+		const playedOpacity = startTime === 0 ? 0.5 : 0.415;
 
-		// #region startingStyle
-		let startingStyle: string;
-		if (startTime !== 0) {
-			startingStyle = `background: linear-gradient(
-                to right,
-                rgba(var(--foreground), 0.66) ${timePoint(startTime)}%,
-                rgba(var(--foreground), 0.415) ${timePoint(startTime)}%,
-                rgba(var(--foreground), 0.415) ${timePoint(currentTime)}%,
-            `;
-		} else {
-			startingStyle = `background: linear-gradient(
-                to right,
-                rgba(var(--foreground), 0.5) ${timePoint(currentTime)}%,
-            `;
-		}
-		// #endregion
-
-		const middleStyle = `
-            rgba(var(--foreground), 0.17) ${timePoint(currentTime)}%
-            `;
-
-		// #region endingStyle
-		let endingStyle: string;
-		if (endTime <= duration) {
-			endingStyle = `,
-                rgba(var(--foreground), 0.17) ${timePoint(endTime)}%,
-                rgba(var(--foreground), 0.66) ${timePoint(endTime)}%
-                );
-            `;
-		} else {
-			endingStyle = ");";
-		}
-		// #endregion
-
-		return startingStyle + middleStyle + endingStyle;
+		return `background: linear-gradient(
+			to right,
+			rgba(var(--foreground), 0.66) ${start}%,
+			rgba(var(--foreground), ${playedOpacity}) ${start}% ${position}%,
+			rgba(var(--foreground), 0.17) ${position}% ${end}%,
+			rgba(var(--foreground), 0.66) ${end}%
+		);`;
 	}
 
 	function volumeSliderStyle() {
@@ -172,20 +134,21 @@
 		}
 		player!.volume = volume;
 	}
-
-	onDestroy(() => {
-		if (typeof document !== "undefined") {
-			player!.removeEventListener("timeupdate", updateProgress);
-		}
-	});
 </script>
 
 <section
 	class={nested ? "nested" : ""}
 	style="--margin: {nested ? '0' : '10'}px">
-	<audio bind:this={player} controlslist="nodownload">
-		<source {src} type="audio/mpeg" />
-	</audio>
+	<audio
+		bind:this={player}
+		preload="metadata"
+		controlslist="nodownload"
+		onloadedmetadata={updateDuration}
+		ondurationchange={updateDuration}
+		ontimeupdate={updateProgress}
+		onplay={updatePlaying}
+		onpause={updatePlaying}
+		onended={updatePlaying}></audio>
 	<div class="controls">
 		<button class="rounded audio-player" onclick={togglePlay}>
 			<!-- <img
@@ -219,15 +182,17 @@
 		</button>
 		<span id="timestamp">
 			<span>{timeStamp(currentTime)}</span> /
-			<span>{timeStamp(duration)}</span>
+			<span>{timeStamp(fullTime)}</span>
 		</span>
 		<input
 			type="range"
 			id="time-slider"
 			min="0"
-			max={duration}
-			step="0.1"
-			bind:value={currentTime}
+			max={fullTime}
+			step="any"
+			value={currentTime}
+			disabled={clipDuration === 0}
+			aria-label="Playback position"
 			oninput={seek}
 			style={timeSliderStyle()} />
 		<div id="volume-container" class="rounded">

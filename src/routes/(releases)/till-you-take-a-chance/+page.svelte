@@ -28,6 +28,17 @@
 	<meta property="og:url" content={page.url.toString()} />
 	<meta property="og:site_name" content="Gozar Productions Music" />
 	<meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ErikaGozar" />
+    <meta name="twitter:creator" content="@ErikaGozar" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta
+		name="twitter:image"
+		content="https://music.gozarproductions.com{coverImage}" />
+
+	<link rel="canonical" href="https://music.gozarproductions.com/till-you-take-a-chance" />
 </svelte:head>
 
 <InitialBox imageSource={coverImage} imageAlt={title}>
@@ -47,9 +58,9 @@
 </InitialBox>
 <AudioPlayer
 	bind:player={audio}
-	src="/releases/till-you-take-a-chance/music.mp3"
+	src="/releases/till-you-take-a-chance/music.mp3?preview=1"
 	startTime={67}
-	endTime={101} />
+	fullTime={287.056689} />
 <!-- <Purchase>
 	<paypal-add-to-cart-button data-id="G5WRNPAMYLFFG"
 	></paypal-add-to-cart-button>
